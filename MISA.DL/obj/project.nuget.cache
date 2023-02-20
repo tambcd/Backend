@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "aYiLN3+uYq8pReYTNngFVoVxXlDSZk9uxUbBYesySnJJuuTn/ZndAuA4pTZm6FwaDohfzw8rF9j+Ij+QrCYgqg==",
+  "success": true,
+  "projectFilePath": "D:\\web01_htsn\\MISA.WebApi\\MISA.DL\\MISA.DL.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\trant\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",
+    "C:\\Users\\trant\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\7.0.0\\microsoft.extensions.configuration.abstractions.7.0.0.nupkg.sha512",
+    "C:\\Users\\trant\\.nuget\\packages\\microsoft.extensions.primitives\\7.0.0\\microsoft.extensions.primitives.7.0.0.nupkg.sha512",
+    "C:\\Users\\trant\\.nuget\\packages\\mysqlconnector\\2.2.5\\mysqlconnector.2.2.5.nupkg.sha512",
+    "C:\\Users\\trant\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,17 @@
+D:\web01_htsn\MISA.WebApi\MISA.BLL\bin\Debug\net6.0\MISA.BLL.deps.json
+D:\web01_htsn\MISA.WebApi\MISA.BLL\bin\Debug\net6.0\MISA.BLL.dll
+D:\web01_htsn\MISA.WebApi\MISA.BLL\bin\Debug\net6.0\ref\MISA.BLL.dll
+D:\web01_htsn\MISA.WebApi\MISA.BLL\bin\Debug\net6.0\MISA.BLL.pdb
+D:\web01_htsn\MISA.WebApi\MISA.BLL\bin\Debug\net6.0\MISA.Common.dll
+D:\web01_htsn\MISA.WebApi\MISA.BLL\bin\Debug\net6.0\MISA.DL.dll
+D:\web01_htsn\MISA.WebApi\MISA.BLL\bin\Debug\net6.0\MISA.Common.pdb
+D:\web01_htsn\MISA.WebApi\MISA.BLL\bin\Debug\net6.0\MISA.DL.pdb
+D:\web01_htsn\MISA.WebApi\MISA.BLL\obj\Debug\net6.0\MISA.BLL.csproj.AssemblyReference.cache
+D:\web01_htsn\MISA.WebApi\MISA.BLL\obj\Debug\net6.0\MISA.BLL.GeneratedMSBuildEditorConfig.editorconfig
+D:\web01_htsn\MISA.WebApi\MISA.BLL\obj\Debug\net6.0\MISA.BLL.AssemblyInfoInputs.cache
+D:\web01_htsn\MISA.WebApi\MISA.BLL\obj\Debug\net6.0\MISA.BLL.AssemblyInfo.cs
+D:\web01_htsn\MISA.WebApi\MISA.BLL\obj\Debug\net6.0\MISA.BLL.csproj.CoreCompileInputs.cache
+D:\web01_htsn\MISA.WebApi\MISA.BLL\obj\Debug\net6.0\MISA.BLL.csproj.CopyComplete
+D:\web01_htsn\MISA.WebApi\MISA.BLL\obj\Debug\net6.0\MISA.BLL.dll
+D:\web01_htsn\MISA.WebApi\MISA.BLL\obj\Debug\net6.0\ref\MISA.BLL.dll
+D:\web01_htsn\MISA.WebApi\MISA.BLL\obj\Debug\net6.0\MISA.BLL.pdb

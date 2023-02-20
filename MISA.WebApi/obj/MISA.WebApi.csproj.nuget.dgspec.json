@@ -1,0 +1,268 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\web01_htsn\\MISA.WebApi\\MISA.WebApi\\MISA.WebApi.csproj": {}
+  },
+  "projects": {
+    "D:\\web01_htsn\\MISA.WebApi\\MISA.BLL\\MISA.BLL.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\web01_htsn\\MISA.WebApi\\MISA.BLL\\MISA.BLL.csproj",
+        "projectName": "MISA.BLL",
+        "projectPath": "D:\\web01_htsn\\MISA.WebApi\\MISA.BLL\\MISA.BLL.csproj",
+        "packagesPath": "C:\\Users\\trant\\.nuget\\packages\\",
+        "outputPath": "D:\\web01_htsn\\MISA.WebApi\\MISA.BLL\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\trant\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "D:\\web01_htsn\\MISA.WebApi\\MISA.Common\\MISA.Common.csproj": {
+                "projectPath": "D:\\web01_htsn\\MISA.WebApi\\MISA.Common\\MISA.Common.csproj"
+              },
+              "D:\\web01_htsn\\MISA.WebApi\\MISA.DL\\MISA.DL.csproj": {
+                "projectPath": "D:\\web01_htsn\\MISA.WebApi\\MISA.DL\\MISA.DL.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\web01_htsn\\MISA.WebApi\\MISA.Common\\MISA.Common.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\web01_htsn\\MISA.WebApi\\MISA.Common\\MISA.Common.csproj",
+        "projectName": "MISA.Common",
+        "projectPath": "D:\\web01_htsn\\MISA.WebApi\\MISA.Common\\MISA.Common.csproj",
+        "packagesPath": "C:\\Users\\trant\\.nuget\\packages\\",
+        "outputPath": "D:\\web01_htsn\\MISA.WebApi\\MISA.Common\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\trant\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\web01_htsn\\MISA.WebApi\\MISA.DL\\MISA.DL.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\web01_htsn\\MISA.WebApi\\MISA.DL\\MISA.DL.csproj",
+        "projectName": "MISA.DL",
+        "projectPath": "D:\\web01_htsn\\MISA.WebApi\\MISA.DL\\MISA.DL.csproj",
+        "packagesPath": "C:\\Users\\trant\\.nuget\\packages\\",
+        "outputPath": "D:\\web01_htsn\\MISA.WebApi\\MISA.DL\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\trant\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "D:\\web01_htsn\\MISA.WebApi\\MISA.Common\\MISA.Common.csproj": {
+                "projectPath": "D:\\web01_htsn\\MISA.WebApi\\MISA.Common\\MISA.Common.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Dapper": {
+              "target": "Package",
+              "version": "[2.0.123, )"
+            },
+            "Microsoft.Extensions.Configuration.Abstractions": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "MySqlConnector": {
+              "target": "Package",
+              "version": "[2.2.5, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\web01_htsn\\MISA.WebApi\\MISA.WebApi\\MISA.WebApi.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\web01_htsn\\MISA.WebApi\\MISA.WebApi\\MISA.WebApi.csproj",
+        "projectName": "MISA.WebApi",
+        "projectPath": "D:\\web01_htsn\\MISA.WebApi\\MISA.WebApi\\MISA.WebApi.csproj",
+        "packagesPath": "C:\\Users\\trant\\.nuget\\packages\\",
+        "outputPath": "D:\\web01_htsn\\MISA.WebApi\\MISA.WebApi\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\trant\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "D:\\web01_htsn\\MISA.WebApi\\MISA.BLL\\MISA.BLL.csproj": {
+                "projectPath": "D:\\web01_htsn\\MISA.WebApi\\MISA.BLL\\MISA.BLL.csproj"
+              },
+              "D:\\web01_htsn\\MISA.WebApi\\MISA.Common\\MISA.Common.csproj": {
+                "projectPath": "D:\\web01_htsn\\MISA.WebApi\\MISA.Common\\MISA.Common.csproj"
+              },
+              "D:\\web01_htsn\\MISA.WebApi\\MISA.DL\\MISA.DL.csproj": {
+                "projectPath": "D:\\web01_htsn\\MISA.WebApi\\MISA.DL\\MISA.DL.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.2.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
