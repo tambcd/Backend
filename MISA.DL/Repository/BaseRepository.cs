@@ -31,7 +31,7 @@ namespace MISA.DL.Repository
         /// <summary>
         /// Giải phóng bộ nhớ
         /// </summary>
-        /// ceatedby : tvTam (04/08/2022)
+        /// ceatedby : tvTam (21/02/2023)
         public void Dispose()
         {
             connection.Close();
@@ -48,7 +48,7 @@ namespace MISA.DL.Repository
         public virtual IEnumerable<MISAEntity> GetAll()
         {
             // khai bao sqlCommand
-            var sqlcmd = $"SELECT * FROM View_GetAll{className}";
+            var sqlcmd = $"SELECT * FROM {className}";
 
             // thực hiện lấy dữ liệu 
             var data = connection.Query<MISAEntity>(sql: sqlcmd);
@@ -57,24 +57,26 @@ namespace MISA.DL.Repository
 
         public MISAEntity GetById(Guid id)
         {
-            throw new NotImplementedException();
+            // khai bao sqlCommand
+            var sqlcmd = $"SELECT * FROM {className} where {className}_id = @Id";
+            var dynamicParams = new DynamicParameters();
+
+
+            // thực hiện lấy dữ liệu 
+            dynamicParams.Add("@Id", id);
+            var data = connection.QueryFirstOrDefault<MISAEntity>(sql: sqlcmd, param: dynamicParams);
+            return data;
         }
 
         public int Insert(MISAEntity entiy)
         {
-            using (var transaction = connection.BeginTransaction())
-            {
-                var sqlcmd = $"Proc_Insert{className}";
-                var rowsEffec = connection.Execute(sql: sqlcmd, param: entiy, transaction: transaction, commandType: System.Data.CommandType.StoredProcedure);
-                transaction.Commit();
-                return rowsEffec;
-
-            }
+            throw new NotImplementedException();
         }
 
         public int Update(MISAEntity entity)
         {
             throw new NotImplementedException();
         }
+
     }
 }

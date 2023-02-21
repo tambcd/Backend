@@ -22,9 +22,10 @@ namespace MISA.WebApi.Controllers
 
         /// <summary>
         /// Lấy tất cả bản ghi 
+        /// @createdby : TVTam(MF1270) 21/02/2023
         /// </summary>
         /// <returns>Danh sách bản ghi của đối tượng</returns>
-        /// createdby : TVTam(MF1270) 11/08/2022
+
         [HttpGet]
         public IActionResult GetAll()
         {
@@ -39,10 +40,11 @@ namespace MISA.WebApi.Controllers
         }
         /// <summary>
         /// Lấy phòng ban theo ID
+        /// @createdby : TVTam(MF1270) 21/02/2023
         /// </summary>
         /// <param name="id"> khóa chính </param>
         /// <returns>1 đối tượng </returns>
-        /// createdby : TVTam(MF1270) 11/08/2022
+        /// 
         [HttpGet("{id}")]
         public IActionResult GetById(Guid id)
         {
@@ -59,10 +61,10 @@ namespace MISA.WebApi.Controllers
         }
         /// <summary>
         /// Thêm phòng ban 
+        /// @createdby : TVTam(MF1270) 21/02/2023
         /// </summary>
         /// <param name="entity"> đối tượng thêm mới</param>
         /// <returns>201 thành công ||Exception từng trường hợp </returns>
-        /// createdby : TVTam(MF1270) 11/08/2022
         [HttpPost]
         public IActionResult Post(MISAEntity entity)
         {
@@ -96,10 +98,10 @@ namespace MISA.WebApi.Controllers
         }
         /// <summary>
         /// Xóa đối tượng 
+        /// @createdby : TVTam(MF1270) 21/02/2023
         /// </summary>
         /// <param name="id">Khóa  chính của đối tượng cần xóa</param>
         /// <returns>200 thành công</returns>
-        /// createdby : TVTam(MF1270) 11/08/2022
 
         [HttpDelete("{id}")]
         public IActionResult Delete(Guid id)
@@ -120,6 +122,7 @@ namespace MISA.WebApi.Controllers
 
         /// <summary>
         /// Kiểm tra Exception
+        /// @createdby : TVTam(MF1270) 21/02/2023
         /// </summary>
         /// <param name="ex">Exception</param>
         /// <returns>statuscode và lỗi </returns>
