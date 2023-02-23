@@ -17,6 +17,7 @@ namespace MISA.DL.Repository
         public readonly String connectionString = "";
         private String className = "";
 
+
         public BaseRepository(IConfiguration configuration)
         {
 
@@ -31,19 +32,15 @@ namespace MISA.DL.Repository
         /// <summary>
         /// Giải phóng bộ nhớ
         /// </summary>
-        /// ceatedby : tvTam (21/02/2023)
+        /// ceatedby : tvTam (04/08/2022)
+
         public void Dispose()
         {
             connection.Close();
-            connection.Dispose(); ;
+            connection.Dispose();
         }
 
-        public int Delete(Guid id)
-        {
-            throw new NotImplementedException();
-        }
 
-       
 
         public virtual IEnumerable<MISAEntity> GetAll()
         {
@@ -55,28 +52,103 @@ namespace MISA.DL.Repository
             return data;
         }
 
+
         public MISAEntity GetById(Guid id)
         {
-            // khai bao sqlCommand
-            var sqlcmd = $"SELECT * FROM {className} where {className}_id = @Id";
+
+            var sqlcmd = $"SELECT * FROM {className} WHERE {className}_id = @Id";
             var dynamicParams = new DynamicParameters();
-
-
-            // thực hiện lấy dữ liệu 
             dynamicParams.Add("@Id", id);
             var data = connection.QueryFirstOrDefault<MISAEntity>(sql: sqlcmd, param: dynamicParams);
             return data;
         }
 
-        public int Insert(MISAEntity entiy)
+
+
+        public int Insert(MISAEntity mISAEntity)
         {
-            throw new NotImplementedException();
+            using (var transaction = connection.BeginTransaction())
+            {
+                var sqlcmd = $"proc_insert_{className}";
+                var rowsEffec = connection.Execute(sql: sqlcmd, param: mISAEntity, transaction: transaction, commandType: System.Data.CommandType.StoredProcedure);
+                transaction.Commit();
+                return rowsEffec;
+
+            }
+
+        }
+
+
+
+
+        public bool checkEntityId(Guid EntityId)
+        {
+            var sqlcmd = $"SELECT * FROM {className} WHERE {className}_id = @Id";
+            var dynamicParams = new DynamicParameters();
+            dynamicParams.Add("@Id", EntityId);
+            var data = connection.QueryFirstOrDefault<MISAEntity>(sql: sqlcmd, param: dynamicParams);
+            if (data != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public int Update(MISAEntity entity)
         {
-            throw new NotImplementedException();
+            var sqlcmd = $"proc_update_{className}";
+            var rowsEffec = connection.Execute(sql: sqlcmd, param: entity, commandType: System.Data.CommandType.StoredProcedure);
+            return rowsEffec;
         }
 
+        public int Delete(Guid id)
+        {
+            using (var transaction = connection.BeginTransaction())
+            {
+
+                var sqlcmd = $"DELETE FROM {className} WHERE {className}_id = @id";
+                var parameters = new DynamicParameters();
+                parameters.Add("@id", id);
+                var rowsEffec = connection.Execute(sql: sqlcmd, param: parameters, transaction: transaction);
+                transaction.Commit();
+                return rowsEffec;
+            }
+
+        }
+
+        public bool checkEntityCode(string entityCode, Guid emtityId)
+        {
+            var sqlcmd = $"SELECT * FROM {className} WHERE {className}_id != @Id and {className}Code = @Code";
+            var dynamicParams = new DynamicParameters();
+            dynamicParams.Add("@Id", emtityId);
+            dynamicParams.Add("@Code", entityCode);
+            var data = connection.QueryFirstOrDefault<MISAEntity>(sql: sqlcmd, param: dynamicParams);
+            if (data != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public int deleteMany(List<Guid> ids)
+        {
+            using (var transaction = connection.BeginTransaction())
+            {
+
+                var sqlcmd = $"DELETE FROM {className} WHERE {className}_id in @id";
+                var parameters = new DynamicParameters();
+                parameters.Add("@id", ids);
+                var rowsEffec = connection.Execute(sql: sqlcmd, param: parameters, transaction: transaction);
+                transaction.Commit();
+                return rowsEffec;
+            }
+        }
     }
-}
+
+    }

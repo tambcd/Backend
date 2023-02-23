@@ -102,24 +102,34 @@ namespace MISA.Common.Entity
         /// Năm bắt đầu theo dõi tài sản trên phần mềm
         /// </summary>
         /// 
-        public DateTime tracked_year { get; set; }
+        public int tracked_year { get; set; }
         /// <summary>
         /// Số năm sử dụng
         /// </summary>
         /// 
         [MISARequired]
         [PropNameDisplay("Số năm sử dụng")]
-        public DateTime life_time { get; set; }
+        public int life_time { get; set; }
         /// <summary>
         /// Năm sử dụng
         /// </summary>
         /// 
         [MISARequired]
         [PropNameDisplay("Ngầy bắt đầu sử dụng")]
-        public DateTime production_year { get; set; }
+        public int production_year { get; set; }
         /// <summary>
         /// Sử dụng
         /// </summary>
         public bool active { get; set; }
+
+        /// <summary>
+        /// lưu trữ lỗi validate
+        /// </summary>
+        public List<string>? ListerroImport { get; set; } = new List<string>();
+
+        /// <summary>
+        /// Tổng só bản ghi khi paging 
+        /// </summary>
+        public int? TotalRecord { get; set; }
     }
 }

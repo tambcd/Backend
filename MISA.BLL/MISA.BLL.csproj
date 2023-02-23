@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="EPPlus" Version="6.0.6" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\MISA.Common\MISA.Common.csproj" />
     <ProjectReference Include="..\MISA.DL\MISA.DL.csproj" />
   </ItemGroup>

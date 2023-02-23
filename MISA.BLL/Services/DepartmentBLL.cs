@@ -11,8 +11,10 @@ namespace MISA.BLL.Services
 {
     public class DepartmentBLL : BaseBLL<department>, IDepartmentBLL
     {
-        public DepartmentBLL(IRepository<department> _repository) : base(_repository)
+        IDepartmentRepository IDepartmentRepository;
+        public DepartmentBLL(IDepartmentRepository _IDepartmentRepository) : base(_IDepartmentRepository)
         {
+            IDepartmentRepository = _IDepartmentRepository;
 
         }
     }

@@ -11,8 +11,10 @@ namespace MISA.BLL.Services
 {
     public class AssetCategoryBLL : BaseBLL<fixed_asset_category>,IAssetCategoryBLL
     {
-        public AssetCategoryBLL(IRepository<fixed_asset_category> _repository) : base(_repository)
+        IAssetCategoryRepository IAssetCategoryRepository;
+        public AssetCategoryBLL(IAssetCategoryRepository _IAssetCategoryepository) : base(_IAssetCategoryepository)
         {
+            IAssetCategoryRepository = _IAssetCategoryepository;
         }
     }
 }

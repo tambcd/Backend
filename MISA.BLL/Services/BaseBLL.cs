@@ -50,7 +50,11 @@ namespace MISA.BLL.Services
 
         public int DeleteSevices(Guid id)
         {
-            throw new NotImplementedException();
+            var listMsgEr = new List<string>();
+
+            // gọi đến DAL gửi resquest 
+            var res = repository.Delete(id);
+            return res;
         }
 
 
@@ -89,10 +93,7 @@ namespace MISA.BLL.Services
         {
 
             return true;
-        }
-
-
-       
+        }    
 
 
     }

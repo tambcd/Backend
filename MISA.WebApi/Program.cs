@@ -12,7 +12,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-/*/// <summary>
+/// <summary>
 /// DL interface
 /// </summary>
 builder.Services.AddScoped<IRepository<object>, BaseRepository<object>>();
@@ -27,8 +27,8 @@ builder.Services.AddScoped<IBaseBLL<object>, BaseBLL<object>>();
 builder.Services.AddScoped<IDepartmentBLL, DepartmentBLL>();
 builder.Services.AddScoped<IAssetBLL, AssetBLL>();
 builder.Services.AddScoped<IAssetCategoryBLL, AssetCategoryBLL>();
-*/
 
+builder.Services.AddCors();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

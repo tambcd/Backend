@@ -35,3 +35,12 @@ D:\web01_htsn\MISA.WebApi\MISA.WebApi\obj\Debug\net6.0\MISA.WebApi.dll
 D:\web01_htsn\MISA.WebApi\MISA.WebApi\obj\Debug\net6.0\ref\MISA.WebApi.dll
 D:\web01_htsn\MISA.WebApi\MISA.WebApi\obj\Debug\net6.0\MISA.WebApi.pdb
 D:\web01_htsn\MISA.WebApi\MISA.WebApi\obj\Debug\net6.0\MISA.WebApi.genruntimeconfig.cache
+D:\web01_htsn\MISA.WebApi\MISA.WebApi\bin\Debug\net6.0\EPPlus.dll
+D:\web01_htsn\MISA.WebApi\MISA.WebApi\bin\Debug\net6.0\EPPlus.Interfaces.dll
+D:\web01_htsn\MISA.WebApi\MISA.WebApi\bin\Debug\net6.0\EPPlus.System.Drawing.dll
+D:\web01_htsn\MISA.WebApi\MISA.WebApi\bin\Debug\net6.0\Microsoft.IO.RecyclableMemoryStream.dll
+D:\web01_htsn\MISA.WebApi\MISA.WebApi\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
+D:\web01_htsn\MISA.WebApi\MISA.WebApi\bin\Debug\net6.0\System.Drawing.Common.dll
+D:\web01_htsn\MISA.WebApi\MISA.WebApi\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
+D:\web01_htsn\MISA.WebApi\MISA.WebApi\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
+D:\web01_htsn\MISA.WebApi\MISA.WebApi\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll

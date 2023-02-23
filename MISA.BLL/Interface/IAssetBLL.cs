@@ -10,5 +10,11 @@ namespace MISA.BLL.Interface
     public interface IAssetBLL:IBaseBLL<fixed_asset>
     {
 
+        /// <summary>
+        /// Xuất khẩu tất cả nhân viên ra excel
+        /// </summary>
+        /// <returns>URL tải excle xuống </returns>
+        public Stream ExportAssets();
+
     }
 }
