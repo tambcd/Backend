@@ -42,6 +42,25 @@ namespace MISA.WebApi.Controllers
                 return HandelException(ex);
             }
         }
+
+        /// <summary>
+        /// Get mã tài sản auto 
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("NewEmployeeCode")]
+        public IActionResult GetNewCode()
+        {
+            try
+            {
+                var data = _iassetBLL.GetNewCodeSevice();
+                return Ok(data);
+
+            }
+            catch (Exception ex)
+            {
+                return HandelException(ex);
+            }
+        }
         /// <summary>
         /// xuất khẩu danh sách tài sản
         /// </summary>

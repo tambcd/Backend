@@ -119,6 +119,27 @@ namespace MISA.WebApi.Controllers
                 return HandelException(ex);
             }
         }
+        /// <summary>
+        /// xóa nhiều 
+        /// </summary>
+        /// <param name="ids">danh sách id xóa</param>
+        /// <returns></returns>
+        [HttpDelete("DeleteMany")]
+        public IActionResult DeleteMany(List<Guid> ids)
+        {
+
+            try
+            {
+                var data = _repository.deleteMany(ids);
+                return Ok(data);
+
+            }
+            catch (Exception ex)
+            {
+
+                return HandelException(ex);
+            }
+        }
 
         /// <summary>
         /// Kiểm tra Exception

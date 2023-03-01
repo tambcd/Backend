@@ -21,7 +21,12 @@ namespace MISA.DL.Interface
         /// created : TVTam(MF1270) - 22/02/2022
         public PagingRequest GetFilter(int pageNumber, int pageSize, string? txtSearch,Guid? DepartmentId,Guid? AssetCategoryId);
 
-    
+
+        /// <summary>
+        /// Auto code
+        /// </summary>
+        /// <returns></returns>
+        string GetNewCodeAssets();
 
 
     }

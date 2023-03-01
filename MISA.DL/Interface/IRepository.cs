@@ -50,6 +50,13 @@ namespace MISA.DL.Interface
         /// <returns>200 nếu chưa update</returns>
 
         public int Update(T entity);
+        /// <summary>
+        /// Xóa nhiều
+        /// </summary>
+        /// <param name="ids">Danh sach khóa chính của các đối tượng cần xóa</param>
+        /// <returns></returns>
+        /// createBy TVTam(MF1270) - 28/02/2023
+        int deleteMany(List<Guid> ids);
 
     }
 }

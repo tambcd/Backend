@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace MISA.BLL.Services
@@ -112,6 +113,23 @@ namespace MISA.BLL.Services
 
             return stream;
         }
+
+        public string GetNewCodeSevice()
+        {
+            var newcode = Iassetrepository.GetNewCodeAssets();
+            if (newcode != null)
+            {
+
+
+                string resultString = Regex.Match(newcode, @"\d+").Value;
+
+                return "TS" + (Int32.Parse(resultString) + 1).ToString();
+
+
+            }
+            return "TS1";
+        }
+
         /// <summary>
         /// Chuyển date sang string
         /// </summary>
