@@ -60,7 +60,19 @@ namespace MISA.BLL.Services
 
         public int UpdateSevices(MISAEntity entity)
         {
-            throw new NotImplementedException();
+            // check validate chung
+            var isValid = Validate(entity);
+            // check validate custom
+            isValidCustom = ValidateCusrtom(entity);
+            if (isValid && isValidCustom)
+            {
+                var res = repository.Update(entity);
+                return res;
+            }
+            else
+            {
+                throw new MISAException(Common.CommonResource.GetResoureString("InvalidInput"), listMsgEr);
+            }
         }
 
         public bool Validate(MISAEntity entity)

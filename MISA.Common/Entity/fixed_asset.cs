@@ -115,8 +115,8 @@ namespace MISA.Common.Entity
         /// </summary>
         /// 
         [MISARequired]
-        [PropNameDisplay("Ngầy bắt đầu sử dụng")]
-        public int production_year { get; set; }
+        [PropNameDisplay("Ngay bắt đầu sử dụng")]
+        public DateTime production_year { get; set; }
         /// <summary>
         /// Sử dụng
         /// </summary>

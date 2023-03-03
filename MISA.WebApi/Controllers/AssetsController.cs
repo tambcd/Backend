@@ -47,7 +47,7 @@ namespace MISA.WebApi.Controllers
         /// Get mã tài sản auto 
         /// </summary>
         /// <returns></returns>
-        [HttpGet("NewEmployeeCode")]
+        [HttpGet("NewAssetsCode")]
         public IActionResult GetNewCode()
         {
             try
