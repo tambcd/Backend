@@ -78,9 +78,6 @@ namespace MISA.DL.Repository
 
         }
 
-
-
-
         public bool checkEntityId(Guid EntityId)
         {
             var sqlcmd = $"SELECT * FROM {className} WHERE {className}_id = @Id";
