@@ -141,4 +141,7 @@
   <data name="VN_VaildateFormat" xml:space="preserve">
     <value>không đúng định dạng</value>
   </data>
+  <data name="VN_ValueCost" xml:space="preserve">
+    <value>Nguyên giá phải lớn hơn giá trị hao mòn năm</value>
+  </data>
 </root>

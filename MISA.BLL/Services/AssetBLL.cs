@@ -119,17 +119,31 @@ namespace MISA.BLL.Services
             var newcode = Iassetrepository.GetNewCodeAssets();
             if (newcode != null)
             {
-
-
                 string resultString = Regex.Match(newcode, @"\d+").Value;
-
                 return "TS" + (Int32.Parse(resultString) + 1).ToString();
-
-
             }
             return "TS1";
         }
 
+        /// <summary>
+        /// validate insert cho tài sản
+        /// </summary>
+        /// <param name="entity"> tài sản </param>
+        /// <returns>   
+        ///   true : hợp lệ 
+        ///   false ; không hợp lệ 
+        /// </returns>
+        protected override bool ValidateCusrtom(fixed_asset entity)
+        {
+            
+            // trường hợp thêm mới 
+            if(entity.cost< entity.depreciation_value)            
+            {
+                isValidCustom = false;
+                listMsgEr.Add(Common.CommonResource.GetResoureString("ValueCost"));
+            }            
+            return isValidCustom;
+        }
         /// <summary>
         /// Chuyển date sang string
         /// </summary>

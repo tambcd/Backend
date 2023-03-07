@@ -131,5 +131,14 @@ namespace MISA.Common.Resource {
                 return ResourceManager.GetString("VN_VaildateFormat", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nguyên giá phải lớn hơn giá trị hao mòn năm.
+        /// </summary>
+        public static string VN_ValueCost {
+            get {
+                return ResourceManager.GetString("VN_ValueCost", resourceCulture);
+            }
+        }
     }
 }
