@@ -16,6 +16,15 @@ namespace MISA.Common.Entity
     {
 
     }
+    /// <summary>
+    /// thuộc tính không trùng 
+    /// @@ cretedby : TVTam(MF1270) (20/2/2023)    
+    /// </summary>
+    [AttributeUsage(AttributeTargets.Property | AttributeTargets.Field)]
+    public class MISARSame : Attribute
+    {
+
+    }
 
     /// <summary>
     /// thuộc tính lấy ra tên trường 

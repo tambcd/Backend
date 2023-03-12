@@ -43,24 +43,7 @@ namespace MISA.WebApi.Controllers
             }
         }
 
-        /// <summary>
-        /// Get mã tài sản auto 
-        /// </summary>
-        /// <returns></returns>
-        [HttpGet("NewAssetsCode")]
-        public IActionResult GetNewCode()
-        {
-            try
-            {
-                var data = _iassetBLL.GetNewCodeSevice();
-                return Ok(data);
-
-            }
-            catch (Exception ex)
-            {
-                return HandelException(ex);
-            }
-        }
+        
         /// <summary>
         /// xuất khẩu danh sách tài sản
         /// </summary>

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
+using System.Text.RegularExpressions;
 
 namespace MISA.DL.Repository
 {
@@ -145,6 +146,48 @@ namespace MISA.DL.Repository
                 transaction.Commit();
                 return rowsEffec;
             }
+        }
+
+        public bool isSameCode(string code)
+        {
+            var sqlcmd = $"SELECT * FROM {className} WHERE {className}_code = @code";
+            var dynamicParams = new DynamicParameters();
+            dynamicParams.Add("@code", code);
+            var data = connection.QueryFirstOrDefault<MISAEntity>(sql: sqlcmd, param: dynamicParams);
+            if (data != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+
+        public string getCodeNewfirst()
+        {
+            var sqlcmd = $"SELECT {className}_code FROM {className} ORDER BY created_date DESC LIMIT 1";
+            var data = connection.QueryFirstOrDefault<string>(sql: sqlcmd);            
+            return data;
+            
+        }
+
+        public virtual string getAutoCode(string? txt)
+        {
+            
+            var dynamicParams = new DynamicParameters();
+            if(txt == null)
+            {
+                txt = "TS";
+            }
+            txt = txt + "%";
+            dynamicParams.Add("@txt", txt);
+            var sqlcmd = $"SELECT SUBSTR({className}_code, 3) FROM {className} WHERE {className}_code LIKE @txt ORDER BY CAST(SUBSTR({className}_code, 3) AS SIGNED) DESC LIMIT 1";
+            var data = connection.QueryFirstOrDefault<string>(sql: sqlcmd, param: dynamicParams);            
+
+            return (txt + (Int32.Parse(data) + 1).ToString()).Replace("%","");
+
         }
     }
 

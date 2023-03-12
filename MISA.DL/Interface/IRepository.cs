@@ -58,5 +58,25 @@ namespace MISA.DL.Interface
         /// createBy TVTam(MF1270) - 28/02/2023
         int deleteMany(List<Guid> ids);
 
+        /// <summary>
+        /// kiểm tra mã trùng 
+        /// @@ true : không trùng 
+        /// @@ false : trùng 
+        /// </summary>
+        /// <param name="code">mã đối tượng </param>
+        /// <returns></returns>
+        public bool isSameCode(string code);
+
+        /// <summary>
+        /// Lấy ra mã mới nhất 
+        /// </summary>
+        /// <returns></returns>
+        public string getCodeNewfirst();
+
+        /// <summary>
+        /// lấy giá trị mã mới 
+        /// </summary>
+        /// <returns></returns>
+        public string getAutoCode(string txt);
     }
 }

@@ -15,11 +15,8 @@ namespace MISA.BLL.Interface
         /// </summary>
         /// <returns>URL tải excle xuống </returns>
         public Stream ExportAssets();
-        // <summary>
-        /// Sinh mã 
-        /// </summary>
-        /// <returns></returns>
-        public String GetNewCodeSevice();
+        
+        
 
     }
 }

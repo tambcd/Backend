@@ -61,6 +61,24 @@ namespace MISA.Common.Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Mã tài sản.
+        /// </summary>
+        public static string VN_AssetCode {
+            get {
+                return ResourceManager.GetString("VN_AssetCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tên tài sản .
+        /// </summary>
+        public static string VN_AssetName {
+            get {
+                return ResourceManager.GetString("VN_AssetName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Mã đã tồn tại trong hệ thống.
         /// </summary>
         public static string VN_CodeExist {
@@ -120,6 +138,15 @@ namespace MISA.Common.Resource {
         public static string VN_InvalidInput {
             get {
                 return ResourceManager.GetString("VN_InvalidInput", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to đã tồn tại.
+        /// </summary>
+        public static string VN_SameCode {
+            get {
+                return ResourceManager.GetString("VN_SameCode", resourceCulture);
             }
         }
         

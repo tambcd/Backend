@@ -45,5 +45,12 @@ namespace MISA.BLL.Interface
         /// </returns>
         public bool Validate(T entity);
 
+        /// <summary>
+        /// Sinh mã từ động 
+        /// </summary>
+        /// <param name="code">mã tài sản </param>
+        /// <returns></returns>
+        public string AutoCodeSevices();
+
     }
 }

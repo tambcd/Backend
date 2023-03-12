@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace MISA.BLL.Services
@@ -97,16 +98,30 @@ namespace MISA.BLL.Services
                     propName = (arrProNameDisplay as PropNameDisplay).PropName;
                     listMsgEr.Add($"{propName} {Common.CommonResource.GetResoureString("EmptyCheck")}");
                 }
+                // nếu dữ liệu trống hoặc bằng null 
+                if (property.IsDefined(typeof(MISARSame), false) && repository.isSameCode(value.ToString()))
+                {
+                    isValid = false;
+                    propName = (arrProNameDisplay as PropNameDisplay).PropName;
+                    listMsgEr.Add($"{propName} {Common.CommonResource.GetResoureString("SameCode")}");
+                }
 
             }
+           
             return isValid; ;
         }
         protected virtual bool ValidateCusrtom(MISAEntity entity)
         {
 
             return true;
-        }    
+        }
 
+        public string AutoCodeSevices()
+        {
+            string data = repository.getCodeNewfirst();        
 
+             return repository.getAutoCode(data.Substring(0, 2).ToString()) ;
+            
+        }
     }
 }

@@ -114,17 +114,8 @@ namespace MISA.BLL.Services
             return stream;
         }
 
-        public string GetNewCodeSevice()
-        {
-            var newcode = Iassetrepository.GetNewCodeAssets();
-            if (newcode != null)
-            {
-                string resultString = Regex.Match(newcode, @"\d+").Value;
-                return "TS" + (Int32.Parse(resultString) + 1).ToString();
-            }
-            return "TS1";
-        }
-
+        
+       
         /// <summary>
         /// validate insert cho tài sản
         /// </summary>

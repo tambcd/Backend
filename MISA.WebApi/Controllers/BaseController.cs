@@ -142,6 +142,25 @@ namespace MISA.WebApi.Controllers
         }
 
         /// <summary>
+        /// Get mã tài sản auto 
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("NewAutoCode")]
+        public IActionResult GetNewCode()
+        {
+            try
+            {
+                var data = _baseBL.AutoCodeSevices();
+                return Ok(data);
+
+            }
+            catch (Exception ex)
+            {
+                return HandelException(ex);
+            }
+        }
+
+        /// <summary>
         /// Kiểm tra Exception
         /// @createdby : TVTam(MF1270) 21/02/2023
         /// </summary>

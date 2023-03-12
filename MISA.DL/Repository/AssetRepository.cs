@@ -66,11 +66,6 @@ namespace MISA.DL.Repository
             return pagingRequest;
         }
 
-        public string GetNewCodeAssets()
-        {
-            var sqlcmd = $"SELECT SUBSTR(fixed_asset_code, 3) FROM fixed_asset WHERE fixed_asset_code LIKE 'TS%'ORDER BY CAST(SUBSTR(fixed_asset_code, 3) AS SIGNED) DESC LIMIT 1";
-            var data = connection.QueryFirstOrDefault<string>(sql: sqlcmd);
-            return data;
-        }
+        
     }
 }

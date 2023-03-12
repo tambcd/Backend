@@ -17,14 +17,15 @@ namespace MISA.Common.Entity
         /// </summary>
         /// 
         [MISARequired]
-        [PropNameDisplay("Mã tài sản")]
+        [MISARSame]
+        [PropNameDisplay("AssetCode")]
         public string fixed_asset_code { get; set; }
         /// <summary>
         /// Tên tài sản
         /// </summary>
         /// 
         [MISARequired]
-        [PropNameDisplay("Tên tài sản")]
+        [PropNameDisplay("AssetName")]
         public string? fixed_asset_name { get; set; }
 
         /// <summary>
