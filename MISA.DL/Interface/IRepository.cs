@@ -65,7 +65,7 @@ namespace MISA.DL.Interface
         /// </summary>
         /// <param name="code">mã đối tượng </param>
         /// <returns></returns>
-        public bool isSameCode(string code);
+        public bool isSameCode(string code, Guid? id);
 
         /// <summary>
         /// Lấy ra mã mới nhất 

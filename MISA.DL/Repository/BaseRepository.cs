@@ -117,7 +117,7 @@ namespace MISA.DL.Repository
 
         }
 
-        public bool checkEntityCode(string entityCode, Guid emtityId)
+        public bool checkEntityCode(string entityCode, string emtityId)
         {
             var sqlcmd = $"SELECT * FROM {className} WHERE {className}_id != @Id and {className}Code = @Code";
             var dynamicParams = new DynamicParameters();
@@ -148,11 +148,12 @@ namespace MISA.DL.Repository
             }
         }
 
-        public bool isSameCode(string code)
+        public bool isSameCode(string code,Guid? id )
         {
-            var sqlcmd = $"SELECT * FROM {className} WHERE {className}_code = @code";
+            var sqlcmd = $"SELECT * FROM {className} WHERE {className}_code = @code and {className}_id = @id" ;
             var dynamicParams = new DynamicParameters();
             dynamicParams.Add("@code", code);
+            dynamicParams.Add("@id", id);
             var data = connection.QueryFirstOrDefault<MISAEntity>(sql: sqlcmd, param: dynamicParams);
             if (data != null)
             {

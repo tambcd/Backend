@@ -11,6 +11,7 @@ namespace MISA.Common.Entity
         /// <summary>
         /// Id tài sản
         /// </summary>
+        [PropNameDisplay("fixed_asset_id")]
         public Guid fixed_asset_id { get; set; }
         /// <summary>
         /// Mã tài sản

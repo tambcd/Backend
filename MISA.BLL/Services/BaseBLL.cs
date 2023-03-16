@@ -27,15 +27,17 @@ namespace MISA.BLL.Services
         ///  đối tượng DAL gửi resquest 
         /// </summary>
         IRepository<MISAEntity> repository;
+
         public BaseBLL(IRepository<MISAEntity> _repository)
         {
             repository = _repository;
+
         }
 
         public int InsertSevices(MISAEntity entity)
         {
             // check validate chung
-            var isValid = Validate(entity);
+            var isValid = Validate(entity , "insert");
             // check validate custom
             isValidCustom = ValidateCusrtom(entity);
             if (isValid && isValidCustom)
@@ -62,7 +64,7 @@ namespace MISA.BLL.Services
         public int UpdateSevices(MISAEntity entity)
         {
             // check validate chung
-            var isValid = Validate(entity);
+            var isValid = Validate(entity,"update");
             // check validate custom
             isValidCustom = ValidateCusrtom(entity);
             if (isValid && isValidCustom)
@@ -76,7 +78,7 @@ namespace MISA.BLL.Services
             }
         }
 
-        public bool Validate(MISAEntity entity)
+        public bool Validate(MISAEntity entity , string typeVailde)
         {
             var isValid = true;
             // validate chung 
@@ -84,9 +86,13 @@ namespace MISA.BLL.Services
             // kiểm tra buộc nhập 
 
             var properties = entity.GetType().GetProperties();
+            Guid identity ;
+
+
             foreach (var property in properties)
             {
                 var propName = property.Name;
+                
                 var value = property.GetValue(entity);
                 var arrProNameDisplay = property.GetCustomAttributes(typeof(PropNameDisplay), false).FirstOrDefault();
 
@@ -98,13 +104,7 @@ namespace MISA.BLL.Services
                     propName = (arrProNameDisplay as PropNameDisplay).PropName;
                     listMsgEr.Add($"{propName} {Common.CommonResource.GetResoureString("EmptyCheck")}");
                 }
-                // nếu dữ liệu trống hoặc bằng null 
-                if (property.IsDefined(typeof(MISARSame), false) && repository.isSameCode(value.ToString()))
-                {
-                    isValid = false;
-                    propName = (arrProNameDisplay as PropNameDisplay).PropName;
-                    listMsgEr.Add($"{propName} {Common.CommonResource.GetResoureString("SameCode")}");
-                }
+                
 
             }
            

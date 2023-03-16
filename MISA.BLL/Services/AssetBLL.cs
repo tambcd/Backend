@@ -132,7 +132,13 @@ namespace MISA.BLL.Services
             {
                 isValidCustom = false;
                 listMsgEr.Add(Common.CommonResource.GetResoureString("ValueCost"));
-            }            
+            }
+            // nếu dữ liệu trống hoặc bằng null 
+            if (!Iassetrepository.isSameCode(entity.fixed_asset_code, entity.fixed_asset_id) )
+            {
+                isValidCustom = false;
+                listMsgEr.Add($"Mã tài sản  {Common.CommonResource.GetResoureString("SameCode")}");
+            }
             return isValidCustom;
         }
         /// <summary>

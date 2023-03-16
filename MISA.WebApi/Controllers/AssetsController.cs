@@ -28,7 +28,7 @@ namespace MISA.WebApi.Controllers
         /// <param name="AssetCategoryId">id loại tài sản </param>
         /// <returns></returns>
 
-        [HttpGet("Filter")]
+        [HttpGet("getByFilter")]
         public IActionResult GetFilter(int pageNumber, int pageSize, string? txtSearch,Guid? DepartmentId,Guid? AssetCategoryId)
         {
             try

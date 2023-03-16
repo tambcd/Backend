@@ -39,11 +39,15 @@ namespace MISA.BLL.Interface
         ///  @  CreatedBy : TVTam(20/02/2023)
         /// </summary>
         /// <param name="entity">đối tượng cần validate</param>
+        /// <param name="type">
+        /// insert : "insert"
+        /// update : "update"
+        /// </param>
         /// <returns>
         /// true : thỏa mán validate
         /// Fasle : không thỏa mãn validate     
         /// </returns>
-        public bool Validate(T entity);
+        public bool Validate(T entity , string type);
 
         /// <summary>
         /// Sinh mã từ động 

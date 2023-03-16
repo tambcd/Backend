@@ -51,7 +51,16 @@ namespace MISA.WebApi.Controllers
             try
             {
                 var data = _repository.GetById(id);
+                if(data != null)
+                {
+
                 return Ok(data);
+
+                }
+                else
+                {
+                    return NotFound();
+                }
 
             }
             catch (Exception ex)
@@ -71,7 +80,11 @@ namespace MISA.WebApi.Controllers
             try
             {
                 var data = _baseBL.InsertSevices(entity);
+                if (data ==1)
+                {
                 return StatusCode(201, data);
+                }
+                else { return BadRequest(); }
 
             }
             catch (Exception ex)
@@ -81,8 +94,8 @@ namespace MISA.WebApi.Controllers
             }
         }
 
-        [HttpPut]
-        public IActionResult Put(MISAEntity entity)
+        [HttpPut("{id}")]
+        public IActionResult Put(Guid id, MISAEntity entity)
         {
             try
             {
@@ -124,7 +137,7 @@ namespace MISA.WebApi.Controllers
         /// </summary>
         /// <param name="ids">danh sách id xóa</param>
         /// <returns></returns>
-        [HttpDelete("DeleteMany")]
+        [HttpDelete]
         public IActionResult DeleteMany(List<Guid> ids)
         {
 
