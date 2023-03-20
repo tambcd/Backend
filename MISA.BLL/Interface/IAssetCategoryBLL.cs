@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MISA.BLL.Interface
 {
-    public interface IAssetCategoryBLL:IBaseBLL<fixed_asset_category>
+    public interface IAssetCategoryBLL : IBaseBLL<fixed_asset_category>
     {
 
     }

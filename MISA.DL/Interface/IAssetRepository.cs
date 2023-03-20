@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MISA.DL.Interface
 {
-    public interface IAssetRepository:IRepository<fixed_asset>
+    public interface IAssetRepository : IRepository<fixed_asset>
     {
         /// <summary>
         /// Lọc danh sách đối tượng

@@ -195,7 +195,7 @@ namespace MISA.WebApi.Controllers
                 return BadRequest(res);
             }
             return StatusCode(500, res);
-
+    
         }
 
         

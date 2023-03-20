@@ -27,6 +27,16 @@ namespace MISA.Common.Entity
     }
 
     /// <summary>
+    /// thuộc tính tràn số 
+    /// @@ cretedby : TVTam(MF1270) (20/2/2023)    
+    /// </summary>
+    [AttributeUsage(AttributeTargets.Property | AttributeTargets.Field)]
+    public class MISANumberBig : Attribute
+    {
+
+    }
+
+    /// <summary>
     /// thuộc tính lấy ra tên trường 
     /// @@ cretedby : TVTam(MF1270) (20/2/2023)
     /// </summary>

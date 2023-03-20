@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MISA.Common.Entity
 {
-    public class fixed_asset:BaseEntity
+    public class fixed_asset : BaseEntity
     {
         /// <summary>
         /// Id tài sản
@@ -77,21 +77,22 @@ namespace MISA.Common.Entity
         /// </summary>
         /// 
         [MISARequired]
-        [PropNameDisplay("Nguyên giá")]
+        [MISANumberBig]
+        [PropNameDisplay("Cost")]
         public double cost { get; set; }
         /// <summary>
         /// Số lượng
         /// </summary>
         /// 
         [MISARequired]
-        [PropNameDisplay("Số lượngm")]
+        [PropNameDisplay("quantity")]
         public int quantity { get; set; }
         /// <summary>
         /// Giá trị hao mòn năm
         /// </summary>
         /// 
         [MISARequired]
-        [PropNameDisplay("Giá trị hao mòn năm")]
+        [PropNameDisplay("DepreciationValue")]
         public double depreciation_value { get; set; }
         /// <summary>
         /// Tỷ lệ hao mòn (%)

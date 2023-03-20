@@ -61,6 +61,15 @@ namespace MISA.Common.Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Nguyên giá.
+        /// </summary>
+        public static string NV_Cost {
+            get {
+                return ResourceManager.GetString("NV_Cost", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Mã tài sản.
         /// </summary>
         public static string VN_AssetCode {
@@ -84,6 +93,15 @@ namespace MISA.Common.Resource {
         public static string VN_CodeExist {
             get {
                 return ResourceManager.GetString("VN_CodeExist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Giá trị hao mòn lũy kế.
+        /// </summary>
+        public static string VN_DepreciationValue {
+            get {
+                return ResourceManager.GetString("VN_DepreciationValue", resourceCulture);
             }
         }
         
@@ -165,6 +183,15 @@ namespace MISA.Common.Resource {
         public static string VN_ValueCost {
             get {
                 return ResourceManager.GetString("VN_ValueCost", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dữ liệu đầu vào không đúng kiểu.
+        /// </summary>
+        public static string VN_ValueNotType {
+            get {
+                return ResourceManager.GetString("VN_ValueNotType", resourceCulture);
             }
         }
     }

@@ -80,35 +80,56 @@ namespace MISA.BLL.Services
 
         public bool Validate(MISAEntity entity , string typeVailde)
         {
+            
             var isValid = true;
-            // validate chung 
-
-            // kiểm tra buộc nhập 
-
-            var properties = entity.GetType().GetProperties();
-            Guid identity ;
+            
+                var properties = entity.GetType().GetProperties();
+                Guid identity;
 
 
             foreach (var property in properties)
             {
                 var propName = property.Name;
-                
                 var value = property.GetValue(entity);
                 var arrProNameDisplay = property.GetCustomAttributes(typeof(PropNameDisplay), false).FirstOrDefault();
+               
+                    // nếu dữ liệu trống hoặc bằng null 
+                    if (property.IsDefined(typeof(MISARequired), false) && (value == null || value.ToString() == String.Empty))
+                    {
+                        isValid = false;
+                        propName = (arrProNameDisplay as PropNameDisplay).PropName;
+                        listMsgEr.Add($"{propName} {Common.CommonResource.GetResoureString("EmptyCheck")}");
+                    }
+                    if (property.IsDefined(typeof(MISANumberBig), false) )
+                    {
+                        if (value.ToString()[1] == '.')
+                        {
+                            if(Int32.Parse(value.ToString().Split('+')[1]) >= 17)
+                            {
+                                isValid = false;
+                                propName = (arrProNameDisplay as PropNameDisplay).PropName;
+                                listMsgEr.Add($"{propName} {Common.CommonResource.GetResoureString("ValueNotType")}");
+                            }
+                        }
+                    else if(value.ToString().Length > 15)
+                        {
+                            isValid = false;
+                            propName = (arrProNameDisplay as PropNameDisplay).PropName;
+                            listMsgEr.Add($"{propName} {Common.CommonResource.GetResoureString("ValueNotType")}");
+                        }
 
-
-                // nếu dữ liệu trống hoặc bằng null 
-                if (property.IsDefined(typeof(MISARequired), false) && (value == null || value.ToString() == String.Empty))
-                {
-                    isValid = false;
-                    propName = (arrProNameDisplay as PropNameDisplay).PropName;
-                    listMsgEr.Add($"{propName} {Common.CommonResource.GetResoureString("EmptyCheck")}");
-                }
+                       
+                    }
                 
-
+               
+             
             }
-           
-            return isValid; ;
+
+            // validate chung 
+            return isValid;
+            // kiểm tra buộc nhập 
+
+
         }
         protected virtual bool ValidateCusrtom(MISAEntity entity)
         {

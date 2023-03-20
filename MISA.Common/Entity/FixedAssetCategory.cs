@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MISA.Common.Entity
 {
-    public class fixed_asset_category:BaseEntity
+    public class fixed_asset_category : BaseEntity
     {
         /// <summary>
         /// Id loại tài sản

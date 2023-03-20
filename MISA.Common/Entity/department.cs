@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MISA.Common.Entity
 {
-    public class department: BaseEntity
+    public class department : BaseEntity
     {
         /// <summary>
         /// id phong ban

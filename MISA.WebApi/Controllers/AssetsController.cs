@@ -8,7 +8,7 @@ namespace MISA.WebApi.Controllers
 {
     [Route("api/v1/[controller]")]
     [ApiController]
-    public class AssetsController : BaseController<fixed_asset> 
+    public class AssetsController : BaseController<fixed_asset>
     {
         private IAssetRepository _iassetRepository;
         private IAssetBLL _iassetBLL;

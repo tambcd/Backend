@@ -150,18 +150,18 @@ namespace MISA.DL.Repository
 
         public bool isSameCode(string code,Guid? id )
         {
-            var sqlcmd = $"SELECT * FROM {className} WHERE {className}_code = @code and {className}_id = @id" ;
             var dynamicParams = new DynamicParameters();
             dynamicParams.Add("@code", code);
             dynamicParams.Add("@id", id);
+            var sqlcmd = $"SELECT * FROM {className} WHERE {className}_code = @code and {className}_id != @id" ;
             var data = connection.QueryFirstOrDefault<MISAEntity>(sql: sqlcmd, param: dynamicParams);
             if (data != null)
             {
-                return true;
+                return false;
             }
             else
             {
-                return false;
+                return true;
             }
 
         }

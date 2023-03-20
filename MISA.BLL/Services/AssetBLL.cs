@@ -2,6 +2,7 @@
 using MISA.Common.Entity;
 using MISA.DL.Interface;
 using OfficeOpenXml;
+using OfficeOpenXml.Style;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -67,15 +68,13 @@ namespace MISA.BLL.Services
                     sheet.Cells[row, 3].Value = i.fixed_asset_name;
                     sheet.Cells[row, 4].Value = i.fixed_asset_category_code;
                     sheet.Cells[row, 5].Value = i.fixed_asset_category_name;
-/*                    sheet.Cells[row, 5].Value = DateToString(i.DateOfBirth);
-*/                  sheet.Cells[row, 6].Value = i.department_code ?? "";
+                    sheet.Cells[row, 6].Value = i.department_code ?? "";
                     sheet.Cells[row, 7].Value = i.department_name ?? "";
                     sheet.Cells[row, 8].Value = i.quantity.ToString();
-                    sheet.Cells[row, 9].Value = i.cost.ToString() ;
-                    sheet.Cells[row, 10].Value = i.depreciation_value.ToString();
-                    sheet.Cells[row, 11].Value = (i.cost  - i.depreciation_value).ToString();
-/*                    sheet.Cells[row, 11].Value = DateToString(i.IdenbtyDate);
-*/                  
+                    sheet.Cells[row, 9].Value = FomatMoney(i.cost) ;
+                    sheet.Cells[row, 10].Value = FomatMoney(i.depreciation_value);
+                    sheet.Cells[row, 11].Value = FomatMoney(i.cost  - i.depreciation_value);
+
                     index++;
                     row++;
                 }
@@ -84,6 +83,12 @@ namespace MISA.BLL.Services
                 // Style
                 foreach (var i in fixed_asset)
                 {
+
+                    sheet.Column(1).Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+                    sheet.Column(8).Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+                    sheet.Column(9).Style.HorizontalAlignment = ExcelHorizontalAlignment.Right;
+                    sheet.Column(10).Style.HorizontalAlignment = ExcelHorizontalAlignment.Right;
+                    sheet.Column(11).Style.HorizontalAlignment = ExcelHorizontalAlignment.Right;
                     sheet.Cells[row, 1].Style.Border.BorderAround(OfficeOpenXml.Style.ExcelBorderStyle.Medium);
                     sheet.Cells[row, 2].Style.Border.BorderAround(OfficeOpenXml.Style.ExcelBorderStyle.Medium);
                     sheet.Cells[row, 3].Style.Border.BorderAround(OfficeOpenXml.Style.ExcelBorderStyle.Medium);
@@ -92,15 +97,9 @@ namespace MISA.BLL.Services
                     sheet.Cells[row, 6].Style.Border.BorderAround(OfficeOpenXml.Style.ExcelBorderStyle.Medium);
                     sheet.Cells[row, 7].Style.Border.BorderAround(OfficeOpenXml.Style.ExcelBorderStyle.Medium);
                     sheet.Cells[row, 8].Style.Border.BorderAround(OfficeOpenXml.Style.ExcelBorderStyle.Medium);
-                    sheet.Cells[row, 9].Style.Border.BorderAround(OfficeOpenXml.Style.ExcelBorderStyle.Medium);
+                    sheet.Cells[row, 9].Style.Border.BorderAround(OfficeOpenXml.Style.ExcelBorderStyle.Medium);                    
                     sheet.Cells[row, 10].Style.Border.BorderAround(OfficeOpenXml.Style.ExcelBorderStyle.Medium);
                     sheet.Cells[row, 11].Style.Border.BorderAround(OfficeOpenXml.Style.ExcelBorderStyle.Medium);
-                    /*sheet.Cells[row, 12].Style.Border.BorderAround(OfficeOpenXml.Style.ExcelBorderStyle.Medium);
-                    sheet.Cells[row, 13].Style.Border.BorderAround(OfficeOpenXml.Style.ExcelBorderStyle.Medium);
-                    sheet.Cells[row, 14].Style.Border.BorderAround(OfficeOpenXml.Style.ExcelBorderStyle.Medium);
-                    sheet.Cells[row, 15].Style.Border.BorderAround(OfficeOpenXml.Style.ExcelBorderStyle.Medium);
-                    sheet.Cells[row, 16].Style.Border.BorderAround(OfficeOpenXml.Style.ExcelBorderStyle.Medium);
-*/
                     row++;
                 }
                 for (var i = 1; i <= headers.Count; i++)
@@ -156,6 +155,56 @@ namespace MISA.BLL.Services
             {
                 return "" + date.Value.Day.ToString() + "/" + date.Value.Month.ToString() + "/" + date.Value.Year.ToString();
             }
+        }
+        /// <summary>
+        /// Chuyển date sang string
+        /// </summary>
+        /// <param name="date">date</param>
+        /// <returns>dd/mm/dd</returns>
+        private string FomatMoney(double dataFormat)
+        {          
+                var result = "";
+                var a = dataFormat.ToString().Length / 3;
+                var b = dataFormat.ToString().Length % 3;
+                var index = 1;
+                while (a!=0)
+                {
+                    result +=
+                    dataFormat.ToString()[dataFormat.ToString().Length - index].ToString() +
+                    dataFormat.ToString()[dataFormat.ToString().Length - index - 1].ToString() +
+                    dataFormat.ToString()[dataFormat.ToString().Length - index - 2].ToString() +
+                      ".";
+                    index += 3;
+                    a--;
+                }
+
+                if (b == 0)
+                {
+                    result = reverse(result.Substring(0, result.Length - 1));
+                }
+                else
+                {
+                while (b!=0)
+                    {
+                        result += dataFormat.ToString()[b - 1];
+                        b--;
+                    }
+                    result = reverse(result);
+                }
+                return result;
+            
+        }
+
+        string reverse(string txt)
+        {
+            var strRev = "";
+
+            for (var i = txt.Length - 1; i >= 0; i--)
+            {
+                strRev += txt[i];
+            }
+
+            return strRev;
         }
     }
 }

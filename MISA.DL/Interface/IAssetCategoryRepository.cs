@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MISA.DL.Interface
 {
-    public interface IAssetCategoryRepository:IRepository<fixed_asset_category>
+    public interface IAssetCategoryRepository : IRepository<fixed_asset_category>
     {
     }
 }

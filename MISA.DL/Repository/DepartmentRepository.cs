@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace MISA.DL.Repository
 {
-    public class DepartmentRepository : BaseRepository<department>,IDepartmentRepository
+    public class DepartmentRepository : BaseRepository<department>, IDepartmentRepository
     {
         public DepartmentRepository(IConfiguration configuration) : base(configuration)
         {

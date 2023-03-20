@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MISA.BLL.Interface
 {
-    public interface IDepartmentBLL :IBaseBLL<department>
+    public interface IDepartmentBLL : IBaseBLL<department>
     {
 
     }
