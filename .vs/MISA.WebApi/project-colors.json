@@ -25,7 +25,22 @@
       "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
       "DisplayName": "Miscellaneous Files",
       "ColorIndex": -1
+    },
+    "8f5e0845-4097-44a5-8d84-aa8f8eae8ed1": {
+      "ProjectGuid": "8f5e0845-4097-44a5-8d84-aa8f8eae8ed1",
+      "DisplayName": "MISA.WebApi.UnitTests",
+      "ColorIndex": 4
+    },
+    "ccd47015-c0fa-4180-bcdc-d2900739e1b1": {
+      "ProjectGuid": "ccd47015-c0fa-4180-bcdc-d2900739e1b1",
+      "DisplayName": "MISA.WebApi.UnitTests",
+      "ColorIndex": 5
+    },
+    "eac62264-f9a0-40a4-830a-0158e3952451": {
+      "ProjectGuid": "eac62264-f9a0-40a4-830a-0158e3952451",
+      "DisplayName": "MISA.DL.UnitTests",
+      "ColorIndex": 6
     }
   },
-  "NextColorIndex": 4
+  "NextColorIndex": 7
 }

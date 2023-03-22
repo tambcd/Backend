@@ -26,6 +26,11 @@ namespace MISA.BLL.Services
 
         }
 
+        /// <summary>
+        /// hàm tạo và  định dạng file excel 
+        /// </summary>
+        /// <param name="fixed_asset">danh sách cần export </param>
+        /// <returns></returns>
         public Stream GenerateExcelFileAsync(List<fixed_asset> fixed_asset)
         {
             string excelName = $"DanhSanhTaiSan-{DateTime.Now.ToString("yyyyMMddHHmmssfff")}.xlsx";
@@ -126,13 +131,13 @@ namespace MISA.BLL.Services
         protected override bool ValidateCusrtom(fixed_asset entity)
         {
             
-            // trường hợp thêm mới 
+            // nguyên giá lớn hơn giá trị hao mòn 
             if(entity.cost< entity.depreciation_value)            
             {
                 isValidCustom = false;
                 listMsgEr.Add(Common.CommonResource.GetResoureString("ValueCost"));
             }
-            // nếu dữ liệu trống hoặc bằng null 
+            // trung mã 
             if (!Iassetrepository.isSameCode(entity.fixed_asset_code, entity.fixed_asset_id) )
             {
                 isValidCustom = false;
@@ -157,9 +162,9 @@ namespace MISA.BLL.Services
             }
         }
         /// <summary>
-        /// Chuyển date sang string
+        /// hàm định dạng tiền 
         /// </summary>
-        /// <param name="date">date</param>
+        /// <param name="dataFormat"> tiền cần format </param>
         /// <returns>dd/mm/dd</returns>
         private string FomatMoney(double dataFormat)
         {          
@@ -180,7 +185,7 @@ namespace MISA.BLL.Services
 
                 if (b == 0)
                 {
-                    result = reverse(result.Substring(0, result.Length - 1));
+                    result = Reverse(result.Substring(0, result.Length - 1));
                 }
                 else
                 {
@@ -189,13 +194,17 @@ namespace MISA.BLL.Services
                         result += dataFormat.ToString()[b - 1];
                         b--;
                     }
-                    result = reverse(result);
+                    result = Reverse(result);
                 }
                 return result;
             
         }
-
-        string reverse(string txt)
+        /// <summary>
+        /// hàm đảo ngược chuỗi 
+        /// </summary>
+        /// <param name="txt">chuỗi đầu vào </param>
+        /// <returns></returns>
+        string Reverse(string txt)
         {
             var strRev = "";
 

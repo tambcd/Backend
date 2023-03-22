@@ -11,6 +11,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MISA.DL", "MISA.DL\MISA.DL.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MISA.Common", "MISA.Common\MISA.Common.csproj", "{43688A30-9344-46A7-B819-AFFC8E2C3F43}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MISA.WebApi.UnitTests", "MISA.UnitTests\MISA.WebApi.UnitTests.csproj", "{CCD47015-C0FA-4180-BCDC-D2900739E1B1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MISA.DL.UnitTests", "MISA.DL.UnitTests\MISA.DL.UnitTests.csproj", "{EAC62264-F9A0-40A4-830A-0158E3952451}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{43688A30-9344-46A7-B819-AFFC8E2C3F43}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{43688A30-9344-46A7-B819-AFFC8E2C3F43}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{43688A30-9344-46A7-B819-AFFC8E2C3F43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CCD47015-C0FA-4180-BCDC-D2900739E1B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCD47015-C0FA-4180-BCDC-D2900739E1B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCD47015-C0FA-4180-BCDC-D2900739E1B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCD47015-C0FA-4180-BCDC-D2900739E1B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EAC62264-F9A0-40A4-830A-0158E3952451}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EAC62264-F9A0-40A4-830A-0158E3952451}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EAC62264-F9A0-40A4-830A-0158E3952451}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EAC62264-F9A0-40A4-830A-0158E3952451}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

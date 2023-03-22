@@ -100,6 +100,7 @@ namespace MISA.BLL.Services
                         propName = (arrProNameDisplay as PropNameDisplay).PropName;
                         listMsgEr.Add($"{propName} {Common.CommonResource.GetResoureString("EmptyCheck")}");
                     }
+                    // dữ liệu lớn 
                     if (property.IsDefined(typeof(MISANumberBig), false) )
                     {
                         if (value.ToString()[1] == '.')
@@ -119,8 +120,7 @@ namespace MISA.BLL.Services
                         }
 
                        
-                    }
-                
+                    }                
                
              
             }
@@ -131,6 +131,11 @@ namespace MISA.BLL.Services
 
 
         }
+        /// <summary>
+        /// validate riêng của mỗi thực thể 
+      /// </summary>
+        /// <param name="entity"> thực thể cần validate</param>
+        /// <returns></returns>
         protected virtual bool ValidateCusrtom(MISAEntity entity)
         {
 

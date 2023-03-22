@@ -54,7 +54,7 @@ namespace MISA.WebApi.Controllers
                 if(data != null)
                 {
 
-                return Ok(data);
+                return StatusCode(200,data);
 
                 }
                 else
