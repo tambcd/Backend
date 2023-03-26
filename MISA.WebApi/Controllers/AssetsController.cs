@@ -42,8 +42,21 @@ namespace MISA.WebApi.Controllers
                 return HandelException(ex);
             }
         }
+        [HttpGet("getPaging")]
+        public IActionResult getPaging( string? txtSearch, Guid? DepartmentId, Guid? AssetCategoryId)
+        {
+            try
+            {
+                var data = _iassetRepository.Getpage(txtSearch, DepartmentId, AssetCategoryId);
+                return Ok(data);
 
-        
+            }
+            catch (Exception ex)
+            {
+                return HandelException(ex);
+            }
+        }
+
         /// <summary>
         /// xuất khẩu danh sách tài sản
         /// </summary>

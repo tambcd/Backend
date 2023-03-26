@@ -91,6 +91,7 @@ namespace MISA.WebApi.Controllers
             {
 
                 return HandelException(ex);
+                
             }
         }
 

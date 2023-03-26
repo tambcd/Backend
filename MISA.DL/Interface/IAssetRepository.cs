@@ -21,5 +21,14 @@ namespace MISA.DL.Interface
         /// created : TVTam(MF1270) - 22/02/2022
         public PagingRequest GetFilter(int pageNumber, int pageSize, string? txtSearch,Guid? DepartmentId,Guid? AssetCategoryId);
 
+        /// <summary>
+        /// lấy thông tin dành cho phân trang 
+        /// </summary>
+        /// <param name="txtSearch">từ khóa tìm kiếm</param>
+        /// <param name="DepartmentId">mã phòng ban tìm kiếm</param>
+        /// <param name="AssetCategoryId">Mã loại tài sản tìm kiếm</param>
+        /// <returns></returns>
+        public PagingRequest Getpage(string? txtSearch,Guid? DepartmentId,Guid? AssetCategoryId);
+
     }
 }

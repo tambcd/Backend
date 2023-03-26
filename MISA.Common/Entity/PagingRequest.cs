@@ -15,6 +15,12 @@ namespace MISA.Common.Entity
 
         public int CurrentPageRecords { get; set; }
 
+        public double TotalCost { get; set; }
+        public double TotalQuantity { get; set; }
+
+        public double TotalDepreciationValue { get; set; }
+
+
         public List<fixed_asset> Data { get; set; } = new List<fixed_asset> { };
     }
 }

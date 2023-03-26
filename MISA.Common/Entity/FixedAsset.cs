@@ -71,7 +71,7 @@ namespace MISA.Common.Entity
         /// <summary>
         /// 'Ngày mua
         /// </summary>
-        public DateTime? purchase_date { get; set; }
+        public DateTime purchase_date { get; set; }
         /// <summary>
         /// nguyên giá
         /// </summary>
@@ -105,6 +105,7 @@ namespace MISA.Common.Entity
         /// Năm bắt đầu theo dõi tài sản trên phần mềm
         /// </summary>
         /// 
+        [MISARequired]
         public int tracked_year { get; set; }
         /// <summary>
         /// Số năm sử dụng
@@ -134,5 +135,25 @@ namespace MISA.Common.Entity
         /// Tổng só bản ghi khi paging 
         /// </summary>
         public int? TotalRecord { get; set; }
+
+        /// <summary>
+        /// Tổng nguyên gía 
+        /// </summary>
+        public double totalCost { get; set; }
+
+        /// <summary>
+        /// tổng giá trị hao mòn lũy kế
+        /// </summary>
+        public double TotalDepreciationValue { get; set; }
+
+        /// <summary>
+        /// Tổng số lượng tài sản
+        /// </summary>
+        public double TotalQuantity { get; set; }
+
+
+
+        
+
     }
 }

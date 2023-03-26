@@ -40,12 +40,13 @@ namespace MISA.DL.Repository
             {
                 pagingRequest = new PagingRequest
                 {
-                    TotalPage = (int)Math.Ceiling(((double)fixed_assets[0].TotalRecord / (double)pageSize))
-               ,
+                    TotalPage = (int)Math.Ceiling(((double)fixed_assets[0].TotalRecord / (double)pageSize)),
+                    TotalCost = fixed_assets[0].totalCost,
+                    TotalDepreciationValue = fixed_assets[0].TotalDepreciationValue,
+                    TotalQuantity = fixed_assets[0].TotalQuantity,               
                     TotalRecord = (int)fixed_assets[0].TotalRecord,
                     CurrentPage = pageNumber,
-                    CurrentPageRecords = pageSize
-               ,
+                    CurrentPageRecords = pageSize,
                     Data = fixed_assets
                 };
             }
@@ -54,6 +55,8 @@ namespace MISA.DL.Repository
                 pagingRequest = new PagingRequest
                 {
                     TotalPage = 0,
+                    TotalQuantity=0,
+                    TotalDepreciationValue = 0,
                     TotalRecord = 0,
                     CurrentPage = 0,
                     CurrentPageRecords = 0 ,
@@ -66,6 +69,18 @@ namespace MISA.DL.Repository
             return pagingRequest;
         }
 
-        
+        public PagingRequest Getpage(string? txtSearch, Guid? DepartmentId, Guid? AssetCategoryId)
+        {
+            var sqlcmd = $"proc_paging";
+            var dynamicParams = new DynamicParameters();
+            dynamicParams.Add("@txtSearch", txtSearch);
+            dynamicParams.Add("@DepartmentId", DepartmentId);
+            dynamicParams.Add("@AssetCategoryId", AssetCategoryId);
+
+            var page = connection.Query<PagingRequest>(sql: sqlcmd, param: dynamicParams, commandType: System.Data.CommandType.StoredProcedure);
+
+            return (PagingRequest)page;
+
+        }
     }
 }
