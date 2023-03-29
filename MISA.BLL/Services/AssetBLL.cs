@@ -138,10 +138,12 @@ namespace MISA.BLL.Services
                 listMsgEr.Add(Common.CommonResource.GetResoureString("ValueCost"));
             }
             // trung mã 
-            if (!Iassetrepository.isSameCode(entity.fixed_asset_code, entity.fixed_asset_id) )
+            if (!Iassetrepository.
+                
+                IsSameCode(entity.fixed_asset_code, entity.fixed_asset_id) )
             {
                 isValidCustom = false;
-                listMsgEr.Add($"Mã tài sản  {Common.CommonResource.GetResoureString("SameCode")}");
+                listMsgEr.Add($"Mã tài sản {entity.fixed_asset_code} {Common.CommonResource.GetResoureString("SameCode")}");
             }
             return isValidCustom;
         }

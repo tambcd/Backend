@@ -144,9 +144,9 @@ namespace MISA.BLL.Services
 
         public string AutoCodeSevices()
         {
-            string data = repository.getCodeNewfirst();        
+            string data = repository.GetCodeNewfirst();        
 
-             return repository.getAutoCode(data.Substring(0, 2).ToString()) ;
+             return repository.GetAutoCode(data.Substring(0, 2).ToString()) ;
             
         }
     }

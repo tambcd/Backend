@@ -160,7 +160,7 @@ namespace MISA.Common.Resource {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to đã tồn tại.
+        ///   Looks up a localized string similar to đã tồn tại trong hệ thống ?.
         /// </summary>
         public static string VN_SameCode {
             get {

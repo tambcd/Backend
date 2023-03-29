@@ -151,7 +151,7 @@
     <value>Dữ liệu đầu vào không hợp lệ</value>
   </data>
   <data name="VN_SameCode" xml:space="preserve">
-    <value>đã tồn tại</value>
+    <value>đã tồn tại trong hệ thống ?</value>
   </data>
   <data name="VN_VaildateFormat" xml:space="preserve">
     <value>không đúng định dạng</value>

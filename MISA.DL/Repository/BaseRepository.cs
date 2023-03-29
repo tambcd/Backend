@@ -134,7 +134,7 @@ namespace MISA.DL.Repository
             }
         }
 
-        public int deleteMany(List<Guid> ids)
+        public int DeleteMany(List<Guid> ids)
         {
             using (var transaction = connection.BeginTransaction())
             {
@@ -148,7 +148,7 @@ namespace MISA.DL.Repository
             }
         }
 
-        public bool isSameCode(string code,Guid? id )
+        public bool IsSameCode(string code,Guid? id )
         {
             var dynamicParams = new DynamicParameters();
             dynamicParams.Add("@code", code);
@@ -166,7 +166,7 @@ namespace MISA.DL.Repository
 
         }
 
-        public string getCodeNewfirst()
+        public string GetCodeNewfirst()
         {
             var sqlcmd = $"SELECT {className}_code FROM {className} ORDER BY created_date DESC LIMIT 1";
             var data = connection.QueryFirstOrDefault<string>(sql: sqlcmd);            
@@ -174,7 +174,7 @@ namespace MISA.DL.Repository
             
         }
 
-        public virtual string getAutoCode(string? txt)
+        public virtual string GetAutoCode(string? txt)
         {
             
             var dynamicParams = new DynamicParameters();

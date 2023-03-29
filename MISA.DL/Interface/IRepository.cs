@@ -56,7 +56,7 @@ namespace MISA.DL.Interface
         /// <param name="ids">Danh sach khóa chính của các đối tượng cần xóa</param>
         /// <returns></returns>
         /// createBy TVTam(MF1270) - 28/02/2023
-        int deleteMany(List<Guid> ids);
+        int DeleteMany(List<Guid> ids);
 
         /// <summary>
         /// kiểm tra mã trùng 
@@ -65,18 +65,18 @@ namespace MISA.DL.Interface
         /// </summary>
         /// <param name="code">mã đối tượng </param>
         /// <returns></returns>
-        public bool isSameCode(string code, Guid? id);
+        public bool IsSameCode(string code, Guid? id);
 
         /// <summary>
         /// Lấy ra mã mới nhất 
         /// </summary>
         /// <returns></returns>
-        public string getCodeNewfirst();
+        public string GetCodeNewfirst();
 
         /// <summary>
         /// lấy giá trị mã mới 
         /// </summary>
         /// <returns></returns>
-        public string getAutoCode(string txt);
+        public string GetAutoCode(string txt);
     }
 }

@@ -144,7 +144,7 @@ namespace MISA.WebApi.Controllers
 
             try
             {
-                var data = _repository.deleteMany(ids);
+                var data = _repository.DeleteMany(ids);
                 return Ok(data);
 
             }
