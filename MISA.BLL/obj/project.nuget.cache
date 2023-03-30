@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Lo9hW2ncnstYA+8atwJ501/cSZagp74yElJvC3r/V3t03ZRrzxLT6bD7OSg78U2jdR1GtX/pVREoIksPdwTqYQ==",
+  "dgSpecHash": "2819/8nKFZHrm/32RiLlRhmN0YNpRrOmheggAg4epfIcUEf8tdCL+LCQnRFacfOjRvoJO/Fccw1ESpcS8sajpA==",
   "success": true,
   "projectFilePath": "D:\\web01_htsn\\MISA.WebApi\\MISA.BLL\\MISA.BLL.csproj",
   "expectedPackageFiles": [
@@ -8,6 +8,7 @@
     "C:\\Users\\trant\\.nuget\\packages\\epplus\\6.0.6\\epplus.6.0.6.nupkg.sha512",
     "C:\\Users\\trant\\.nuget\\packages\\epplus.interfaces\\6.0.0\\epplus.interfaces.6.0.0.nupkg.sha512",
     "C:\\Users\\trant\\.nuget\\packages\\epplus.system.drawing\\6.0.0\\epplus.system.drawing.6.0.0.nupkg.sha512",
+    "C:\\Users\\trant\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.17\\microsoft.aspnetcore.http.features.5.0.17.nupkg.sha512",
     "C:\\Users\\trant\\.nuget\\packages\\microsoft.extensions.configuration\\5.0.0\\microsoft.extensions.configuration.5.0.0.nupkg.sha512",
     "C:\\Users\\trant\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\7.0.0\\microsoft.extensions.configuration.abstractions.7.0.0.nupkg.sha512",
     "C:\\Users\\trant\\.nuget\\packages\\microsoft.extensions.configuration.fileextensions\\5.0.0\\microsoft.extensions.configuration.fileextensions.5.0.0.nupkg.sha512",
@@ -22,6 +23,7 @@
     "C:\\Users\\trant\\.nuget\\packages\\mysqlconnector\\2.2.5\\mysqlconnector.2.2.5.nupkg.sha512",
     "C:\\Users\\trant\\.nuget\\packages\\system.drawing.common\\5.0.0\\system.drawing.common.5.0.0.nupkg.sha512",
     "C:\\Users\\trant\\.nuget\\packages\\system.formats.asn1\\5.0.0\\system.formats.asn1.5.0.0.nupkg.sha512",
+    "C:\\Users\\trant\\.nuget\\packages\\system.io.pipelines\\5.0.2\\system.io.pipelines.5.0.2.nupkg.sha512",
     "C:\\Users\\trant\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
     "C:\\Users\\trant\\.nuget\\packages\\system.security.cryptography.cng\\5.0.0\\system.security.cryptography.cng.5.0.0.nupkg.sha512",
     "C:\\Users\\trant\\.nuget\\packages\\system.security.cryptography.pkcs\\5.0.0\\system.security.cryptography.pkcs.5.0.0.nupkg.sha512",

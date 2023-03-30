@@ -62,11 +62,11 @@ namespace MISA.WebApi.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet("Export")]
-        public IActionResult Export()
+        public IActionResult Export(string? txtSearch, Guid? DepartmentId, Guid? AssetCategoryId)
         {
             try
             {
-                var stream = _iassetBLL.ExportAssets();
+                var stream = _iassetBLL.ExportAssets(txtSearch, DepartmentId, AssetCategoryId);
                 stream.Position = 0;
                 return File(stream, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
 
@@ -74,7 +74,21 @@ namespace MISA.WebApi.Controllers
             catch (Exception ex)
             {
                 return HandelException(ex);
+            }   
+        }
+        [HttpPost("Import")]
+        public IActionResult Import(IFormFile formFile)
+        {
+            try
+            {
+                var path = _iassetBLL.ImportAssets(formFile);
+                return Ok(path);
             }
+            catch (Exception ex)
+            {
+                return HandelException(ex);
+            }
+
         }
 
     }

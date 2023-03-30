@@ -84,7 +84,6 @@ namespace MISA.BLL.Services
             var isValid = true;
             
                 var properties = entity.GetType().GetProperties();
-                Guid identity;
 
 
             foreach (var property in properties)

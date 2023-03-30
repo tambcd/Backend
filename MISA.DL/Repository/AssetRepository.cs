@@ -69,18 +69,38 @@ namespace MISA.DL.Repository
             return pagingRequest;
         }
 
-        public PagingRequest Getpage(string? txtSearch, Guid? DepartmentId, Guid? AssetCategoryId)
+        public IEnumerable<fixed_asset> Getpage(string? txtSearch, Guid? DepartmentId, Guid? AssetCategoryId)
         {
+            if(txtSearch == null)
+            {
+                txtSearch = "";
+            }
             var sqlcmd = $"proc_paging";
             var dynamicParams = new DynamicParameters();
             dynamicParams.Add("@txtSearch", txtSearch);
             dynamicParams.Add("@DepartmentId", DepartmentId);
             dynamicParams.Add("@AssetCategoryId", AssetCategoryId);
 
-            var page = connection.Query<PagingRequest>(sql: sqlcmd, param: dynamicParams, commandType: System.Data.CommandType.StoredProcedure);
+            var page = connection.Query<fixed_asset>(sql: sqlcmd, param: dynamicParams, commandType: System.Data.CommandType.StoredProcedure);
 
-            return (PagingRequest)page;
+            return page;
 
+        }
+
+        public int Import(List<fixed_asset> assets)
+        {
+            var rowsEffec = 0;
+            using (var transaction = connection.BeginTransaction())
+            {
+                var sqlcmd = $"proc_insert_fixed_asset";
+                foreach (var asset in assets)
+                {
+                    rowsEffec += connection.Execute(sql: sqlcmd, param: asset, transaction: transaction, commandType: System.Data.CommandType.StoredProcedure);
+                }
+                transaction.Commit();
+
+            }
+            return rowsEffec;
         }
     }
 }

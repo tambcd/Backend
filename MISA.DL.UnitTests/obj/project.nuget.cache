@@ -1,12 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "XIs/0VRcRNDpzYZNyJNTBBCtdlPvCmLyw/0mggJDWIs95ufFE8mfIPHadzcqhDJ1ulR6ev+ci3xpTQhOwDxitw==",
+  "dgSpecHash": "FAYcj0ZvzWNKdYFX8KQH28eDARSEIJstOogv3WryQvOLbChj6kcVXLy3M1QzQKf7/55BpHp3MwQcJ2LAM/P/Nw==",
   "success": true,
   "projectFilePath": "D:\\web01_htsn\\MISA.WebApi\\MISA.DL.UnitTests\\MISA.DL.UnitTests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\trant\\.nuget\\packages\\coverlet.collector\\3.1.0\\coverlet.collector.3.1.0.nupkg.sha512",
+    "C:\\Users\\trant\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.17\\microsoft.aspnetcore.http.features.5.0.17.nupkg.sha512",
     "C:\\Users\\trant\\.nuget\\packages\\microsoft.codecoverage\\16.11.0\\microsoft.codecoverage.16.11.0.nupkg.sha512",
     "C:\\Users\\trant\\.nuget\\packages\\microsoft.csharp\\4.0.1\\microsoft.csharp.4.0.1.nupkg.sha512",
+    "C:\\Users\\trant\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.1\\microsoft.extensions.primitives.5.0.1.nupkg.sha512",
     "C:\\Users\\trant\\.nuget\\packages\\microsoft.net.test.sdk\\16.11.0\\microsoft.net.test.sdk.16.11.0.nupkg.sha512",
     "C:\\Users\\trant\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\trant\\.nuget\\packages\\microsoft.netcore.targets\\1.0.1\\microsoft.netcore.targets.1.0.1.nupkg.sha512",
@@ -25,6 +27,7 @@
     "C:\\Users\\trant\\.nuget\\packages\\system.io\\4.1.0\\system.io.4.1.0.nupkg.sha512",
     "C:\\Users\\trant\\.nuget\\packages\\system.io.filesystem\\4.0.1\\system.io.filesystem.4.0.1.nupkg.sha512",
     "C:\\Users\\trant\\.nuget\\packages\\system.io.filesystem.primitives\\4.0.1\\system.io.filesystem.primitives.4.0.1.nupkg.sha512",
+    "C:\\Users\\trant\\.nuget\\packages\\system.io.pipelines\\5.0.2\\system.io.pipelines.5.0.2.nupkg.sha512",
     "C:\\Users\\trant\\.nuget\\packages\\system.linq\\4.1.0\\system.linq.4.1.0.nupkg.sha512",
     "C:\\Users\\trant\\.nuget\\packages\\system.linq.expressions\\4.1.0\\system.linq.expressions.4.1.0.nupkg.sha512",
     "C:\\Users\\trant\\.nuget\\packages\\system.objectmodel\\4.0.12\\system.objectmodel.4.0.12.nupkg.sha512",

@@ -11,9 +11,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MISA.DL", "MISA.DL\MISA.DL.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MISA.Common", "MISA.Common\MISA.Common.csproj", "{43688A30-9344-46A7-B819-AFFC8E2C3F43}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MISA.WebApi.UnitTests", "MISA.UnitTests\MISA.WebApi.UnitTests.csproj", "{CCD47015-C0FA-4180-BCDC-D2900739E1B1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MISA.WebApi.UnitTests", "MISA.UnitTests\MISA.WebApi.UnitTests.csproj", "{CCD47015-C0FA-4180-BCDC-D2900739E1B1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MISA.DL.UnitTests", "MISA.DL.UnitTests\MISA.DL.UnitTests.csproj", "{EAC62264-F9A0-40A4-830A-0158E3952451}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MISA.DL.UnitTests", "MISA.DL.UnitTests\MISA.DL.UnitTests.csproj", "{EAC62264-F9A0-40A4-830A-0158E3952451}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{026A1842-DA2E-452E-ACDC-E6AFA224FF64}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

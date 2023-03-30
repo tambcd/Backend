@@ -55,6 +55,5 @@ namespace MISA.BLL.Interface
         /// <param name="code">mã tài sản </param>
         /// <returns></returns>
         public string AutoCodeSevices();
-
     }
 }

@@ -50,6 +50,10 @@
             "EPPlus": {
               "target": "Package",
               "version": "[6.0.6, )"
+            },
+            "Microsoft.AspNetCore.Http.Features": {
+              "target": "Package",
+              "version": "[5.0.17, )"
             }
           },
           "imports": [
@@ -173,6 +177,10 @@
               "target": "Package",
               "version": "[6.0.6, )"
             },
+            "Microsoft.AspNetCore.Http.Features": {
+              "target": "Package",
+              "version": "[5.0.17, )"
+            },
             "Microsoft.Extensions.Configuration.Abstractions": {
               "target": "Package",
               "version": "[7.0.0, )"
@@ -250,6 +258,10 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Http.Features": {
+              "target": "Package",
+              "version": "[5.0.17, )"
+            },
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
               "version": "[16.11.0, )"
@@ -339,6 +351,10 @@
             "EPPlus": {
               "target": "Package",
               "version": "[6.0.6, )"
+            },
+            "Microsoft.AspNetCore.Http.Features": {
+              "target": "Package",
+              "version": "[5.0.17, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",

@@ -138,6 +138,8 @@ namespace MISA.DL.Repository
         {
             using (var transaction = connection.BeginTransaction())
             {
+                try
+                {
 
                 var sqlcmd = $"DELETE FROM {className} WHERE {className}_id in @id";
                 var parameters = new DynamicParameters();
@@ -145,6 +147,12 @@ namespace MISA.DL.Repository
                 var rowsEffec = connection.Execute(sql: sqlcmd, param: parameters, transaction: transaction);
                 transaction.Commit();
                 return rowsEffec;
+                }
+                catch (Exception ex)
+                {
+                    transaction.Rollback();
+                    return 0;
+                }
             }
         }
 

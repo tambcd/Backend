@@ -1,4 +1,5 @@
-﻿using MISA.BLL.Interface;
+﻿using Microsoft.AspNetCore.Http;
+using MISA.BLL.Interface;
 using MISA.Common.Entity;
 using MISA.DL.Interface;
 using OfficeOpenXml;
@@ -20,9 +21,9 @@ namespace MISA.BLL.Services
             Iassetrepository = _iassetrepository;
         }
 
-        public Stream ExportAssets()
+        public Stream ExportAssets(string? txtSearch, Guid? DepartmentId, Guid? AssetCategoryId)
         {
-            return GenerateExcelFileAsync((List<fixed_asset>)Iassetrepository.GetAll());
+            return GenerateExcelFileAsync((List<fixed_asset>) Iassetrepository.Getpage(txtSearch,DepartmentId,AssetCategoryId));
 
         }
 
@@ -118,8 +119,9 @@ namespace MISA.BLL.Services
             return stream;
         }
 
-        
-       
+
+
+
         /// <summary>
         /// validate insert cho tài sản
         /// </summary>
@@ -217,5 +219,168 @@ namespace MISA.BLL.Services
 
             return strRev;
         }
+
+
+        public int ImportAssets(IFormFile formFile)
+        {
+            try
+            {
+                // kiểu tra tệp rỗng 
+                if (formFile == null || formFile.Length <= 0)
+                {
+                    listMsgEr.Add(Common.CommonResource.GetResoureString("FileExist"));
+                }
+                // kiểu tra tệp đúng dịnh dạng ko 
+
+                if (!Path.GetExtension(formFile.FileName).Equals(".xlsx", StringComparison.OrdinalIgnoreCase))
+                {
+                    listMsgEr.Add(Common.CommonResource.GetResoureString("FileNotFormat"));
+                }
+                var assets = new List<fixed_asset>();
+                using (var stream = new MemoryStream())
+                {
+                    formFile.CopyToAsync(stream);
+
+                    using (var package = new ExcelPackage(stream))
+                    {
+                        ExcelWorksheet worksheet = package.Workbook.Worksheets[0];
+                        var rowCount = worksheet.Dimension.Rows;
+
+                        for (int row = 4; row <= rowCount; row++)
+                        {
+
+                            var asset = new fixed_asset()
+                            {
+
+                                fixed_asset_code = ConvertObjectToString(worksheet.Cells[row, 2].Value),
+                                fixed_asset_name = ConvertObjectToString(worksheet.Cells[row, 3].Value),
+                                department_id = ConvertObjectToGuid(worksheet.Cells[row, 4].Value),
+                                department_code = ConvertObjectToString(worksheet.Cells[row, 5].Value),
+                                department_name = ConvertObjectToString(worksheet.Cells[row, 6].Value),
+                                fixed_asset_category_id = ConvertObjectToGuid(worksheet.Cells[row, 7].Value),
+                                fixed_asset_category_code = ConvertObjectToString(worksheet.Cells[row, 8]),
+                                fixed_asset_category_name = ConvertObjectToString(worksheet.Cells[row, 9].Value),
+                                purchase_date = ConvertObjectToDate(worksheet.Cells[row, 10].Value),
+                                cost = ConvertObjectToNumber(worksheet.Cells[row, 11].Value),
+                                quantity = ConvertObjectToNumberInt(worksheet.Cells[row, 12].Value),
+                                depreciation_value = ConvertObjectToNumber(worksheet.Cells[row, 13].Value),
+                                depreciation_rate = ConvertObjectToNumber(worksheet.Cells[row, 14].Value),
+                                tracked_year = ConvertObjectToNumberInt(worksheet.Cells[row, 15].Value),
+                                life_time = ConvertObjectToNumberInt(worksheet.Cells[row, 16].Value),
+                                production_year = ConvertObjectToDate(worksheet.Cells[row, 17].Value),
+
+
+                            };
+                            base.listMsgEr.Clear();
+                            base.Validate(asset, "insert");
+                            ValidateCusrtom(asset);
+                            asset.ListerroImport.AddRange(base.listMsgEr);
+                            assets.Add(asset);
+                            
+
+                        }
+                    }
+                }
+                return Iassetrepository.Import(assets);
+
+            }
+            catch (Exception ex)
+            {
+
+                 return 0 ;
+            }
+        }
+        /// <summary>
+        /// object to int 
+        /// </summary>
+        /// <param name="value">object</param>
+        /// <returns>int || 0 khi null hoặc vượt quá int </returns>
+        private int ConvertObjectToNumberInt(object? value)
+        {
+            if (value == null)
+            {
+                return 0;
+            }
+            else
+            {
+                int Number;
+                if (Int32.TryParse(value.ToString(), out Number))
+                {
+                    return Number;
+                }
+                else return 0;
+            }
+        }
+        /// <summary>
+        /// object to double
+        /// </summary>
+        /// <param name="value">object</param>
+        /// <returns>double || 0 khi null hoặc vượt quá double</returns>
+        private double ConvertObjectToNumber(object? value)
+        {
+            if (value == null)
+            {
+                return 0;
+            }
+            else
+            {
+                int Number;
+                if (Int32.TryParse(value.ToString(), out Number))
+                {
+                    return Number;
+                }
+                else return 0;
+            }
+        }
+
+        /// <summary>
+        /// chuyển đối tượng sang ngày tháng 
+        /// </summary>
+        /// <param name="value">đối tượng </param>
+        /// <returns>date || date now khí null</returns>
+        private DateTime ConvertObjectToDate(object? value)
+        {
+            if (value == null)
+            {
+                return DateTime.Now;
+            }
+            else
+            {
+                DateTime date;
+                if (DateTime.TryParse(value.ToString(), out date))
+                {
+                    return date;
+                }
+                return DateTime.Now;
+            }
+        }
+
+        /// <summary>
+        /// chuyển đổi kiểu đối tượng sang dữ liệu Guid
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        private Guid ConvertObjectToGuid(object value)
+        {
+            return new Guid(value.ToString());
+        }
+
+        /// <summary>
+        ///    chuyển đổi kiểu đối tượng sang  dữ liệu dưới dạng chuỗi 
+        /// </summary>
+        /// <param name="value">đối tượng cần ép kiểu </param>
+        /// <returns>dữ liệu dưới dạng chuỗi</returns>
+        private string? ConvertObjectToString(object? value)
+        {
+            if (value == null)
+            {
+                return null;
+            }
+            else
+            {
+                return value.ToString();
+            }
+        }
     }
+    
 }

@@ -28,7 +28,13 @@ namespace MISA.DL.Interface
         /// <param name="DepartmentId">mã phòng ban tìm kiếm</param>
         /// <param name="AssetCategoryId">Mã loại tài sản tìm kiếm</param>
         /// <returns></returns>
-        public PagingRequest Getpage(string? txtSearch,Guid? DepartmentId,Guid? AssetCategoryId);
+        public IEnumerable<fixed_asset> Getpage(string? txtSearch,Guid? DepartmentId,Guid? AssetCategoryId);
+        /// <summary>
+        /// nhập khâủ dữ liệu 
+        /// </summary>
+        /// <param name="assets">danh sách tài sản </param>
+        /// <returns>số bản ghi thành công || thất bại : 0</returns>
+        public int Import(List<fixed_asset> assets);
 
     }
 }
