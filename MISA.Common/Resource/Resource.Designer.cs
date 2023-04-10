@@ -88,11 +88,56 @@ namespace MISA.Common.Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Mã loại tài sản.
+        /// </summary>
+        public static string VN_CategoryCode {
+            get {
+                return ResourceManager.GetString("VN_CategoryCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tên loại tài sản.
+        /// </summary>
+        public static string VN_CategoryName {
+            get {
+                return ResourceManager.GetString("VN_CategoryName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Mã đã tồn tại trong hệ thống.
         /// </summary>
         public static string VN_CodeExist {
             get {
                 return ResourceManager.GetString("VN_CodeExist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nguyên giá.
+        /// </summary>
+        public static string VN_Cost {
+            get {
+                return ResourceManager.GetString("VN_Cost", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mã bộ phận sử dụng.
+        /// </summary>
+        public static string VN_DepartmentCode {
+            get {
+                return ResourceManager.GetString("VN_DepartmentCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tên bộ phận sử dụng.
+        /// </summary>
+        public static string VN_DepartmentName {
+            get {
+                return ResourceManager.GetString("VN_DepartmentName", resourceCulture);
             }
         }
         
@@ -160,11 +205,47 @@ namespace MISA.Common.Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Số lượng.
+        /// </summary>
+        public static string VN_Number {
+            get {
+                return ResourceManager.GetString("VN_Number", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vui lòng nhập .
+        /// </summary>
+        public static string VN_PleaseEnter {
+            get {
+                return ResourceManager.GetString("VN_PleaseEnter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Giá trị còn lại.
+        /// </summary>
+        public static string VN_ResidualValue {
+            get {
+                return ResourceManager.GetString("VN_ResidualValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to đã tồn tại trong hệ thống ?.
         /// </summary>
         public static string VN_SameCode {
             get {
                 return ResourceManager.GetString("VN_SameCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Số thứ tự.
+        /// </summary>
+        public static string VN_STT {
+            get {
+                return ResourceManager.GetString("VN_STT", resourceCulture);
             }
         }
         

@@ -12,7 +12,7 @@ namespace MISA.Common.Entity
         /// Id tài sản
         /// </summary>
         [PropNameDisplay("fixed_asset_id")]
-        public Guid fixed_asset_id { get; set; }
+        public Guid? fixed_asset_id { get; set; }
         /// <summary>
         /// Mã tài sản
         /// </summary>
@@ -40,7 +40,7 @@ namespace MISA.Common.Entity
         /// <summary>
         /// Id phòng ban
         /// </summary>
-        public Guid department_id { get; set; }
+        public Guid? department_id { get; set; }
         /// <summary>
         /// 'Mã phòng ban
         /// </summary>

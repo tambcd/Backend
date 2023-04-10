@@ -126,8 +126,23 @@
   <data name="VN_AssetName" xml:space="preserve">
     <value>Tên tài sản </value>
   </data>
+  <data name="VN_CategoryCode" xml:space="preserve">
+    <value>Mã loại tài sản</value>
+  </data>
+  <data name="VN_CategoryName" xml:space="preserve">
+    <value>Tên loại tài sản</value>
+  </data>
   <data name="VN_CodeExist" xml:space="preserve">
     <value>Mã đã tồn tại trong hệ thống</value>
+  </data>
+  <data name="VN_Cost" xml:space="preserve">
+    <value>Nguyên giá</value>
+  </data>
+  <data name="VN_DepartmentCode" xml:space="preserve">
+    <value>Mã bộ phận sử dụng</value>
+  </data>
+  <data name="VN_DepartmentName" xml:space="preserve">
+    <value>Tên bộ phận sử dụng</value>
   </data>
   <data name="VN_DepreciationValue" xml:space="preserve">
     <value>Giá trị hao mòn lũy kế</value>
@@ -150,8 +165,20 @@
   <data name="VN_InvalidInput" xml:space="preserve">
     <value>Dữ liệu đầu vào không hợp lệ</value>
   </data>
+  <data name="VN_Number" xml:space="preserve">
+    <value>Số lượng</value>
+  </data>
+  <data name="VN_PleaseEnter" xml:space="preserve">
+    <value>Vui lòng nhập </value>
+  </data>
+  <data name="VN_ResidualValue" xml:space="preserve">
+    <value>Giá trị còn lại</value>
+  </data>
   <data name="VN_SameCode" xml:space="preserve">
     <value>đã tồn tại trong hệ thống ?</value>
+  </data>
+  <data name="VN_STT" xml:space="preserve">
+    <value>Số thứ tự</value>
   </data>
   <data name="VN_VaildateFormat" xml:space="preserve">
     <value>không đúng định dạng</value>

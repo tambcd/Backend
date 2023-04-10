@@ -11,6 +11,8 @@ namespace MISA.DL.Interface
     {
         /// <summary>
         /// Lọc danh sách đối tượng
+        /// @created by : tvTam
+        /// @create day : 19/3/2023
         /// </summary>
         /// <param name="pageNumber">số trang</param>
         /// <param name="pageSize">số bảng ghi trên trang </param>
@@ -23,6 +25,8 @@ namespace MISA.DL.Interface
 
         /// <summary>
         /// lấy thông tin dành cho phân trang 
+        /// @created by : tvTam
+        /// @create day : 19/3/2023
         /// </summary>
         /// <param name="txtSearch">từ khóa tìm kiếm</param>
         /// <param name="DepartmentId">mã phòng ban tìm kiếm</param>
@@ -31,6 +35,8 @@ namespace MISA.DL.Interface
         public IEnumerable<fixed_asset> Getpage(string? txtSearch,Guid? DepartmentId,Guid? AssetCategoryId);
         /// <summary>
         /// nhập khâủ dữ liệu 
+        /// @created by : tvTam
+        /// @create day : 19/3/2023
         /// </summary>
         /// <param name="assets">danh sách tài sản </param>
         /// <returns>số bản ghi thành công || thất bại : 0</returns>

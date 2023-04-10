@@ -47,7 +47,7 @@ namespace MISA.BLL.Interface
         /// true : thỏa mán validate
         /// Fasle : không thỏa mãn validate     
         /// </returns>
-        public bool Validate(T entity , string type);
+        public bool Validate(T entity , int type);
 
         /// <summary>
         /// Sinh mã từ động 

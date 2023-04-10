@@ -15,7 +15,17 @@ namespace MISA.DL.Repository
         public AssetRepository(IConfiguration configuration) : base(configuration)
         {
         }
-
+        /// <summary>
+        /// Lấy dữ liệu theo phân trang
+        /// @created by : tvTam
+        /// @create day : 19/3/2023
+        /// </summary>
+        /// <param name="pageNumber">số trang </param>
+        /// <param name="pageSize">số bản ghi trên 1 trang</param>
+        /// <param name="txtSearch">từ khóa tìm kiếm </param>
+        /// <param name="DepartmentId">mã phòng ban</param>
+        /// <param name="AssetCategoryId">mã loại sản phẩm</param>
+        /// <returns>danh sách bản ghi</returns>
         public PagingRequest GetFilter(int pageNumber, int pageSize, string? txtSearch , Guid? DepartmentId ,Guid? AssetCategoryId)
         {
             if (txtSearch == null)
@@ -64,11 +74,17 @@ namespace MISA.DL.Repository
                 };
 
             }
-
-
             return pagingRequest;
         }
-
+        /// <summary>
+        /// lọc danh sách
+        /// @created by : tvTam
+        /// @create day : 19/3/2023
+        /// </summary>
+        /// <param name="txtSearch">từ khóa </param>
+        /// <param name="DepartmentId">id phòng ban</param>
+        /// <param name="AssetCategoryId">id loại sản phẩm </param>
+        /// <returns></returns>
         public IEnumerable<fixed_asset> Getpage(string? txtSearch, Guid? DepartmentId, Guid? AssetCategoryId)
         {
             if(txtSearch == null)
@@ -86,7 +102,13 @@ namespace MISA.DL.Repository
             return page;
 
         }
-
+        /// <summary>
+        /// thực hiện nhập khẩu
+        /// @created by : tvTam
+        /// @create day : 19/3/2023
+        /// </summary>
+        /// <param name="assets">tệp danh sách tài sản</param>
+        /// <returns>số bản ghi thành công</returns>
         public int Import(List<fixed_asset> assets)
         {
             var rowsEffec = 0;

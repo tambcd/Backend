@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 using System.Text.RegularExpressions;
+using MISA.Common.QueryDatabase;
 
 namespace MISA.DL.Repository
 {
@@ -42,11 +43,11 @@ namespace MISA.DL.Repository
         }
 
 
-
         public virtual IEnumerable<MISAEntity> GetAll()
         {
+            string getAll = String.Format(StringQuery.GetAll, className);
             // khai bao sqlCommand
-            var sqlcmd = $"SELECT * FROM {className}";
+            var sqlcmd = getAll;
 
             // thực hiện lấy dữ liệu 
             var data = connection.Query<MISAEntity>(sql: sqlcmd);
@@ -56,7 +57,6 @@ namespace MISA.DL.Repository
 
         public MISAEntity GetById(Guid id)
         {
-
             var sqlcmd = $"SELECT * FROM {className} WHERE {className}_id = @Id";
             var dynamicParams = new DynamicParameters();
             dynamicParams.Add("@Id", id);
@@ -70,7 +70,9 @@ namespace MISA.DL.Repository
         {
             using (var transaction = connection.BeginTransaction())
             {
-                var sqlcmd = $"proc_insert_{className}";
+                string insert = String.Format(StringQuery.Insert, className);
+
+                var sqlcmd = insert;
                 var rowsEffec = connection.Execute(sql: sqlcmd, param: mISAEntity, transaction: transaction, commandType: System.Data.CommandType.StoredProcedure);
                 transaction.Commit();
                 return rowsEffec;
@@ -97,7 +99,8 @@ namespace MISA.DL.Repository
 
         public int Update(MISAEntity entity)
         {
-            var sqlcmd = $"proc_update_{className}";
+            string update = String.Format(StringQuery.Update, className);
+            var sqlcmd = update;
             var rowsEffec = connection.Execute(sql: sqlcmd, param: entity, commandType: System.Data.CommandType.StoredProcedure);
             return rowsEffec;
         }
@@ -140,7 +143,6 @@ namespace MISA.DL.Repository
             {
                 try
                 {
-
                 var sqlcmd = $"DELETE FROM {className} WHERE {className}_id in @id";
                 var parameters = new DynamicParameters();
                 parameters.Add("@id", ids);

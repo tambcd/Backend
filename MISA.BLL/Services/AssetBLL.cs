@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using MISA.BLL.Interface;
 using MISA.Common.Entity;
+using MISA.Common.Enum;
 using MISA.DL.Interface;
 using OfficeOpenXml;
 using OfficeOpenXml.Style;
@@ -20,7 +21,15 @@ namespace MISA.BLL.Services
         {
             Iassetrepository = _iassetrepository;
         }
-
+        /// <summary>
+        /// thự hiện xuất khẩu theo lọc 
+        /// @created by : tvTam
+        /// @create day : 1/3/2023
+        /// </summary>
+        /// <param name="txtSearch">từ khóa tìm kiếm </param>
+        /// <param name="DepartmentId">mã phòng ban</param>
+        /// <param name="AssetCategoryId">mã loại sản phẩm </param>
+        /// <returns></returns>
         public Stream ExportAssets(string? txtSearch, Guid? DepartmentId, Guid? AssetCategoryId)
         {
             return GenerateExcelFileAsync((List<fixed_asset>) Iassetrepository.Getpage(txtSearch,DepartmentId,AssetCategoryId));
@@ -29,28 +38,32 @@ namespace MISA.BLL.Services
 
         /// <summary>
         /// hàm tạo và  định dạng file excel 
+        /// @created by : tvTam
+        /// @create day : 1/3/2023
         /// </summary>
         /// <param name="fixed_asset">danh sách cần export </param>
         /// <returns></returns>
         public Stream GenerateExcelFileAsync(List<fixed_asset> fixed_asset)
         {
+            // sinh tên không trùng theo ngày
             string excelName = $"DanhSanhTaiSan-{DateTime.Now.ToString("yyyyMMddHHmmssfff")}.xlsx";
             ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
 
             MemoryStream stream = new MemoryStream();
             var headers = new List<string>()
             {
-                "STT",
-                "Mã tài sản",
-                "Tên tài sản",
-                "Mã loại tài sản",
-                "Tên loại tài sản",
-                "Mã bộ phận sử dụng",
-                "Tên bộ phận sử dụng",
-                "Số lượng",
-                "Nguyên giá",
-                "HM/KH lũy kế",
-                "Giá trị còn lại",
+                Common.CommonResource.GetResoureString("STT"),
+                Common.CommonResource.GetResoureString("AssetCode"),
+                Common.CommonResource.GetResoureString("AssetName"),
+                Common.CommonResource.GetResoureString("CategoryCode"),
+                Common.CommonResource.GetResoureString("CategoryName"),
+                Common.CommonResource.GetResoureString("DepartmentCode"),
+                Common.CommonResource.GetResoureString("DepartmentName"),
+                Common.CommonResource.GetResoureString("Number"),
+                Common.CommonResource.GetResoureString("Cost"),
+                Common.CommonResource.GetResoureString("DepreciationValue"),
+                Common.CommonResource.GetResoureString("ResidualValue"),
+                
                
             };
             using (ExcelPackage package = new ExcelPackage(stream))
@@ -88,13 +101,7 @@ namespace MISA.BLL.Services
                 row = 4;
                 // Style
                 foreach (var i in fixed_asset)
-                {
-
-                    sheet.Column(1).Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
-                    sheet.Column(8).Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
-                    sheet.Column(9).Style.HorizontalAlignment = ExcelHorizontalAlignment.Right;
-                    sheet.Column(10).Style.HorizontalAlignment = ExcelHorizontalAlignment.Right;
-                    sheet.Column(11).Style.HorizontalAlignment = ExcelHorizontalAlignment.Right;
+                {                    
                     sheet.Cells[row, 1].Style.Border.BorderAround(OfficeOpenXml.Style.ExcelBorderStyle.Medium);
                     sheet.Cells[row, 2].Style.Border.BorderAround(OfficeOpenXml.Style.ExcelBorderStyle.Medium);
                     sheet.Cells[row, 3].Style.Border.BorderAround(OfficeOpenXml.Style.ExcelBorderStyle.Medium);
@@ -106,6 +113,11 @@ namespace MISA.BLL.Services
                     sheet.Cells[row, 9].Style.Border.BorderAround(OfficeOpenXml.Style.ExcelBorderStyle.Medium);                    
                     sheet.Cells[row, 10].Style.Border.BorderAround(OfficeOpenXml.Style.ExcelBorderStyle.Medium);
                     sheet.Cells[row, 11].Style.Border.BorderAround(OfficeOpenXml.Style.ExcelBorderStyle.Medium);
+                    sheet.Column(1).Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+                    sheet.Column(8).Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+                    sheet.Column(9).Style.HorizontalAlignment = ExcelHorizontalAlignment.Right;
+                    sheet.Column(10).Style.HorizontalAlignment = ExcelHorizontalAlignment.Right;
+                    sheet.Column(11).Style.HorizontalAlignment = ExcelHorizontalAlignment.Right;
                     row++;
                 }
                 for (var i = 1; i <= headers.Count; i++)
@@ -119,11 +131,10 @@ namespace MISA.BLL.Services
             return stream;
         }
 
-
-
-
         /// <summary>
         /// validate insert cho tài sản
+        /// @created by : tvTam
+        /// @create day : 1/3/2023
         /// </summary>
         /// <param name="entity"> tài sản </param>
         /// <returns>   
@@ -140,21 +151,21 @@ namespace MISA.BLL.Services
                 listMsgEr.Add(Common.CommonResource.GetResoureString("ValueCost"));
             }
             // trung mã 
-            if (!Iassetrepository.
-                
-                IsSameCode(entity.fixed_asset_code, entity.fixed_asset_id) )
+            if (!Iassetrepository.IsSameCode(entity.fixed_asset_code, entity.fixed_asset_id) )
             {
                 isValidCustom = false;
-                listMsgEr.Add($"Mã tài sản {entity.fixed_asset_code} {Common.CommonResource.GetResoureString("SameCode")}");
+                listMsgEr.Add($" {Common.CommonResource.GetResoureString("AssetCode")} {entity.fixed_asset_code} {Common.CommonResource.GetResoureString("SameCode")}");
             }
             return isValidCustom;
         }
         /// <summary>
         /// Chuyển date sang string
+        /// @created by : tvTam
+        /// @create day : 1/3/2023
         /// </summary>
         /// <param name="date">date</param>
         /// <returns>dd/mm/dd</returns>
-        private string DateToString(DateTime? date)
+   /*     private string DateToString(DateTime? date)
         {
             if (date == null)
             {
@@ -164,9 +175,11 @@ namespace MISA.BLL.Services
             {
                 return "" + date.Value.Day.ToString() + "/" + date.Value.Month.ToString() + "/" + date.Value.Year.ToString();
             }
-        }
+        }*/
         /// <summary>
         /// hàm định dạng tiền 
+        /// @created by : tvTam
+        /// @create day : 1/3/2023
         /// </summary>
         /// <param name="dataFormat"> tiền cần format </param>
         /// <returns>dd/mm/dd</returns>
@@ -205,6 +218,8 @@ namespace MISA.BLL.Services
         }
         /// <summary>
         /// hàm đảo ngược chuỗi 
+        /// @created by : tvTam
+        /// @create day : 1/3/2023
         /// </summary>
         /// <param name="txt">chuỗi đầu vào </param>
         /// <returns></returns>
@@ -220,7 +235,13 @@ namespace MISA.BLL.Services
             return strRev;
         }
 
-
+        /// <summary>
+        /// thực hiện nhập khẩu 
+        /// @created by : tvTam
+        /// @create day : 1/3/2023
+        /// </summary>
+        /// <param name="formFile">file thông tin tài sản</param>
+        /// <returns></returns>
         public int ImportAssets(IFormFile formFile)
         {
             try
@@ -272,7 +293,7 @@ namespace MISA.BLL.Services
 
                             };
                             base.listMsgEr.Clear();
-                            base.Validate(asset, "insert");
+                            base.Validate(asset, (int)MisaEnum.Insert);
                             ValidateCusrtom(asset);
                             asset.ListerroImport.AddRange(base.listMsgEr);
                             assets.Add(asset);
@@ -292,6 +313,8 @@ namespace MISA.BLL.Services
         }
         /// <summary>
         /// object to int 
+        /// @created by : tvTam
+        /// @create day : 1/3/2023
         /// </summary>
         /// <param name="value">object</param>
         /// <returns>int || 0 khi null hoặc vượt quá int </returns>
@@ -313,6 +336,8 @@ namespace MISA.BLL.Services
         }
         /// <summary>
         /// object to double
+        /// @created by : tvTam
+        /// @create day : 1/3/2023
         /// </summary>
         /// <param name="value">object</param>
         /// <returns>double || 0 khi null hoặc vượt quá double</returns>
@@ -335,6 +360,8 @@ namespace MISA.BLL.Services
 
         /// <summary>
         /// chuyển đối tượng sang ngày tháng 
+        /// @created by : tvTam
+        /// @create day : 1/3/2023
         /// </summary>
         /// <param name="value">đối tượng </param>
         /// <returns>date || date now khí null</returns>
@@ -357,6 +384,8 @@ namespace MISA.BLL.Services
 
         /// <summary>
         /// chuyển đổi kiểu đối tượng sang dữ liệu Guid
+        /// @created by : tvTam
+        /// @create day : 1/3/2023
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
@@ -367,6 +396,8 @@ namespace MISA.BLL.Services
 
         /// <summary>
         ///    chuyển đổi kiểu đối tượng sang  dữ liệu dưới dạng chuỗi 
+        ///    @created by : tvTam
+        /// @create day : 1/3/2023
         /// </summary>
         /// <param name="value">đối tượng cần ép kiểu </param>
         /// <returns>dữ liệu dưới dạng chuỗi</returns>

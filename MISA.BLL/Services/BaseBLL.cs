@@ -1,5 +1,6 @@
 ﻿using MISA.BLL.Interface;
 using MISA.Common.Entity;
+using MISA.Common.Enum;
 using MISA.Common.Exceptions;
 using MISA.DL.Interface;
 using System;
@@ -33,11 +34,18 @@ namespace MISA.BLL.Services
             repository = _repository;
 
         }
-
+        /// <summary>
+        /// Thự hiện thêm đối tượng
+        /// @created by : tvTam
+        /// @create day : 1/3/2023
+        /// </summary>
+        /// <param name="entity">thông tin đối tường</param>
+        /// <returns></returns>
+        /// <exception cref="MISAException">khi gặp lỗi trả về</exception>
         public int InsertSevices(MISAEntity entity)
         {
             // check validate chung
-            var isValid = Validate(entity , "insert");
+            var isValid = Validate(entity , (int)MisaEnum.Insert);
             // check validate custom
             isValidCustom = ValidateCusrtom(entity);
             if (isValid && isValidCustom)
@@ -50,7 +58,13 @@ namespace MISA.BLL.Services
                 throw new MISAException(Common.CommonResource.GetResoureString("InvalidInput"), listMsgEr);
             }
         }
-
+        /// <summary>
+        /// thực hiện xóa 1 bản ghi 
+        /// @created by : tvTam
+        /// @create day : 1/3/2023
+        /// </summary>
+        /// <param name="id">id bản ghi cần xóa </param>
+        /// <returns></returns>
         public int DeleteSevices(Guid id)
         {
             var listMsgEr = new List<string>();
@@ -60,11 +74,18 @@ namespace MISA.BLL.Services
             return res;
         }
 
-
+        /// <summary>
+        /// thực hiện xửa 1 đối  tường 
+        /// @created by : tvTam
+        /// @create day : 1/3/2023
+        /// </summary>
+        /// <param name="entity">thông tin đối tượng </param>
+        /// <returns></returns>
+        /// <exception cref="MISAException">trả về lỗi </exception>
         public int UpdateSevices(MISAEntity entity)
         {
             // check validate chung
-            var isValid = Validate(entity,"update");
+            bool isValid = Validate(entity, (int)MisaEnum.Update);
             // check validate custom
             isValidCustom = ValidateCusrtom(entity);
             if (isValid && isValidCustom)
@@ -78,13 +99,20 @@ namespace MISA.BLL.Services
             }
         }
 
-        public bool Validate(MISAEntity entity , string typeVailde)
+        /// <summary>
+        /// thực hiện chuẩn hóa dữ liệu
+        /// @created by : tvTam
+        /// @create day : 1/3/2023
+        /// </summary>
+        /// <param name="entity">thông tin đối tường</param>
+        /// <param name="typeVailde">iểu thêm hay sửa </param>
+        /// <returns>true || fasle</returns>
+        public bool Validate(MISAEntity entity , int typeVailde)
         {
             
-            var isValid = true;
-            
+            var isValid = true;            
                 var properties = entity.GetType().GetProperties();
-
+            // kiểm tra dữ liệu dựa vào Attribute tự định nghĩa 
 
             foreach (var property in properties)
             {
@@ -100,9 +128,15 @@ namespace MISA.BLL.Services
                         listMsgEr.Add($"{propName} {Common.CommonResource.GetResoureString("EmptyCheck")}");
                     }
                     // dữ liệu lớn 
-                    if (property.IsDefined(typeof(MISANumberBig), false) )
+                    /*if (property.IsDefined(typeof(MISANumberBig), false) )
                     {
-                        if (value.ToString()[1] == '.')
+                    if ((int)value == 0)
+                    {
+                        isValid = false;
+                        propName = (arrProNameDisplay as PropNameDisplay).PropName;
+                        listMsgEr.Add($"{propName} {Common.CommonResource.GetResoureString("PleaseEnter")}");
+                    }
+                    else if (value.ToString()[1] == '.')
                         {
                             if(Int32.Parse(value.ToString().Split('+')[1]) >= 17)
                             {
@@ -117,30 +151,32 @@ namespace MISA.BLL.Services
                             propName = (arrProNameDisplay as PropNameDisplay).PropName;
                             listMsgEr.Add($"{propName} {Common.CommonResource.GetResoureString("ValueNotType")}");
                         }
-
-                       
-                    }                
-               
-             
+=                    }    */      
             }
 
             // validate chung 
             return isValid;
-            // kiểm tra buộc nhập 
 
 
         }
         /// <summary>
         /// validate riêng của mỗi thực thể 
-      /// </summary>
+        /// @created by : tvTam
+        /// @create day : 1/3/2023
+        /// </summary>
         /// <param name="entity"> thực thể cần validate</param>
-        /// <returns></returns>
+        /// <returns>bool</returns>
         protected virtual bool ValidateCusrtom(MISAEntity entity)
         {
 
             return true;
         }
-
+        /// <summary>
+        /// sinh ra mã tự động
+        /// @created by : tvTam
+        /// @create day : 1/3/2023
+        /// </summary>
+        /// <returns>mã mới (string)</returns>
         public string AutoCodeSevices()
         {
             string data = repository.GetCodeNewfirst();        

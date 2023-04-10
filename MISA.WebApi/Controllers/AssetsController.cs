@@ -20,6 +20,8 @@ namespace MISA.WebApi.Controllers
         }
         /// <summary>
         ///   tìm kiếm phân trang theo tiêu chí 
+        ///   @created by : tvTam
+        /// @create day : 19/3/2023
         /// </summary>
         /// <param name="pageNumber">số trang hiện tại </param>
         /// <param name="pageSize">số bản ghi trên 1 trang </param>
@@ -42,25 +44,14 @@ namespace MISA.WebApi.Controllers
                 return HandelException(ex);
             }
         }
-        [HttpGet("getPaging")]
-        public IActionResult getPaging( string? txtSearch, Guid? DepartmentId, Guid? AssetCategoryId)
-        {
-            try
-            {
-                var data = _iassetRepository.Getpage(txtSearch, DepartmentId, AssetCategoryId);
-                return Ok(data);
 
-            }
-            catch (Exception ex)
-            {
-                return HandelException(ex);
-            }
-        }
 
         /// <summary>
         /// xuất khẩu danh sách tài sản
+        /// @created by : tvTam
+        /// @create day : 19/3/2023
         /// </summary>
-        /// <returns></returns>
+        /// <returns>danh sách tài sản sau khi đi fliter</returns>
         [HttpGet("Export")]
         public IActionResult Export(string? txtSearch, Guid? DepartmentId, Guid? AssetCategoryId)
         {
@@ -76,6 +67,13 @@ namespace MISA.WebApi.Controllers
                 return HandelException(ex);
             }   
         }
+        /// <summary>
+        /// nhập khẩu từ excel
+        /// @created by : tvTam
+        /// @create day : 19/3/2023
+        /// </summary>
+        /// <param name="formFile">tệp chứa thông tin nhập khẩu </param>
+        /// <returns>số bản ghi đươc nhập khẩu </returns>
         [HttpPost("Import")]
         public IActionResult Import(IFormFile formFile)
         {
