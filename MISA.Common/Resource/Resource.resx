@@ -165,6 +165,9 @@
   <data name="VN_InvalidInput" xml:space="preserve">
     <value>Dữ liệu đầu vào không hợp lệ</value>
   </data>
+  <data name="VN_LicenseCode" xml:space="preserve">
+    <value>Mã chứng từ </value>
+  </data>
   <data name="VN_Number" xml:space="preserve">
     <value>Số lượng</value>
   </data>

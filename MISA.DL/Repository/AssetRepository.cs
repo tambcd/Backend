@@ -15,6 +15,23 @@ namespace MISA.DL.Repository
         public AssetRepository(IConfiguration configuration) : base(configuration)
         {
         }
+
+        /// <summary>
+        /// lấy danh sách tài sản theo số chứng từ
+        /// </summary>
+        /// <param name="idLicense"> id chứng từ </param>
+        /// <returns>danh sách tài sản</returns>
+        public IEnumerable<fixed_asset> GetByLicense(Guid idLicense)
+        {
+            var sqlcmd = $"proc_ft_license_detail";
+            var dynamicParams = new DynamicParameters();
+            dynamicParams.Add("@id_license", idLicense);
+
+            var data = connection.Query<fixed_asset>(sql: sqlcmd, param: dynamicParams, commandType: System.Data.CommandType.StoredProcedure);
+
+            return data;
+        }
+
         /// <summary>
         /// Lấy dữ liệu theo phân trang
         /// @created by : tvTam
@@ -26,7 +43,7 @@ namespace MISA.DL.Repository
         /// <param name="DepartmentId">mã phòng ban</param>
         /// <param name="AssetCategoryId">mã loại sản phẩm</param>
         /// <returns>danh sách bản ghi</returns>
-        public PagingRequest GetFilter(int pageNumber, int pageSize, string? txtSearch , Guid? DepartmentId ,Guid? AssetCategoryId)
+        public PagingRequest<fixed_asset> GetFilter(int pageNumber, int pageSize, string? txtSearch , Guid? DepartmentId ,Guid? AssetCategoryId)
         {
             if (txtSearch == null)
             {
@@ -45,10 +62,10 @@ namespace MISA.DL.Repository
 
             List<fixed_asset> fixed_assets = new List<fixed_asset>();
             fixed_assets = connection.Query<fixed_asset>(sql: sqlcmd, param: dynamicParams, commandType: System.Data.CommandType.StoredProcedure).ToList();
-            PagingRequest pagingRequest;
+            PagingRequest<fixed_asset> pagingRequest;
             if (fixed_assets.Count() > 0)
             {
-                pagingRequest = new PagingRequest
+                pagingRequest = new PagingRequest<fixed_asset>
                 {
                     TotalPage = (int)Math.Ceiling(((double)fixed_assets[0].TotalRecord / (double)pageSize)),
                     TotalCost = fixed_assets[0].totalCost,
@@ -62,7 +79,7 @@ namespace MISA.DL.Repository
             }
             else
             {
-                pagingRequest = new PagingRequest
+                pagingRequest = new PagingRequest<fixed_asset>
                 {
                     TotalPage = 0,
                     TotalQuantity=0,
@@ -102,6 +119,7 @@ namespace MISA.DL.Repository
             return page;
 
         }
+
         /// <summary>
         /// thực hiện nhập khẩu
         /// @created by : tvTam
@@ -119,10 +137,45 @@ namespace MISA.DL.Repository
                 {
                     rowsEffec += connection.Execute(sql: sqlcmd, param: asset, transaction: transaction, commandType: System.Data.CommandType.StoredProcedure);
                 }
+                if(rowsEffec == assets.Count())
+                {
                 transaction.Commit();
+                    return rowsEffec;
 
-            }
+                }
+                transaction.Rollback();
             return rowsEffec;
+            }
+            
+        }
+
+        public int UpdateCost(Guid id, Guid idLicense,double cost, List<string> new_cost)
+        {
+            string v_new_code = "";
+            if (new_cost == null)
+            {
+                v_new_code = "NST:0";
+            }
+            foreach (var item in new_cost)
+            {
+                if(item == new_cost[new_cost.Count() - 1]){
+                    v_new_code += item.ToString();
+                }
+                else
+                {
+                    v_new_code += item.ToString() + ",";
+                }
+            }            
+                      
+                var sqlcmd = $"proc_update_cost";
+                var dynamicParams = new DynamicParameters();
+                dynamicParams.Add("@v_cost", cost);
+                dynamicParams.Add("@v_new_cost", v_new_code);
+                dynamicParams.Add("@v_fixed_asset_id", id);               
+                dynamicParams.Add("@v_license_id", idLicense);               
+                var rowsEffec = connection.Execute(sql: sqlcmd, param: dynamicParams , commandType: System.Data.CommandType.StoredProcedure);
+      
+                return rowsEffec;
         }
     }
 }

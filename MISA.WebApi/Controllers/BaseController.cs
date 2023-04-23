@@ -18,11 +18,47 @@ namespace MISA.WebApi.Controllers
             _repository = epository;
             _baseBL = baseBL;
         }
+        /// <summary>
+        /// lấy ra danh sách phần tử phân trang và không thuộc list mã  
+        /// </summary>
+        /// <param name="codes">danh sách các mẫ </param>
+        /// <param name="pageNumber">số trang</param>
+        /// <param name="pageSize">số bản ghi trên trang </param>
+        /// <param name="txtSearch">từ khóa tìm kiếm </param>
+        /// <returns></returns>
+        [HttpGet("getBySreach")]
+        public IActionResult getBySreach(string codes, int pageNumber, int pageSize, string? txtSearch)
+        {
+            try
+            {
+                var data = _repository.GetSreachBase(codes, pageNumber, pageSize, txtSearch);
+                return Ok(data);
 
+            }
+            catch (Exception ex)
+            {
+                return HandelException(ex);
+            }
+        }
 
+        [HttpGet("getByItemSelect")]
+        public IActionResult getByItemSelect(string? codes, int pageNumber, int pageSize, string? txtSearch)
+        {
+            try
+            {
+                var data = _repository.GetSelectItem(codes, pageNumber, pageSize, txtSearch);
+                return Ok(data);
+
+            }
+            catch (Exception ex)
+            {
+                return HandelException(ex);
+            }
+        }
         /// <summary>
         /// Lấy tất cả bản ghi 
         /// @createdby : TVTam(MF1270) 21/02/2023
+        /// <paramref name="ids"/> danh sách id tài sản ẩn 
         /// </summary>
         /// <returns>Danh sách bản ghi của đối tượng</returns>
 
@@ -31,7 +67,21 @@ namespace MISA.WebApi.Controllers
         {
             try
             {
-                return Ok(_repository.GetAll());
+                var data = _repository.GetAll();
+                return Ok(data);
+            }
+            catch (Exception e)
+            {
+                return HandelException(e);
+            }
+        }
+        [HttpPost("getActive")]
+        public IActionResult GetRecord(List<Guid> ids)
+        {
+            try
+            {
+                var data = _repository.GetRecordActive(ids);
+                return Ok(data);
             }
             catch (Exception e)
             {
@@ -55,6 +105,34 @@ namespace MISA.WebApi.Controllers
                 {
 
                 return StatusCode(200,data);
+
+                }
+                else
+                {
+                    return NotFound();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                return HandelException(ex);
+            }
+        }
+        /// <summary>
+        /// lấy bản ghi theo mã 
+        /// </summary>
+        /// <param name="code">mã đối tượng </param>
+        /// <returns></returns>
+        [HttpGet("getCode/{code}")]
+        public IActionResult GetByCode(string code)
+        {
+            try
+            {
+                var data = _repository.GetByCode(code);
+                if (data != null)
+                {
+
+                    return StatusCode(200, data);
 
                 }
                 else

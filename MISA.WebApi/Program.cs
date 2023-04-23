@@ -19,6 +19,9 @@ builder.Services.AddScoped<IRepository<object>, BaseRepository<object>>();
 builder.Services.AddScoped<IDepartmentRepository, DepartmentRepository>();
 builder.Services.AddScoped<IAssetRepository, AssetRepository>();
 builder.Services.AddScoped<IAssetCategoryRepository, AssetCategoryRepository>();
+builder.Services.AddScoped<ICostCourceRepository, CostCourceRepository>();
+builder.Services.AddScoped<ILicenseRepository, LicenseRepository>();
+builder.Services.AddScoped<ILicenseDetailRepository, LicenseDetailRepository>();
 
 /// <summary>
 /// BLL Interface
@@ -27,6 +30,9 @@ builder.Services.AddScoped<IBaseBLL<object>, BaseBLL<object>>();
 builder.Services.AddScoped<IDepartmentBLL, DepartmentBLL>();
 builder.Services.AddScoped<IAssetBLL, AssetBLL>();
 builder.Services.AddScoped<IAssetCategoryBLL, AssetCategoryBLL>();
+builder.Services.AddScoped<ICostSourceBLL, CostCourceBLL>();
+builder.Services.AddScoped<ILicenseBLL, LicenseBLL>();
+builder.Services.AddScoped<ILicenseDetailBLL, LicenseDetailBLL>();
 
 builder.Services.AddCors();
 var app = builder.Build();

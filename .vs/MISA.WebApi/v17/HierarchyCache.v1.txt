@@ -1,0 +1,286 @@
+﻿++Solution 'MISA.WebApi' ‎(6 of 6 projects)
+i:{00000000-0000-0000-0000-000000000000}:MISA.WebApi.sln
+++Solution Items
+i:{00000000-0000-0000-0000-000000000000}:Solution Items
+++.editorconfig
+i:{026a1842-da2e-452e-acdc-e6afa224ff64}:D:\web01_htsn\MISA.WebApi\.editorconfig
+++MISA.WebApi
+i:{00000000-0000-0000-0000-000000000000}:MISA.WebApi
+i:{ccd47015-c0fa-4180-bcdc-d2900739e1b1}:d:\web01_htsn\misa.webapi\misa.webapi\misa.webapi.csproj
+++Connected Services 
+i:{a2e62a95-eab2-464a-8972-ca4da98f9900}:>958
+++Dependencies
+i:{a2e62a95-eab2-464a-8972-ca4da98f9900}:>957
+i:{7cdd8def-4fa5-417a-addd-9445bfa7efc1}:>455
+i:{70139f25-2039-4182-bf82-cc40a7ddaddc}:>456
+i:{43688a30-9344-46a7-b819-affc8e2c3f43}:>454
+i:{eac62264-f9a0-40a4-830a-0158e3952451}:>865
+i:{ccd47015-c0fa-4180-bcdc-d2900739e1b1}:>866
+++Properties
+i:{a2e62a95-eab2-464a-8972-ca4da98f9900}:d:\web01_htsn\misa.webapi\misa.webapi\properties\
+++Controllers
+i:{a2e62a95-eab2-464a-8972-ca4da98f9900}:d:\web01_htsn\misa.webapi\misa.webapi\controllers\
+++AssetCategorysController.cs
+i:{a2e62a95-eab2-464a-8972-ca4da98f9900}:d:\web01_htsn\misa.webapi\misa.webapi\controllers\assetcategoryscontroller.cs
+++AssetsController.cs
+i:{a2e62a95-eab2-464a-8972-ca4da98f9900}:d:\web01_htsn\misa.webapi\misa.webapi\controllers\assetscontroller.cs
+++BaseController.cs
+i:{a2e62a95-eab2-464a-8972-ca4da98f9900}:d:\web01_htsn\misa.webapi\misa.webapi\controllers\basecontroller.cs
+++CostCourcesController.cs
+i:{a2e62a95-eab2-464a-8972-ca4da98f9900}:d:\web01_htsn\misa.webapi\misa.webapi\controllers\costcourcescontroller.cs
+++DepartmentsController.cs
+i:{a2e62a95-eab2-464a-8972-ca4da98f9900}:d:\web01_htsn\misa.webapi\misa.webapi\controllers\departmentscontroller.cs
+++LicenseDetailsController.cs
+i:{a2e62a95-eab2-464a-8972-ca4da98f9900}:d:\web01_htsn\misa.webapi\misa.webapi\controllers\licensedetailscontroller.cs
+++LicensesController.cs
+i:{a2e62a95-eab2-464a-8972-ca4da98f9900}:d:\web01_htsn\misa.webapi\misa.webapi\controllers\licensescontroller.cs
+++appsettings.json
+i:{a2e62a95-eab2-464a-8972-ca4da98f9900}:d:\web01_htsn\misa.webapi\misa.webapi\appsettings.json
+++Program.cs
+i:{a2e62a95-eab2-464a-8972-ca4da98f9900}:d:\web01_htsn\misa.webapi\misa.webapi\program.cs
+++No service dependencies discovered
+i:{a2e62a95-eab2-464a-8972-ca4da98f9900}:>959
+++Analyzers
+i:{a2e62a95-eab2-464a-8972-ca4da98f9900}:analyzers
+i:{7cdd8def-4fa5-417a-addd-9445bfa7efc1}:analyzers
+i:{70139f25-2039-4182-bf82-cc40a7ddaddc}:analyzers
+i:{43688a30-9344-46a7-b819-affc8e2c3f43}:analyzers
+i:{eac62264-f9a0-40a4-830a-0158e3952451}:analyzers
+i:{ccd47015-c0fa-4180-bcdc-d2900739e1b1}:analyzers
+++Frameworks
+i:{a2e62a95-eab2-464a-8972-ca4da98f9900}:frameworks
+i:{7cdd8def-4fa5-417a-addd-9445bfa7efc1}:frameworks
+i:{70139f25-2039-4182-bf82-cc40a7ddaddc}:frameworks
+i:{43688a30-9344-46a7-b819-affc8e2c3f43}:frameworks
+i:{eac62264-f9a0-40a4-830a-0158e3952451}:frameworks
+i:{ccd47015-c0fa-4180-bcdc-d2900739e1b1}:frameworks
+++Packages
+i:{a2e62a95-eab2-464a-8972-ca4da98f9900}:packages
+i:{7cdd8def-4fa5-417a-addd-9445bfa7efc1}:packages
+i:{70139f25-2039-4182-bf82-cc40a7ddaddc}:packages
+i:{eac62264-f9a0-40a4-830a-0158e3952451}:packages
+i:{ccd47015-c0fa-4180-bcdc-d2900739e1b1}:packages
+++Projects
+i:{a2e62a95-eab2-464a-8972-ca4da98f9900}:projects
+i:{7cdd8def-4fa5-417a-addd-9445bfa7efc1}:projects
+i:{70139f25-2039-4182-bf82-cc40a7ddaddc}:projects
+i:{ccd47015-c0fa-4180-bcdc-d2900739e1b1}:projects
+++launchSettings.json
+i:{a2e62a95-eab2-464a-8972-ca4da98f9900}:d:\web01_htsn\misa.webapi\misa.webapi\properties\launchsettings.json
+++appsettings.Development.json
+i:{a2e62a95-eab2-464a-8972-ca4da98f9900}:d:\web01_htsn\misa.webapi\misa.webapi\appsettings.development.json
+++Microsoft.AspNetCore.Analyzers
+i:{a2e62a95-eab2-464a-8972-ca4da98f9900}:c:\program files\dotnet\sdk\6.0.100\sdks\microsoft.net.sdk.web\analyzers\cs\microsoft.aspnetcore.analyzers.dll
+++Microsoft.AspNetCore.App.Analyzers
+i:{a2e62a95-eab2-464a-8972-ca4da98f9900}:c:\program files\dotnet\packs\microsoft.aspnetcore.app.ref\6.0.0\analyzers\dotnet\cs\microsoft.aspnetcore.app.analyzers.dll
+i:{ccd47015-c0fa-4180-bcdc-d2900739e1b1}:c:\program files\dotnet\packs\microsoft.aspnetcore.app.ref\6.0.0\analyzers\dotnet\cs\microsoft.aspnetcore.app.analyzers.dll
+++Microsoft.AspNetCore.App.CodeFixes
+i:{a2e62a95-eab2-464a-8972-ca4da98f9900}:c:\program files\dotnet\packs\microsoft.aspnetcore.app.ref\6.0.0\analyzers\dotnet\cs\microsoft.aspnetcore.app.codefixes.dll
+i:{ccd47015-c0fa-4180-bcdc-d2900739e1b1}:c:\program files\dotnet\packs\microsoft.aspnetcore.app.ref\6.0.0\analyzers\dotnet\cs\microsoft.aspnetcore.app.codefixes.dll
+++Microsoft.AspNetCore.Components.Analyzers
+i:{a2e62a95-eab2-464a-8972-ca4da98f9900}:c:\program files\dotnet\sdk\6.0.100\sdks\microsoft.net.sdk.web\analyzers\cs\microsoft.aspnetcore.components.analyzers.dll
+++Microsoft.AspNetCore.Mvc.Analyzers
+i:{a2e62a95-eab2-464a-8972-ca4da98f9900}:c:\program files\dotnet\sdk\6.0.100\sdks\microsoft.net.sdk.web\analyzers\cs\microsoft.aspnetcore.mvc.analyzers.dll
+++Microsoft.AspNetCore.Razor.Internal.SourceGenerator.Transport
+i:{a2e62a95-eab2-464a-8972-ca4da98f9900}:c:\program files\dotnet\sdk\6.0.100\sdks\microsoft.net.sdk.razor\source-generators\microsoft.aspnetcore.razor.internal.sourcegenerator.transport.dll
+++Microsoft.CodeAnalysis.CSharp.NetAnalyzers
+i:{a2e62a95-eab2-464a-8972-ca4da98f9900}:c:\program files\dotnet\sdk\6.0.100\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.csharp.netanalyzers.dll
+i:{7cdd8def-4fa5-417a-addd-9445bfa7efc1}:c:\program files\dotnet\sdk\6.0.100\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.csharp.netanalyzers.dll
+i:{70139f25-2039-4182-bf82-cc40a7ddaddc}:c:\program files\dotnet\sdk\6.0.100\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.csharp.netanalyzers.dll
+i:{43688a30-9344-46a7-b819-affc8e2c3f43}:c:\program files\dotnet\sdk\6.0.100\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.csharp.netanalyzers.dll
+i:{eac62264-f9a0-40a4-830a-0158e3952451}:c:\program files\dotnet\sdk\6.0.100\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.csharp.netanalyzers.dll
+i:{ccd47015-c0fa-4180-bcdc-d2900739e1b1}:c:\program files\dotnet\sdk\6.0.100\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.csharp.netanalyzers.dll
+++Microsoft.CodeAnalysis.NetAnalyzers
+i:{a2e62a95-eab2-464a-8972-ca4da98f9900}:c:\program files\dotnet\sdk\6.0.100\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.netanalyzers.dll
+i:{7cdd8def-4fa5-417a-addd-9445bfa7efc1}:c:\program files\dotnet\sdk\6.0.100\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.netanalyzers.dll
+i:{70139f25-2039-4182-bf82-cc40a7ddaddc}:c:\program files\dotnet\sdk\6.0.100\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.netanalyzers.dll
+i:{43688a30-9344-46a7-b819-affc8e2c3f43}:c:\program files\dotnet\sdk\6.0.100\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.netanalyzers.dll
+i:{eac62264-f9a0-40a4-830a-0158e3952451}:c:\program files\dotnet\sdk\6.0.100\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.netanalyzers.dll
+i:{ccd47015-c0fa-4180-bcdc-d2900739e1b1}:c:\program files\dotnet\sdk\6.0.100\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.netanalyzers.dll
+++Microsoft.Extensions.Logging.Generators
+i:{a2e62a95-eab2-464a-8972-ca4da98f9900}:c:\program files\dotnet\packs\microsoft.aspnetcore.app.ref\6.0.0\analyzers\dotnet\roslyn4.0\cs\microsoft.extensions.logging.generators.dll
+i:{ccd47015-c0fa-4180-bcdc-d2900739e1b1}:c:\program files\dotnet\packs\microsoft.aspnetcore.app.ref\6.0.0\analyzers\dotnet\roslyn4.0\cs\microsoft.extensions.logging.generators.dll
+++Microsoft.NET.Sdk.Razor.SourceGenerators
+i:{a2e62a95-eab2-464a-8972-ca4da98f9900}:c:\program files\dotnet\sdk\6.0.100\sdks\microsoft.net.sdk.razor\source-generators\microsoft.net.sdk.razor.sourcegenerators.dll
+++System.Text.Json.SourceGeneration
+i:{a2e62a95-eab2-464a-8972-ca4da98f9900}:c:\program files\dotnet\packs\microsoft.netcore.app.ref\6.0.0\analyzers\dotnet\cs\system.text.json.sourcegeneration.dll
+i:{7cdd8def-4fa5-417a-addd-9445bfa7efc1}:c:\program files\dotnet\packs\microsoft.netcore.app.ref\6.0.0\analyzers\dotnet\cs\system.text.json.sourcegeneration.dll
+i:{70139f25-2039-4182-bf82-cc40a7ddaddc}:c:\program files\dotnet\packs\microsoft.netcore.app.ref\6.0.0\analyzers\dotnet\cs\system.text.json.sourcegeneration.dll
+i:{43688a30-9344-46a7-b819-affc8e2c3f43}:c:\program files\dotnet\packs\microsoft.netcore.app.ref\6.0.0\analyzers\dotnet\cs\system.text.json.sourcegeneration.dll
+i:{eac62264-f9a0-40a4-830a-0158e3952451}:c:\program files\dotnet\packs\microsoft.netcore.app.ref\6.0.0\analyzers\dotnet\cs\system.text.json.sourcegeneration.dll
+i:{ccd47015-c0fa-4180-bcdc-d2900739e1b1}:c:\program files\dotnet\packs\microsoft.netcore.app.ref\6.0.0\analyzers\dotnet\cs\system.text.json.sourcegeneration.dll
+++Microsoft.AspNetCore.App
+i:{a2e62a95-eab2-464a-8972-ca4da98f9900}:d:\web01_htsn\misa.webapi\misa.webapi\microsoft.aspnetcore.app
+++Microsoft.NETCore.App
+i:{a2e62a95-eab2-464a-8972-ca4da98f9900}:d:\web01_htsn\misa.webapi\misa.webapi\microsoft.netcore.app
+i:{7cdd8def-4fa5-417a-addd-9445bfa7efc1}:d:\web01_htsn\misa.webapi\misa.bll\microsoft.netcore.app
+i:{70139f25-2039-4182-bf82-cc40a7ddaddc}:d:\web01_htsn\misa.webapi\misa.dl\microsoft.netcore.app
+i:{43688a30-9344-46a7-b819-affc8e2c3f43}:d:\web01_htsn\misa.webapi\misa.common\microsoft.netcore.app
+i:{eac62264-f9a0-40a4-830a-0158e3952451}:d:\web01_htsn\misa.webapi\misa.dl.unittests\microsoft.netcore.app
+i:{ccd47015-c0fa-4180-bcdc-d2900739e1b1}:d:\web01_htsn\misa.webapi\misa.unittests\microsoft.netcore.app
+++EPPlus (6.0.6)
+i:{a2e62a95-eab2-464a-8972-ca4da98f9900}:>977
+i:{7cdd8def-4fa5-417a-addd-9445bfa7efc1}:>997
+i:{70139f25-2039-4182-bf82-cc40a7ddaddc}:>1028
+++Microsoft.AspNetCore.Http.Features (5.0.17)
+i:{a2e62a95-eab2-464a-8972-ca4da98f9900}:>975
+i:{7cdd8def-4fa5-417a-addd-9445bfa7efc1}:>994
+i:{70139f25-2039-4182-bf82-cc40a7ddaddc}:>1019
+i:{eac62264-f9a0-40a4-830a-0158e3952451}:>1026
+i:{ccd47015-c0fa-4180-bcdc-d2900739e1b1}:>996
+++Swashbuckle.AspNetCore (6.2.3)
+i:{a2e62a95-eab2-464a-8972-ca4da98f9900}:>976
+++MISA.BLL
+i:{a2e62a95-eab2-464a-8972-ca4da98f9900}:d:\web01_htsn\misa.webapi\misa.bll\misa.bll.csproj
+i:{00000000-0000-0000-0000-000000000000}:MISA.BLL
+i:{ccd47015-c0fa-4180-bcdc-d2900739e1b1}:d:\web01_htsn\misa.webapi\misa.bll\misa.bll.csproj
+++MISA.Common
+i:{a2e62a95-eab2-464a-8972-ca4da98f9900}:d:\web01_htsn\misa.webapi\misa.common\misa.common.csproj
+i:{7cdd8def-4fa5-417a-addd-9445bfa7efc1}:d:\web01_htsn\misa.webapi\misa.common\misa.common.csproj
+i:{70139f25-2039-4182-bf82-cc40a7ddaddc}:d:\web01_htsn\misa.webapi\misa.common\misa.common.csproj
+i:{00000000-0000-0000-0000-000000000000}:MISA.Common
+i:{ccd47015-c0fa-4180-bcdc-d2900739e1b1}:d:\web01_htsn\misa.webapi\misa.common\misa.common.csproj
+++MISA.DL
+i:{a2e62a95-eab2-464a-8972-ca4da98f9900}:d:\web01_htsn\misa.webapi\misa.dl\misa.dl.csproj
+i:{7cdd8def-4fa5-417a-addd-9445bfa7efc1}:d:\web01_htsn\misa.webapi\misa.dl\misa.dl.csproj
+i:{00000000-0000-0000-0000-000000000000}:MISA.DL
+i:{ccd47015-c0fa-4180-bcdc-d2900739e1b1}:d:\web01_htsn\misa.webapi\misa.dl\misa.dl.csproj
+++Interface
+i:{7cdd8def-4fa5-417a-addd-9445bfa7efc1}:d:\web01_htsn\misa.webapi\misa.bll\interface\
+i:{70139f25-2039-4182-bf82-cc40a7ddaddc}:d:\web01_htsn\misa.webapi\misa.dl\interface\
+++IAssetBLL.cs
+i:{7cdd8def-4fa5-417a-addd-9445bfa7efc1}:d:\web01_htsn\misa.webapi\misa.bll\interface\iassetbll.cs
+++IAssetCategoryBLL.cs
+i:{7cdd8def-4fa5-417a-addd-9445bfa7efc1}:d:\web01_htsn\misa.webapi\misa.bll\interface\iassetcategorybll.cs
+++IBaseBLL.cs
+i:{7cdd8def-4fa5-417a-addd-9445bfa7efc1}:d:\web01_htsn\misa.webapi\misa.bll\interface\ibasebll.cs
+++ICostSourceBLL.cs
+i:{7cdd8def-4fa5-417a-addd-9445bfa7efc1}:d:\web01_htsn\misa.webapi\misa.bll\interface\icostsourcebll.cs
+++IDepartmentBLL.cs
+i:{7cdd8def-4fa5-417a-addd-9445bfa7efc1}:d:\web01_htsn\misa.webapi\misa.bll\interface\idepartmentbll.cs
+++ILicenseBLL.cs
+i:{7cdd8def-4fa5-417a-addd-9445bfa7efc1}:d:\web01_htsn\misa.webapi\misa.bll\interface\ilicensebll.cs
+++ILicenseDetailBLL.cs
+i:{7cdd8def-4fa5-417a-addd-9445bfa7efc1}:d:\web01_htsn\misa.webapi\misa.bll\interface\ilicensedetailbll.cs
+++Services
+i:{7cdd8def-4fa5-417a-addd-9445bfa7efc1}:d:\web01_htsn\misa.webapi\misa.bll\services\
+++AssetBLL.cs
+i:{7cdd8def-4fa5-417a-addd-9445bfa7efc1}:d:\web01_htsn\misa.webapi\misa.bll\services\assetbll.cs
+++AssetCategoryBLL.cs
+i:{7cdd8def-4fa5-417a-addd-9445bfa7efc1}:d:\web01_htsn\misa.webapi\misa.bll\services\assetcategorybll.cs
+++BaseBLL.cs
+i:{7cdd8def-4fa5-417a-addd-9445bfa7efc1}:d:\web01_htsn\misa.webapi\misa.bll\services\basebll.cs
+++CostCourceBLL.cs
+i:{7cdd8def-4fa5-417a-addd-9445bfa7efc1}:d:\web01_htsn\misa.webapi\misa.bll\services\costcourcebll.cs
+++DepartmentBLL.cs
+i:{7cdd8def-4fa5-417a-addd-9445bfa7efc1}:d:\web01_htsn\misa.webapi\misa.bll\services\departmentbll.cs
+++LicenseBLL.cs
+i:{7cdd8def-4fa5-417a-addd-9445bfa7efc1}:d:\web01_htsn\misa.webapi\misa.bll\services\licensebll.cs
+++LicenseDetailBLL.cs
+i:{7cdd8def-4fa5-417a-addd-9445bfa7efc1}:d:\web01_htsn\misa.webapi\misa.bll\services\licensedetailbll.cs
+++Repository
+i:{70139f25-2039-4182-bf82-cc40a7ddaddc}:d:\web01_htsn\misa.webapi\misa.dl\repository\
+++AssetCategoryRepository.cs
+i:{70139f25-2039-4182-bf82-cc40a7ddaddc}:d:\web01_htsn\misa.webapi\misa.dl\repository\assetcategoryrepository.cs
+++AssetRepository.cs
+i:{70139f25-2039-4182-bf82-cc40a7ddaddc}:d:\web01_htsn\misa.webapi\misa.dl\repository\assetrepository.cs
+++BaseRepository.cs
+i:{70139f25-2039-4182-bf82-cc40a7ddaddc}:d:\web01_htsn\misa.webapi\misa.dl\repository\baserepository.cs
+++CostCourceRepository.cs
+i:{70139f25-2039-4182-bf82-cc40a7ddaddc}:d:\web01_htsn\misa.webapi\misa.dl\repository\costcourcerepository.cs
+++DepartmentRepository.cs
+i:{70139f25-2039-4182-bf82-cc40a7ddaddc}:d:\web01_htsn\misa.webapi\misa.dl\repository\departmentrepository.cs
+++LicenseDetailRepository.cs
+i:{70139f25-2039-4182-bf82-cc40a7ddaddc}:d:\web01_htsn\misa.webapi\misa.dl\repository\licensedetailrepository.cs
+++LicenseRepository.cs
+i:{70139f25-2039-4182-bf82-cc40a7ddaddc}:d:\web01_htsn\misa.webapi\misa.dl\repository\licenserepository.cs
+++IAssetCategoryRepository.cs
+i:{70139f25-2039-4182-bf82-cc40a7ddaddc}:d:\web01_htsn\misa.webapi\misa.dl\interface\iassetcategoryrepository.cs
+++IAssetRepository.cs
+i:{70139f25-2039-4182-bf82-cc40a7ddaddc}:d:\web01_htsn\misa.webapi\misa.dl\interface\iassetrepository.cs
+++ICostCourceRepository.cs
+i:{70139f25-2039-4182-bf82-cc40a7ddaddc}:d:\web01_htsn\misa.webapi\misa.dl\interface\icostcourcerepository.cs
+++IDepartmentRepository.cs
+i:{70139f25-2039-4182-bf82-cc40a7ddaddc}:d:\web01_htsn\misa.webapi\misa.dl\interface\idepartmentrepository.cs
+++ILicenseDetailRepository.cs
+i:{70139f25-2039-4182-bf82-cc40a7ddaddc}:d:\web01_htsn\misa.webapi\misa.dl\interface\ilicensedetailrepository.cs
+++ILicenseRepository.cs
+i:{70139f25-2039-4182-bf82-cc40a7ddaddc}:d:\web01_htsn\misa.webapi\misa.dl\interface\ilicenserepository.cs
+++IRepository.cs
+i:{70139f25-2039-4182-bf82-cc40a7ddaddc}:d:\web01_htsn\misa.webapi\misa.dl\interface\irepository.cs
+++Dapper (2.0.123)
+i:{70139f25-2039-4182-bf82-cc40a7ddaddc}:>1025
+++Microsoft.Extensions.Configuration.Abstractions (7.0.0)
+i:{70139f25-2039-4182-bf82-cc40a7ddaddc}:>1022
+++MySqlConnector (2.2.5)
+i:{70139f25-2039-4182-bf82-cc40a7ddaddc}:>1023
+++Entity
+i:{43688a30-9344-46a7-b819-affc8e2c3f43}:d:\web01_htsn\misa.webapi\misa.common\entity\
+++BaseEntity.cs
+i:{43688a30-9344-46a7-b819-affc8e2c3f43}:d:\web01_htsn\misa.webapi\misa.common\entity\baseentity.cs
+++CostSource.cs
+i:{43688a30-9344-46a7-b819-affc8e2c3f43}:d:\web01_htsn\misa.webapi\misa.common\entity\costsource.cs
+++Department.cs
+i:{43688a30-9344-46a7-b819-affc8e2c3f43}:d:\web01_htsn\misa.webapi\misa.common\entity\department.cs
+++FixedAsset.cs
+i:{43688a30-9344-46a7-b819-affc8e2c3f43}:d:\web01_htsn\misa.webapi\misa.common\entity\fixedasset.cs
+++FixedAssetCategory.cs
+i:{43688a30-9344-46a7-b819-affc8e2c3f43}:d:\web01_htsn\misa.webapi\misa.common\entity\fixedassetcategory.cs
+++License.cs
+i:{43688a30-9344-46a7-b819-affc8e2c3f43}:d:\web01_htsn\misa.webapi\misa.common\entity\license.cs
+++LicenseDetail.cs
+i:{43688a30-9344-46a7-b819-affc8e2c3f43}:d:\web01_htsn\misa.webapi\misa.common\entity\licensedetail.cs
+++MISAAttribute.cs
+i:{43688a30-9344-46a7-b819-affc8e2c3f43}:d:\web01_htsn\misa.webapi\misa.common\entity\misaattribute.cs
+++Paging.cs
+i:{43688a30-9344-46a7-b819-affc8e2c3f43}:d:\web01_htsn\misa.webapi\misa.common\entity\paging.cs
+++PagingRequest.cs
+i:{43688a30-9344-46a7-b819-affc8e2c3f43}:d:\web01_htsn\misa.webapi\misa.common\entity\pagingrequest.cs
+++Enum
+i:{43688a30-9344-46a7-b819-affc8e2c3f43}:d:\web01_htsn\misa.webapi\misa.common\enum\
+++MisaEnum.cs
+i:{43688a30-9344-46a7-b819-affc8e2c3f43}:d:\web01_htsn\misa.webapi\misa.common\enum\misaenum.cs
+++Exceptions
+i:{43688a30-9344-46a7-b819-affc8e2c3f43}:d:\web01_htsn\misa.webapi\misa.common\exceptions\
+++MISAException.cs
+i:{43688a30-9344-46a7-b819-affc8e2c3f43}:d:\web01_htsn\misa.webapi\misa.common\exceptions\misaexception.cs
+++QueryDatabase
+i:{43688a30-9344-46a7-b819-affc8e2c3f43}:d:\web01_htsn\misa.webapi\misa.common\querydatabase\
+++StringQuery.cs
+i:{43688a30-9344-46a7-b819-affc8e2c3f43}:d:\web01_htsn\misa.webapi\misa.common\querydatabase\stringquery.cs
+++Resource
+i:{43688a30-9344-46a7-b819-affc8e2c3f43}:d:\web01_htsn\misa.webapi\misa.common\resource\
+++Resource.resx
+i:{43688a30-9344-46a7-b819-affc8e2c3f43}:d:\web01_htsn\misa.webapi\misa.common\resource\resource.resx
+++CommonResource.cs
+i:{43688a30-9344-46a7-b819-affc8e2c3f43}:d:\web01_htsn\misa.webapi\misa.common\commonresource.cs
+++Resource.Designer.cs
+i:{43688a30-9344-46a7-b819-affc8e2c3f43}:d:\web01_htsn\misa.webapi\misa.common\resource\resource.designer.cs
+++MISA.DL.UnitTests
+i:{00000000-0000-0000-0000-000000000000}:MISA.DL.UnitTests
+++AssetRepositoryTests.cs
+i:{eac62264-f9a0-40a4-830a-0158e3952451}:d:\web01_htsn\misa.webapi\misa.dl.unittests\assetrepositorytests.cs
+++coverlet.collector (3.1.0)
+i:{eac62264-f9a0-40a4-830a-0158e3952451}:>1033
+i:{ccd47015-c0fa-4180-bcdc-d2900739e1b1}:>1004
+++Microsoft.NET.Test.Sdk (16.11.0)
+i:{eac62264-f9a0-40a4-830a-0158e3952451}:>1027
+i:{ccd47015-c0fa-4180-bcdc-d2900739e1b1}:>998
+++NUnit (3.13.2)
+i:{eac62264-f9a0-40a4-830a-0158e3952451}:>1029
+++NUnit3TestAdapter (4.0.0)
+i:{eac62264-f9a0-40a4-830a-0158e3952451}:>1030
+++MISA.WebApi.UnitTests
+i:{00000000-0000-0000-0000-000000000000}:MISA.WebApi.UnitTests
+++AssetsControllerTests.cs
+i:{ccd47015-c0fa-4180-bcdc-d2900739e1b1}:d:\web01_htsn\misa.webapi\misa.unittests\assetscontrollertests.cs
+++FakeAssetBl.cs
+i:{ccd47015-c0fa-4180-bcdc-d2900739e1b1}:d:\web01_htsn\misa.webapi\misa.unittests\fakeassetbl.cs
+++FakeAssetDL.cs
+i:{ccd47015-c0fa-4180-bcdc-d2900739e1b1}:d:\web01_htsn\misa.webapi\misa.unittests\fakeassetdl.cs
+++NSubstitute (5.0.0)
+i:{ccd47015-c0fa-4180-bcdc-d2900739e1b1}:>995
+++NUnit (3.13.3)
+i:{ccd47015-c0fa-4180-bcdc-d2900739e1b1}:>1000
+++NUnit3TestAdapter (4.4.2)
+i:{ccd47015-c0fa-4180-bcdc-d2900739e1b1}:>1002

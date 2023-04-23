@@ -68,7 +68,7 @@ namespace MISA.BLL.Services
             };
             using (ExcelPackage package = new ExcelPackage(stream))
             {
-                var sheet = package.Workbook.Worksheets.Add("My Sheet");
+                var sheet = package.Workbook.Worksheets.Add("DanhSanhTaiSan");
                 for (int i = 1; i <= headers.Count; i++)
                 {
                     sheet.Column(i).AutoFit();
@@ -151,7 +151,7 @@ namespace MISA.BLL.Services
                 listMsgEr.Add(Common.CommonResource.GetResoureString("ValueCost"));
             }
             // trung mã 
-            if (!Iassetrepository.IsSameCode(entity.fixed_asset_code, entity.fixed_asset_id) )
+            if (Iassetrepository.IsSameCode(entity.fixed_asset_code, entity.fixed_asset_id) )
             {
                 isValidCustom = false;
                 listMsgEr.Add($" {Common.CommonResource.GetResoureString("AssetCode")} {entity.fixed_asset_code} {Common.CommonResource.GetResoureString("SameCode")}");

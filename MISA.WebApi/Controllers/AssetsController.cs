@@ -44,8 +44,26 @@ namespace MISA.WebApi.Controllers
                 return HandelException(ex);
             }
         }
+        
+        /// <summary>
+        /// Lấy danh sách tài sản theo chứng từ 
+        /// </summary>
+        /// <param name="id">khóa chính chứng từ </param>
+        /// <returns></returns>
+        [HttpGet("getByLicense")]
+        public IActionResult GetByLicense( Guid id)
+        {
+            try
+            {
+                var data = _iassetRepository.GetByLicense(id);
+                return Ok(data);
 
-
+            }
+            catch (Exception ex)
+            {
+                return HandelException(ex);
+            }
+        }
         /// <summary>
         /// xuất khẩu danh sách tài sản
         /// @created by : tvTam
@@ -80,6 +98,29 @@ namespace MISA.WebApi.Controllers
             try
             {
                 var path = _iassetBLL.ImportAssets(formFile);
+                return Ok(path);
+            }
+            catch (Exception ex)
+            {
+                return HandelException(ex);
+            }
+
+        }
+        /// <summary>
+        /// Cập nhập nguyên giá cho tài sản 
+        /// </summary>
+        /// <param name="idAsset">id tài sản </param>
+        /// <param name="idLicense">id chứng từ </param>
+        /// <param name="cost">nuyên giá </param>
+        /// <param name="new_cost">nguyên giá và nguồn inh phí </param>
+        /// <returns></returns>
+
+        [HttpPut("UpdateByCost")]
+        public IActionResult UpdateByCost(Guid idAsset, Guid idLicense ,double cost, List<string> new_cost)
+        {
+            try
+            {
+                var path = _iassetRepository.UpdateCost(idAsset, idLicense, cost,new_cost);
                 return Ok(path);
             }
             catch (Exception ex)

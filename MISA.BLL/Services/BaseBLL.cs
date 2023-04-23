@@ -127,31 +127,7 @@ namespace MISA.BLL.Services
                         propName = (arrProNameDisplay as PropNameDisplay).PropName;
                         listMsgEr.Add($"{propName} {Common.CommonResource.GetResoureString("EmptyCheck")}");
                     }
-                    // dữ liệu lớn 
-                    /*if (property.IsDefined(typeof(MISANumberBig), false) )
-                    {
-                    if ((int)value == 0)
-                    {
-                        isValid = false;
-                        propName = (arrProNameDisplay as PropNameDisplay).PropName;
-                        listMsgEr.Add($"{propName} {Common.CommonResource.GetResoureString("PleaseEnter")}");
-                    }
-                    else if (value.ToString()[1] == '.')
-                        {
-                            if(Int32.Parse(value.ToString().Split('+')[1]) >= 17)
-                            {
-                                isValid = false;
-                                propName = (arrProNameDisplay as PropNameDisplay).PropName;
-                                listMsgEr.Add($"{propName} {Common.CommonResource.GetResoureString("ValueNotType")}");
-                            }
-                        }
-                    else if(value.ToString().Length > 15)
-                        {
-                            isValid = false;
-                            propName = (arrProNameDisplay as PropNameDisplay).PropName;
-                            listMsgEr.Add($"{propName} {Common.CommonResource.GetResoureString("ValueNotType")}");
-                        }
-=                    }    */      
+                   
             }
 
             // validate chung 

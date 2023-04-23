@@ -80,6 +80,8 @@ namespace MISA.Common.Entity
         [MISANumberBig]
         [PropNameDisplay("Cost")]
         public double cost { get; set; }
+        public string cost_new { get; set; }
+
         /// <summary>
         /// Số lượng
         /// </summary>
@@ -151,9 +153,13 @@ namespace MISA.Common.Entity
         /// </summary>
         public double TotalQuantity { get; set; }
 
+        /// <summary>
+        /// Giá trị còn lại
+        /// </summary>
+        public double value_end { get; set; }
 
 
-        
+
 
     }
 }

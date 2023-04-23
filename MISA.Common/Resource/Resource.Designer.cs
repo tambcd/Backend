@@ -205,6 +205,15 @@ namespace MISA.Common.Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Mã chứng từ .
+        /// </summary>
+        public static string VN_LicenseCode {
+            get {
+                return ResourceManager.GetString("VN_LicenseCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Số lượng.
         /// </summary>
         public static string VN_Number {
