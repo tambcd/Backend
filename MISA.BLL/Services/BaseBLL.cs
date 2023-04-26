@@ -111,7 +111,7 @@ namespace MISA.BLL.Services
         {
             
             var isValid = true;            
-                var properties = entity.GetType().GetProperties();
+            var properties = entity.GetType().GetProperties();
             // kiểm tra dữ liệu dựa vào Attribute tự định nghĩa 
 
             foreach (var property in properties)
@@ -126,8 +126,7 @@ namespace MISA.BLL.Services
                         isValid = false;
                         propName = (arrProNameDisplay as PropNameDisplay).PropName;
                         listMsgEr.Add($"{propName} {Common.CommonResource.GetResoureString("EmptyCheck")}");
-                    }
-                   
+                    }                   
             }
 
             // validate chung 

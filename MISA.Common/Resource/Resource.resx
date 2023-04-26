@@ -135,8 +135,8 @@
   <data name="VN_CodeExist" xml:space="preserve">
     <value>Mã đã tồn tại trong hệ thống</value>
   </data>
-  <data name="VN_Cost" xml:space="preserve">
-    <value>Nguyên giá</value>
+  <data name="VN_costS" xml:space="preserve">
+    <value>Nguồn chi phí</value>
   </data>
   <data name="VN_DepartmentCode" xml:space="preserve">
     <value>Mã bộ phận sử dụng</value>
@@ -162,11 +162,29 @@
   <data name="VN_FileNotFormat" xml:space="preserve">
     <value>Tệp không đúng định dạng</value>
   </data>
+  <data name="VN_fixed_asset_id" xml:space="preserve">
+    <value>ÌD tài sản </value>
+  </data>
+  <data name="VN_increase_date" xml:space="preserve">
+    <value>Ngày ghi tăng</value>
+  </data>
   <data name="VN_InvalidInput" xml:space="preserve">
     <value>Dữ liệu đầu vào không hợp lệ</value>
   </data>
   <data name="VN_LicenseCode" xml:space="preserve">
     <value>Mã chứng từ </value>
+  </data>
+  <data name="VN_license_code" xml:space="preserve">
+    <value>Mã chứng từ </value>
+  </data>
+  <data name="VN_license_date" xml:space="preserve">
+    <value>Ngày sử dụng</value>
+  </data>
+  <data name="VN_license_id" xml:space="preserve">
+    <value>ID chứng từ</value>
+  </data>
+  <data name="VN_ListIdAsset" xml:space="preserve">
+    <value>Vui lòng chọn tài sản để ghi tăng.</value>
   </data>
   <data name="VN_Number" xml:space="preserve">
     <value>Số lượng</value>

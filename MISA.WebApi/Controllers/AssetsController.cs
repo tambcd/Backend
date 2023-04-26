@@ -108,19 +108,21 @@ namespace MISA.WebApi.Controllers
         }
         /// <summary>
         /// Cập nhập nguyên giá cho tài sản 
-        /// </summary>
-        /// <param name="idAsset">id tài sản </param>
+        ///@<param name="idAsset">id tài sản </param>
         /// <param name="idLicense">id chứng từ </param>
         /// <param name="cost">nuyên giá </param>
-        /// <param name="new_cost">nguyên giá và nguồn inh phí </param>
+        /// <param name="new_cost">nguyên giá và nguồn chi phí </param>
+        /// </summary>\
+        /// <param name="assetUpdateCost">Thông tin cập nhập</param>
+        /// 
         /// <returns></returns>
 
         [HttpPut("UpdateByCost")]
-        public IActionResult UpdateByCost(Guid idAsset, Guid idLicense ,double cost, List<string> new_cost)
+        public IActionResult UpdateByCost(AssetUpdateCost assetUpdateCost)
         {
             try
             {
-                var path = _iassetRepository.UpdateCost(idAsset, idLicense, cost,new_cost);
+                var path = _iassetBLL.UpdateCost(assetUpdateCost);
                 return Ok(path);
             }
             catch (Exception ex)
@@ -129,6 +131,7 @@ namespace MISA.WebApi.Controllers
             }
 
         }
+
 
     }
 }

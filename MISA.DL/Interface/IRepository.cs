@@ -66,6 +66,12 @@ namespace MISA.DL.Interface
         /// <returns></returns>
         /// createBy TVTam(MF1270) - 28/02/2023
         int DeleteMany(List<Guid> ids);
+        /// <summary>
+        /// xóa nhiều theo mã 
+        /// </summary>
+        /// <param name="codes">danh sách mã </param>
+        /// <returns>o|| số bản ghi được xóa </returns>
+        int DeleteManyByCode(List<string> codes);
 
         /// <summary>
         /// kiểm tra mã trùng 
@@ -105,7 +111,7 @@ namespace MISA.DL.Interface
         /// <param name="pageSize">số bản ghi trên trang </param>
         /// <param name="txtSearch">từ khóa tìm kiếm</param>
         /// <returns>danh sách tài sản thỏa mãn </returns>
-        public PagingRequest<T> GetSreachBase(string codes, int pageNumber, int pageSize, string? txtSearch);
+        public PagingRequest<T> GetSreachBase(string codes, int pageNumber, int pageSize, string? txtSearch, Guid? idLicense);
 
         /// <summary>
         /// danh sách tài sản phân trang chưa được chọn 

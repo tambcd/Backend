@@ -149,28 +149,18 @@ namespace MISA.DL.Repository
             
         }
 
-        public int UpdateCost(Guid id, Guid idLicense,double cost, List<string> new_cost)
+        public int UpdateCost(Guid id, Guid idLicense,double cost, string new_cost)
         {
-            string v_new_code = "";
             if (new_cost == null)
             {
-                v_new_code = "NST:0";
+                new_cost = "NST:0";
             }
-            foreach (var item in new_cost)
-            {
-                if(item == new_cost[new_cost.Count() - 1]){
-                    v_new_code += item.ToString();
-                }
-                else
-                {
-                    v_new_code += item.ToString() + ",";
-                }
-            }            
+                        
                       
                 var sqlcmd = $"proc_update_cost";
                 var dynamicParams = new DynamicParameters();
                 dynamicParams.Add("@v_cost", cost);
-                dynamicParams.Add("@v_new_cost", v_new_code);
+                dynamicParams.Add("@v_new_cost", new_cost);
                 dynamicParams.Add("@v_fixed_asset_id", id);               
                 dynamicParams.Add("@v_license_id", idLicense);               
                 var rowsEffec = connection.Execute(sql: sqlcmd, param: dynamicParams , commandType: System.Data.CommandType.StoredProcedure);

@@ -221,7 +221,7 @@ namespace MISA.DL.Repository
             return data;
         }
 
-        public PagingRequest<MISAEntity> GetSreachBase(string codes, int pageNumber, int pageSize, string? txtSearch)
+        public PagingRequest<MISAEntity> GetSreachBase(string codes, int pageNumber, int pageSize, string? txtSearch, Guid? idLicense)
         {
             if (txtSearch == null)
             {
@@ -238,6 +238,7 @@ namespace MISA.DL.Repository
             dynamicParams.Add("@list_codes", codes);
             dynamicParams.Add("@PageNumber", pageNumber);
             dynamicParams.Add("@PageSize", pageSize);
+            dynamicParams.Add("@id_license", idLicense);
             List<MISAEntity> datas = new List<MISAEntity>();
             List<Paging> paging = new List<Paging>();
 
@@ -341,6 +342,36 @@ namespace MISA.DL.Repository
             dynamicParams.Add("@code", code);
             var data = connection.QueryFirstOrDefault<MISAEntity>(sql: sqlcmd, param: dynamicParams);
             return data;
+        }
+
+        public int DeleteManyByCode(List<string> codes)
+        {
+            using (var transaction = connection.BeginTransaction())
+            {
+                try
+                {
+                    var parameters = new DynamicParameters();
+                    parameters.Add("@codes", codes);
+                    var sqlcmd = $"DELETE FROM {className} WHERE {className}_code in @codes";
+                    var rowsEffec = connection.Execute(sql: sqlcmd, param: parameters, transaction: transaction);
+                    if (rowsEffec == codes.Count)
+                    {
+                        transaction.Commit();
+                    }
+                    else
+                    {
+                        transaction.Rollback();
+                        return 0;
+                    }
+
+                    return rowsEffec;
+                }
+                catch (Exception ex)
+                {
+                    transaction.Rollback();
+                    return 0;
+                }
+            }
         }
     }
 

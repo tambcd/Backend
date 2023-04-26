@@ -21,17 +21,18 @@ namespace MISA.WebApi.Controllers
         /// <summary>
         /// lấy ra danh sách phần tử phân trang và không thuộc list mã  
         /// </summary>
-        /// <param name="codes">danh sách các mẫ </param>
+        /// <param name="codes">danh sách các ma</param>
         /// <param name="pageNumber">số trang</param>
         /// <param name="pageSize">số bản ghi trên trang </param>
         /// <param name="txtSearch">từ khóa tìm kiếm </param>
         /// <returns></returns>
         [HttpGet("getBySreach")]
-        public IActionResult getBySreach(string codes, int pageNumber, int pageSize, string? txtSearch)
+        public IActionResult getBySreach(string codes, int pageNumber, int pageSize, string? txtSearch,Guid? idLicense)
         {
             try
             {
-                var data = _repository.GetSreachBase(codes, pageNumber, pageSize, txtSearch);
+                
+                var data = _repository.GetSreachBase(codes, pageNumber, pageSize, txtSearch, idLicense);
                 return Ok(data);
 
             }
@@ -223,6 +224,27 @@ namespace MISA.WebApi.Controllers
             try
             {
                 var data = _repository.DeleteMany(ids);
+                return Ok(data);
+
+            }
+            catch (Exception ex)
+            {
+
+                return HandelException(ex);
+            }
+        }
+        /// <summary>
+        /// xóa nhiều theo mã
+        /// </summary>
+        /// <param name="codes">danh sách mã</param>
+        /// <returns></returns>
+        [HttpDelete("ByCode")]
+        public IActionResult DeleteManyBycode(List<string> codes)
+        {
+
+            try
+            {
+                var data = _repository.DeleteManyByCode(codes);
                 return Ok(data);
 
             }

@@ -2,6 +2,7 @@
 using MISA.BLL.Interface;
 using MISA.Common.Entity;
 using MISA.Common.Enum;
+using MISA.Common.Exceptions;
 using MISA.DL.Interface;
 using OfficeOpenXml;
 using OfficeOpenXml.Style;
@@ -410,6 +411,51 @@ namespace MISA.BLL.Services
             else
             {
                 return value.ToString();
+            }
+        }
+        /// <summary>
+        /// validate sửa nguyên giá taì sản 
+        /// (TVTam - 26/04/03 )
+        /// </summary>
+        /// <param name="assetUpdateCost"></param>
+        /// <returns></returns>
+        public bool ValidateCustom(AssetUpdateCost assetUpdateCost)
+        {
+            var isValid = true;
+            var properties = assetUpdateCost.GetType().GetProperties();
+            // kiểm tra dữ liệu dựa vào Attribute tự định nghĩa 
+
+            foreach (var property in properties)
+            {
+                var propName = property.Name;
+                var value = property.GetValue(assetUpdateCost);
+                var arrProNameDisplay = property.GetCustomAttributes(typeof(PropNameDisplay), false).FirstOrDefault();
+
+                // nếu dữ liệu trống hoặc bằng null 
+                if (property.IsDefined(typeof(MISARequired), false) && (value == null || value.ToString() == String.Empty))
+                {
+                    isValid = false;
+                    propName = (arrProNameDisplay as PropNameDisplay).PropName;
+                    listMsgEr.Add($"{propName} {Common.CommonResource.GetResoureString("EmptyCheck")}");
+                }
+            }
+
+            return isValid;
+        }
+        /// <summary>
+        /// Cập nhập nguyên giá 
+        /// (TVTam - 26/04/03 )
+        /// </summary>
+        /// <param name="assetUpdateCost">đối tượng nguyên giá </param>
+        /// <returns></returns>
+        public int UpdateCost(AssetUpdateCost assetUpdateCost)
+        {
+            if (ValidateCustom(assetUpdateCost)){
+                return Iassetrepository.UpdateCost(assetUpdateCost.idAsset, assetUpdateCost.idLicense, assetUpdateCost.cost, assetUpdateCost.new_cost);
+            }
+            else
+            {
+                throw new MISAException(Common.CommonResource.GetResoureString("InvalidInput"), listMsgEr);
             }
         }
     }

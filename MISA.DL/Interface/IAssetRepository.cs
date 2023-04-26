@@ -57,7 +57,7 @@ namespace MISA.DL.Interface
         /// <param name="cost">nguyên giá </param>
         /// <param name="new_cost">nfuoonf nguyên giá</param>
         /// <returns></returns>
-        public int UpdateCost(Guid idAsset, Guid idLicense,double cost, List<string> new_cost);
+        public int UpdateCost(Guid idAsset, Guid idLicense,double cost, string new_cost);
 
     }
 }

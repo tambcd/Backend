@@ -115,11 +115,11 @@ namespace MISA.Common.Resource {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Nguyên giá.
+        ///   Looks up a localized string similar to Nguồn chi phí.
         /// </summary>
-        public static string VN_Cost {
+        public static string VN_costS {
             get {
-                return ResourceManager.GetString("VN_Cost", resourceCulture);
+                return ResourceManager.GetString("VN_costS", resourceCulture);
             }
         }
         
@@ -196,6 +196,24 @@ namespace MISA.Common.Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ÌD tài sản .
+        /// </summary>
+        public static string VN_fixed_asset_id {
+            get {
+                return ResourceManager.GetString("VN_fixed_asset_id", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ngày ghi tăng.
+        /// </summary>
+        public static string VN_increase_date {
+            get {
+                return ResourceManager.GetString("VN_increase_date", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Dữ liệu đầu vào không hợp lệ.
         /// </summary>
         public static string VN_InvalidInput {
@@ -207,9 +225,45 @@ namespace MISA.Common.Resource {
         /// <summary>
         ///   Looks up a localized string similar to Mã chứng từ .
         /// </summary>
+        public static string VN_license_code {
+            get {
+                return ResourceManager.GetString("VN_license_code", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ngày sử dụng.
+        /// </summary>
+        public static string VN_license_date {
+            get {
+                return ResourceManager.GetString("VN_license_date", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ID chứng từ.
+        /// </summary>
+        public static string VN_license_id {
+            get {
+                return ResourceManager.GetString("VN_license_id", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mã chứng từ .
+        /// </summary>
         public static string VN_LicenseCode {
             get {
                 return ResourceManager.GetString("VN_LicenseCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vui lòng chọn tài sản để ghi tăng..
+        /// </summary>
+        public static string VN_ListIdAsset {
+            get {
+                return ResourceManager.GetString("VN_ListIdAsset", resourceCulture);
             }
         }
         
