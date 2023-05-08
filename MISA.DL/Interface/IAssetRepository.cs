@@ -59,5 +59,13 @@ namespace MISA.DL.Interface
         /// <returns></returns>
         public int UpdateCost(Guid idAsset, Guid idLicense,double cost, string new_cost);
 
+        /// <summary>
+        /// Kiểm tra tài sản đã được ghi tăng hay chưa 
+        /// </summary>
+        /// <param name="ids">danh sách id tài sản</param>
+        /// <returns> true : có được ghi tằn || fasle không được ghi tăng</returns>
+
+        public int AssetLicense(List<Guid> ids);
+
     }
 }

@@ -16,5 +16,11 @@ namespace MISA.BLL.Interface
         /// <param name="idsAsset">danh sách id tài sản</param>
         /// <returns>thêm tài sản theo chứng từ </returns>
         public int InsertLicense(license license, List<Guid> idsAsset);
+        /// <summary>
+        /// Sửa chứng từ và chi tiết 
+        /// </summary>
+        /// <param name="updateLicense"> chứng từ và list danh sách id tài sản thêm vào xóa</param>
+        /// <returns></returns>
+        public int UpdateLicense(EntityUpdateLicense updateLicense);
     }
 }

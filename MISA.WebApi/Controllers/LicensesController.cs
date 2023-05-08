@@ -41,5 +41,29 @@ namespace MISA.WebApi.Controllers
 
         }
 
+        /// <summary>
+        /// thêm chứng từ và danh sách tài sản thuộc chứng từ 
+        /// </summary>
+        /// <param name="licenseAsset">đối tượng chứa chứng từ và danh sách id tài sản </param>
+        /// <returns></returns>
+        [HttpPut("Detail")]
+        public IActionResult UpdateDetailLicense(EntityUpdateLicense licenseAsset)
+        {
+            try
+            {
+                var res = licenseBLL.UpdateLicense(licenseAsset);
+                if (res == 0)
+                {
+                    return StatusCode(404, res);
+                }
+                return StatusCode(201, res);
+            }
+            catch (Exception ex)
+            {
+                return HandelException(ex);
+            }
+
+        }
+
     }
 }

@@ -184,7 +184,10 @@
     <value>ID chứng từ</value>
   </data>
   <data name="VN_ListIdAsset" xml:space="preserve">
-    <value>Vui lòng chọn tài sản để ghi tăng.</value>
+    <value>Chọn ít nhất một tài sản</value>
+  </data>
+  <data name="VN_NotDelete" xml:space="preserve">
+    <value>đã phát sinh chứng từ ghi tăng </value>
   </data>
   <data name="VN_Number" xml:space="preserve">
     <value>Số lượng</value>

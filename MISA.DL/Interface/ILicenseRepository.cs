@@ -16,6 +16,12 @@ namespace MISA.DL.Interface
         /// <param name="ids">danh sách id </param>
         /// <returns>thất bại 0 || thành công số bản ghi được thêm </returns>
         public int Insertlicense(license license, List<Guid> ids);
-
+        /// <summary>
+        ///  Sửa chứng từ 
+        /// </summary>
+        /// <param name="updateLicense">thồng tin chứng từ</param>
+        /// <returns></returns>
+        public int Updatelicense(EntityUpdateLicense updateLicense);
+        
     }
 }

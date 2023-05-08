@@ -259,11 +259,20 @@ namespace MISA.Common.Resource {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Vui lòng chọn tài sản để ghi tăng..
+        ///   Looks up a localized string similar to Chọn ít nhất một tài sản.
         /// </summary>
         public static string VN_ListIdAsset {
             get {
                 return ResourceManager.GetString("VN_ListIdAsset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to đã phát sinh chứng từ ghi tăng .
+        /// </summary>
+        public static string VN_NotDelete {
+            get {
+                return ResourceManager.GetString("VN_NotDelete", resourceCulture);
             }
         }
         

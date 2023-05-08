@@ -223,7 +223,7 @@ namespace MISA.WebApi.Controllers
 
             try
             {
-                var data = _repository.DeleteMany(ids);
+                var data = _baseBL.DeleteManyService(ids);
                 return Ok(data);
 
             }

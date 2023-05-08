@@ -159,5 +159,35 @@ namespace MISA.BLL.Services
              return repository.GetAutoCode(data.Substring(0, 2).ToString()) ;
             
         }
+
+        /// <summary>
+        /// xóa nhiểu đối tượng 
+        /// </summary>
+        /// <param name="guids">danh sách id tài sản cần xóa</param>
+        /// <returns></returns>
+        public int DeleteManyService(List<Guid> guids)
+        {
+            if (ValidateCusrtomDelete(guids))
+            {
+                return repository.DeleteMany(guids);
+            }
+            else
+            {
+               throw new MISAException(Common.CommonResource.GetResoureString("NotDelete"), listMsgEr);
+            }
+        }
+        /// <summary>
+        /// validate riêng của mỗi thực thể 
+        /// @created by : tvTam
+        /// @create day : 1/3/2023
+        /// </summary>
+        /// <param name="entity"> thực thể cần validate</param>
+        /// <returns>bool</returns>
+        protected virtual bool ValidateCusrtomDelete(List<Guid> guids)
+        {
+
+            return true;
+        }
+
     }
 }

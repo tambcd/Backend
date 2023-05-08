@@ -167,5 +167,19 @@ namespace MISA.DL.Repository
       
                 return rowsEffec;
         }
+
+        public int AssetLicense(List<Guid> ids)
+        {
+            var parameters = new DynamicParameters();
+            parameters.Add("@id", ids);
+            var sqlcmd = $"select * FROM fixed_asset WHERE fixed_asset_id in @id and active=1";
+            var data = connection.Query<fixed_asset>(sql: sqlcmd, param: parameters);
+            if (data == null)
+            {
+                return  0;
+
+            }
+            return data.Count() ;
+        }
     }
 }

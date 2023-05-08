@@ -90,5 +90,22 @@ namespace MISA.BLL.Services
             }
             return isValidCustom;
         }
+
+        public int UpdateLicense(EntityUpdateLicense updateLicense)
+        {
+            base.listMsgEr.Clear();
+            var a = base.Validate(updateLicense.license, (int)MisaEnum.Insert);
+            if (a)
+            {
+
+                return licenseRepository.Updatelicense(updateLicense);
+            }
+            else
+            {
+                throw new MISAException(Common.CommonResource.GetResoureString("InvalidInput"), listMsgEr);
+            }
+        }
+        
+
     }
 }

@@ -33,7 +33,7 @@ namespace MISA.BLL.Services
         /// <returns></returns>
         public Stream ExportAssets(string? txtSearch, Guid? DepartmentId, Guid? AssetCategoryId)
         {
-            return GenerateExcelFileAsync((List<fixed_asset>) Iassetrepository.Getpage(txtSearch,DepartmentId,AssetCategoryId));
+            return GenerateExcelFileAsync((List<fixed_asset>)Iassetrepository.Getpage(txtSearch, DepartmentId, AssetCategoryId));
 
         }
 
@@ -64,8 +64,8 @@ namespace MISA.BLL.Services
                 Common.CommonResource.GetResoureString("Cost"),
                 Common.CommonResource.GetResoureString("DepreciationValue"),
                 Common.CommonResource.GetResoureString("ResidualValue"),
-                
-               
+
+
             };
             using (ExcelPackage package = new ExcelPackage(stream))
             {
@@ -91,9 +91,9 @@ namespace MISA.BLL.Services
                     sheet.Cells[row, 6].Value = i.department_code ?? "";
                     sheet.Cells[row, 7].Value = i.department_name ?? "";
                     sheet.Cells[row, 8].Value = i.quantity.ToString();
-                    sheet.Cells[row, 9].Value = FomatMoney(i.cost) ;
+                    sheet.Cells[row, 9].Value = FomatMoney(i.cost);
                     sheet.Cells[row, 10].Value = FomatMoney(i.depreciation_value);
-                    sheet.Cells[row, 11].Value = FomatMoney(i.cost  - i.depreciation_value);
+                    sheet.Cells[row, 11].Value = FomatMoney(i.cost - i.depreciation_value);
 
                     index++;
                     row++;
@@ -102,7 +102,7 @@ namespace MISA.BLL.Services
                 row = 4;
                 // Style
                 foreach (var i in fixed_asset)
-                {                    
+                {
                     sheet.Cells[row, 1].Style.Border.BorderAround(OfficeOpenXml.Style.ExcelBorderStyle.Medium);
                     sheet.Cells[row, 2].Style.Border.BorderAround(OfficeOpenXml.Style.ExcelBorderStyle.Medium);
                     sheet.Cells[row, 3].Style.Border.BorderAround(OfficeOpenXml.Style.ExcelBorderStyle.Medium);
@@ -111,7 +111,7 @@ namespace MISA.BLL.Services
                     sheet.Cells[row, 6].Style.Border.BorderAround(OfficeOpenXml.Style.ExcelBorderStyle.Medium);
                     sheet.Cells[row, 7].Style.Border.BorderAround(OfficeOpenXml.Style.ExcelBorderStyle.Medium);
                     sheet.Cells[row, 8].Style.Border.BorderAround(OfficeOpenXml.Style.ExcelBorderStyle.Medium);
-                    sheet.Cells[row, 9].Style.Border.BorderAround(OfficeOpenXml.Style.ExcelBorderStyle.Medium);                    
+                    sheet.Cells[row, 9].Style.Border.BorderAround(OfficeOpenXml.Style.ExcelBorderStyle.Medium);
                     sheet.Cells[row, 10].Style.Border.BorderAround(OfficeOpenXml.Style.ExcelBorderStyle.Medium);
                     sheet.Cells[row, 11].Style.Border.BorderAround(OfficeOpenXml.Style.ExcelBorderStyle.Medium);
                     sheet.Column(1).Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
@@ -144,39 +144,34 @@ namespace MISA.BLL.Services
         /// </returns>
         protected override bool ValidateCusrtom(fixed_asset entity)
         {
-            
+
             // nguyên giá lớn hơn giá trị hao mòn 
-            if(entity.cost< entity.depreciation_value)            
+            if (entity.cost < entity.depreciation_value)
             {
                 isValidCustom = false;
                 listMsgEr.Add(Common.CommonResource.GetResoureString("ValueCost"));
             }
             // trung mã 
-            if (Iassetrepository.IsSameCode(entity.fixed_asset_code, entity.fixed_asset_id) )
+            if (Iassetrepository.IsSameCode(entity.fixed_asset_code, entity.fixed_asset_id))
             {
                 isValidCustom = false;
                 listMsgEr.Add($" {Common.CommonResource.GetResoureString("AssetCode")} {entity.fixed_asset_code} {Common.CommonResource.GetResoureString("SameCode")}");
             }
             return isValidCustom;
         }
-        /// <summary>
-        /// Chuyển date sang string
-        /// @created by : tvTam
-        /// @create day : 1/3/2023
-        /// </summary>
-        /// <param name="date">date</param>
-        /// <returns>dd/mm/dd</returns>
-   /*     private string DateToString(DateTime? date)
+        protected override bool ValidateCusrtomDelete(List<Guid> guids)
         {
-            if (date == null)
+            if (Iassetrepository.AssetLicense(guids) == 0)
             {
-                return "";
+                return true;
             }
             else
             {
-                return "" + date.Value.Day.ToString() + "/" + date.Value.Month.ToString() + "/" + date.Value.Year.ToString();
+                listMsgEr.Add($"{Iassetrepository.AssetLicense(guids).ToString()}");
+                return false;
             }
-        }*/
+        }
+
         /// <summary>
         /// hàm định dạng tiền 
         /// @created by : tvTam
@@ -185,37 +180,37 @@ namespace MISA.BLL.Services
         /// <param name="dataFormat"> tiền cần format </param>
         /// <returns>dd/mm/dd</returns>
         private string FomatMoney(double dataFormat)
-        {          
-                var result = "";
-                var a = dataFormat.ToString().Length / 3;
-                var b = dataFormat.ToString().Length % 3;
-                var index = 1;
-                while (a!=0)
-                {
-                    result +=
-                    dataFormat.ToString()[dataFormat.ToString().Length - index].ToString() +
-                    dataFormat.ToString()[dataFormat.ToString().Length - index - 1].ToString() +
-                    dataFormat.ToString()[dataFormat.ToString().Length - index - 2].ToString() +
-                      ".";
-                    index += 3;
-                    a--;
-                }
+        {
+            var result = "";
+            var a = dataFormat.ToString().Length / 3;
+            var b = dataFormat.ToString().Length % 3;
+            var index = 1;
+            while (a != 0)
+            {
+                result +=
+                dataFormat.ToString()[dataFormat.ToString().Length - index].ToString() +
+                dataFormat.ToString()[dataFormat.ToString().Length - index - 1].ToString() +
+                dataFormat.ToString()[dataFormat.ToString().Length - index - 2].ToString() +
+                  ".";
+                index += 3;
+                a--;
+            }
 
-                if (b == 0)
+            if (b == 0)
+            {
+                result = Reverse(result.Substring(0, result.Length - 1));
+            }
+            else
+            {
+                while (b != 0)
                 {
-                    result = Reverse(result.Substring(0, result.Length - 1));
+                    result += dataFormat.ToString()[b - 1];
+                    b--;
                 }
-                else
-                {
-                while (b!=0)
-                    {
-                        result += dataFormat.ToString()[b - 1];
-                        b--;
-                    }
-                    result = Reverse(result);
-                }
-                return result;
-            
+                result = Reverse(result);
+            }
+            return result;
+
         }
         /// <summary>
         /// hàm đảo ngược chuỗi 
@@ -298,7 +293,7 @@ namespace MISA.BLL.Services
                             ValidateCusrtom(asset);
                             asset.ListerroImport.AddRange(base.listMsgEr);
                             assets.Add(asset);
-                            
+
 
                         }
                     }
@@ -309,7 +304,7 @@ namespace MISA.BLL.Services
             catch (Exception ex)
             {
 
-                 return 0 ;
+                return 0;
             }
         }
         /// <summary>
@@ -450,7 +445,8 @@ namespace MISA.BLL.Services
         /// <returns></returns>
         public int UpdateCost(AssetUpdateCost assetUpdateCost)
         {
-            if (ValidateCustom(assetUpdateCost)){
+            if (ValidateCustom(assetUpdateCost))
+            {
                 return Iassetrepository.UpdateCost(assetUpdateCost.idAsset, assetUpdateCost.idLicense, assetUpdateCost.cost, assetUpdateCost.new_cost);
             }
             else
@@ -459,5 +455,5 @@ namespace MISA.BLL.Services
             }
         }
     }
-    
+
 }

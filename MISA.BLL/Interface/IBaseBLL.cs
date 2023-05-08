@@ -55,5 +55,12 @@ namespace MISA.BLL.Interface
         /// <param name="code">mã tài sản </param>
         /// <returns></returns>
         public string AutoCodeSevices();
+
+        /// <summary>
+        /// Xóa nhiểu đối tượng
+        /// </summary>
+        /// <param name="guids"></param>
+        /// <returns></returns>
+        public int DeleteManyService(List<Guid> guids);
     }
 }

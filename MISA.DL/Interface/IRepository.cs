@@ -123,5 +123,6 @@ namespace MISA.DL.Interface
         /// <returns>danh sách tài sản thỏa mãn </returns>
         public PagingRequest<T> GetSelectItem(string codes, int pageNumber, int pageSize, string? txtSearch);
 
+        
     }
 }
