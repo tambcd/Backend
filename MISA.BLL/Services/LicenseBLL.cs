@@ -36,7 +36,7 @@ namespace MISA.BLL.Services
             {
                 listMsgEr.Add(Common.CommonResource.GetResoureString("ListIdAsset"));
                 isValidCustom= false;
-            }
+            }   
             if (licenseRepository.IsSameCode(license.license_code, license.license_id))
             {
                 isValidCustom = false;
@@ -95,7 +95,8 @@ namespace MISA.BLL.Services
         {
             base.listMsgEr.Clear();
             var a = base.Validate(updateLicense.license, (int)MisaEnum.Insert);
-            if (a)
+            var b = ValidateCusrtom(updateLicense.license);
+            if (a && b)
             {
 
                 return licenseRepository.Updatelicense(updateLicense);
