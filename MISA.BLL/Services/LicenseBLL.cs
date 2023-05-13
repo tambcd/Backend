@@ -29,17 +29,19 @@ namespace MISA.BLL.Services
         ///   true : hợp lệ 
         ///   false ; không hợp lệ 
         /// </returns>
-        protected bool ValidateCusrtom(List<Guid> idsAsset, license license)
+        protected bool ValidateCustom(List<Guid> idsAsset, license license)
         {
             isValidCustom = true;
             if (idsAsset == null || idsAsset.Count() == 0)
             {
+                entityReturn.codeError.Add((int)MisaEnum.ErrorCodelistEmpty); 
                 listMsgEr.Add(Common.CommonResource.GetResoureString("ListIdAsset"));
                 isValidCustom= false;
             }   
             if (licenseRepository.IsSameCode(license.license_code, license.license_id))
             {
                 isValidCustom = false;
+                entityReturn.codeError.Add((int)MisaEnum.ErrorCodeSameCode);
                 listMsgEr.Add($" {Common.CommonResource.GetResoureString("license_code")} {license.license_code} {Common.CommonResource.GetResoureString("SameCode")}");
             }
             return isValidCustom;
@@ -52,19 +54,19 @@ namespace MISA.BLL.Services
         /// <param name="license"></param>
         /// <param name="idsAsset"></param>
         /// <returns></returns>
-        public int InsertLicense(license license, List<Guid> idsAsset)
+        public EntityReturn InsertLicense(license license, List<Guid> idsAsset)
         {
-            base.listMsgEr.Clear();
-            var b = ValidateCusrtom(idsAsset, license);
-            var a = base.Validate(license, (int)MisaEnum.Insert);
-            if (a && b)
+             var isValidateCustom = ValidateCustom(idsAsset, license);
+            var isBaseValidate = base.Validate(license, (int)MisaEnum.Insert);
+            if (isValidateCustom && isBaseValidate)
             {
-                
+                base.entityReturn.statusCode = 201;
                 return licenseRepository.Insertlicense(license, idsAsset);
             }
             else
             {
-                throw new MISAException(Common.CommonResource.GetResoureString("InvalidInput"), listMsgEr);
+                base.entityReturn.statusCode = 400;
+                return entityReturn;
             }
 
         }
@@ -86,24 +88,26 @@ namespace MISA.BLL.Services
             if (licenseRepository.IsSameCode(entity.license_code, entity.license_id))
             {
                 isValidCustom = false;
+                entityReturn.codeError.Add((int)MisaEnum.ErrorCodeSameCode);
                 listMsgEr.Add($" {Common.CommonResource.GetResoureString("LicenseCode")} {entity.license_code} {Common.CommonResource.GetResoureString("SameCode")}");
             }
             return isValidCustom;
         }
 
-        public int UpdateLicense(EntityUpdateLicense updateLicense)
+        public EntityReturn UpdateLicense(EntityUpdateLicense updateLicense)
         {
             base.listMsgEr.Clear();
-            var a = base.Validate(updateLicense.license, (int)MisaEnum.Insert);
-            var b = ValidateCusrtom(updateLicense.license);
-            if (a && b)
+            var isValidate = base.Validate(updateLicense.license, (int)MisaEnum.Insert);
+            var isValidateCusrtom = ValidateCusrtom(updateLicense.license);
+            if (isValidate && isValidateCusrtom)
             {
-
+                base.entityReturn.statusCode = 201;
                 return licenseRepository.Updatelicense(updateLicense);
             }
             else
             {
-                throw new MISAException(Common.CommonResource.GetResoureString("InvalidInput"), listMsgEr);
+                base.entityReturn.statusCode = 400;
+                return entityReturn;
             }
         }
         

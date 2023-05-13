@@ -138,6 +138,9 @@
   <data name="VN_costS" xml:space="preserve">
     <value>Nguồn chi phí</value>
   </data>
+  <data name="VN_deleteAssetError" xml:space="preserve">
+    <value>tài sản được chọn không thể xóa. Vui lòng kiểm tra lại tài sản trước khi thực hiện xóa.</value>
+  </data>
   <data name="VN_DepartmentCode" xml:space="preserve">
     <value>Mã bộ phận sử dụng</value>
   </data>

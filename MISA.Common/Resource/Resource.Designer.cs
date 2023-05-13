@@ -124,6 +124,15 @@ namespace MISA.Common.Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to tài sản được chọn không thể xóa. Vui lòng kiểm tra lại tài sản trước khi thực hiện xóa..
+        /// </summary>
+        public static string VN_deleteAssetError {
+            get {
+                return ResourceManager.GetString("VN_deleteAssetError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Mã bộ phận sử dụng.
         /// </summary>
         public static string VN_DepartmentCode {

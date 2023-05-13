@@ -65,7 +65,7 @@ namespace MISA.DL.Interface
         /// <param name="ids">danh sách id tài sản</param>
         /// <returns> true : có được ghi tằn || fasle không được ghi tăng</returns>
 
-        public int AssetLicense(List<Guid> ids);
+        public List<fixed_asset> AssetLicense(List<Guid> ids);
 
     }
 }

@@ -19,5 +19,17 @@ namespace MISA.Common.Enum
         ///  sửa 
         /// </summary>
         Update = 2,
+        /// <summary>
+        /// mã lỗi trùng mã 
+        /// </summary>
+        ErrorCodeSameCode = 100,
+        /// <summary>
+        /// mã lỗi bỏ trống 
+        /// </summary>
+        ErrorCodeEmpty = 101,
+        /// <summary>
+        /// Mã lỗi danh sách rỗng
+        /// </summary>
+        ErrorCodelistEmpty = 102,
     }
 }

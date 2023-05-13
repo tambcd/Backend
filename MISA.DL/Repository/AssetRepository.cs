@@ -154,8 +154,7 @@ namespace MISA.DL.Repository
             if (new_cost == null)
             {
                 new_cost = "NST:0";
-            }
-                        
+            }                      
                       
                 var sqlcmd = $"proc_update_cost";
                 var dynamicParams = new DynamicParameters();
@@ -168,18 +167,14 @@ namespace MISA.DL.Repository
                 return rowsEffec;
         }
 
-        public int AssetLicense(List<Guid> ids)
+        public List<fixed_asset> AssetLicense(List<Guid> ids)
         {
             var parameters = new DynamicParameters();
             parameters.Add("@id", ids);
-            var sqlcmd = $"select * FROM fixed_asset WHERE fixed_asset_id in @id and active=1";
-            var data = connection.Query<fixed_asset>(sql: sqlcmd, param: parameters);
-            if (data == null)
-            {
-                return  0;
-
-            }
-            return data.Count() ;
+            var sqlcmd = $"select fa.fixed_asset_code,l.license_code FROM fixed_asset fa INNER JOIN license_detail ld ON fa.fixed_asset_id = ld.fixed_asset_id INNER JOIN license l ON ld.license_id = l.license_id WHERE fa.fixed_asset_id in @id";
+            var data = connection.Query<fixed_asset>(sql: sqlcmd, param: parameters).ToList();
+           
+            return data ;
         }
     }
 }

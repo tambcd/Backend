@@ -24,6 +24,8 @@ namespace MISA.BLL.Services
         /// </summary>
         protected List<string> listMsgEr = new List<string>();
 
+        protected EntityReturn entityReturn = new EntityReturn();
+
         /// <summary>
         ///  đối tượng DAL gửi resquest 
         /// </summary>
@@ -125,6 +127,7 @@ namespace MISA.BLL.Services
                     {
                         isValid = false;
                         propName = (arrProNameDisplay as PropNameDisplay).PropName;
+                        entityReturn.codeError.Add((int)MisaEnum.ErrorCodeEmpty);               
                         listMsgEr.Add($"{propName} {Common.CommonResource.GetResoureString("EmptyCheck")}");
                     }                   
             }
@@ -167,7 +170,7 @@ namespace MISA.BLL.Services
         /// <returns></returns>
         public int DeleteManyService(List<Guid> guids)
         {
-            if (ValidateCusrtomDelete(guids))
+            if (ValidateCustomDelete(guids))
             {
                 return repository.DeleteMany(guids);
             }
@@ -183,7 +186,7 @@ namespace MISA.BLL.Services
         /// </summary>
         /// <param name="entity"> thực thể cần validate</param>
         /// <returns>bool</returns>
-        protected virtual bool ValidateCusrtomDelete(List<Guid> guids)
+        protected virtual bool ValidateCustomDelete(List<Guid> guids)
         {
 
             return true;

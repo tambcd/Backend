@@ -159,15 +159,32 @@ namespace MISA.BLL.Services
             }
             return isValidCustom;
         }
-        protected override bool ValidateCusrtomDelete(List<Guid> guids)
+        protected override bool ValidateCustomDelete(List<Guid> guids)
         {
-            if (Iassetrepository.AssetLicense(guids) == 0)
+            if (Iassetrepository.AssetLicense(guids).Count() == 0)
             {
                 return true;
             }
             else
             {
-                listMsgEr.Add($"{Iassetrepository.AssetLicense(guids).ToString()}");
+                if (Iassetrepository.AssetLicense(guids).Count() == 1)
+                {
+                    listMsgEr.Add($"Tài sàn có mã <b>{Iassetrepository.AssetLicense(guids)[0].fixed_asset_code} </b> đã phát sinh ghi tăng có mã <b> {Iassetrepository.AssetLicense(guids)[0].license_code} </b> ");
+                }
+                else
+                {
+                    if (Iassetrepository.AssetLicense(guids).Count() < 10)
+                    {
+
+                        listMsgEr.Add($"<b>0{Iassetrepository.AssetLicense(guids).Count()} </b>{Common.CommonResource.GetResoureString("deleteAssetError")}");
+                    }
+                    else
+                    {
+                        listMsgEr.Add($"<b>{Iassetrepository.AssetLicense(guids).Count()} </b>{Common.CommonResource.GetResoureString("deleteAssetError")}");
+
+                    }
+
+                }
                 return false;
             }
         }

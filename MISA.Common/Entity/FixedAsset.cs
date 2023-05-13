@@ -158,6 +158,10 @@ namespace MISA.Common.Entity
         /// </summary>
         public double value_end { get; set; }
 
+        /// <summary>
+        /// Mã chứng từ 
+        /// </summary>
+        public string license_code { get; }
 
 
 

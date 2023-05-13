@@ -36,7 +36,7 @@ namespace MISA.BLL.Interface
 
         /// <summary>
         /// Validate đối tượng 
-        ///  @  CreatedBy : TVTam(20/02/2023)
+        /// CreatedBy : TVTam(20/02/2023)
         /// </summary>
         /// <param name="entity">đối tượng cần validate</param>
         /// <param name="type">
@@ -51,6 +51,7 @@ namespace MISA.BLL.Interface
 
         /// <summary>
         /// Sinh mã từ động 
+        ///  CreatedBy : TVTam(20/02/2023)
         /// </summary>
         /// <param name="code">mã tài sản </param>
         /// <returns></returns>
@@ -58,6 +59,7 @@ namespace MISA.BLL.Interface
 
         /// <summary>
         /// Xóa nhiểu đối tượng
+        ///  CreatedBy : TVTam(20/02/2023)
         /// </summary>
         /// <param name="guids"></param>
         /// <returns></returns>

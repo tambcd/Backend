@@ -11,6 +11,7 @@ namespace MISA.BLL.Interface
     {
         /// <summary>
         /// thêm tài sản theo chứng từ 
+        ///  CreatedBy : TVTam(20/02/2023)
         /// </summary>
         /// <param name="id">id chứng từ </param>
         /// <param name="ids">danh sách id tài sản  </param>

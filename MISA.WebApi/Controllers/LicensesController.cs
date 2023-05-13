@@ -28,9 +28,9 @@ namespace MISA.WebApi.Controllers
             try
             {
                 var res = licenseBLL.InsertLicense(licenseAsset.license, licenseAsset.ids);
-                if (res == 0)
+                if (res.statusCode !=201 )
                 {
-                    return StatusCode(404, res);
+                    return StatusCode(400, res);
                 }
                 return StatusCode(201, res);
             }
@@ -52,9 +52,9 @@ namespace MISA.WebApi.Controllers
             try
             {
                 var res = licenseBLL.UpdateLicense(licenseAsset);
-                if (res == 0)
+                if (res.statusCode != 201)
                 {
-                    return StatusCode(404, res);
+                    return StatusCode(400, res);
                 }
                 return StatusCode(201, res);
             }
