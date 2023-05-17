@@ -23,9 +23,7 @@ namespace MISA.BLL.Services
         /// danh sách lỗi 
         /// </summary>
         protected List<string> listMsgEr = new List<string>();
-
         protected EntityReturn entityReturn = new EntityReturn();
-
         /// <summary>
         ///  đối tượng DAL gửi resquest 
         /// </summary>
@@ -44,21 +42,26 @@ namespace MISA.BLL.Services
         /// <param name="entity">thông tin đối tường</param>
         /// <returns></returns>
         /// <exception cref="MISAException">khi gặp lỗi trả về</exception>
-        public int InsertSevices(MISAEntity entity)
+        public EntityReturn InsertSevices(MISAEntity entity)
         {
             // check validate chung
-            var isValid = Validate(entity , (int)MisaEnum.Insert);
+            var isValid = Validate(entity, (int)MisaEnum.Insert);
             // check validate custom
             isValidCustom = ValidateCusrtom(entity);
             if (isValid && isValidCustom)
             {
                 var res = repository.Insert(entity);
-                return res;
+                if(res != 0)
+                {
+                    entityReturn.statusCode = (int)MisaEnum.OK;
+                    return entityReturn;
+                }
             }
-            else
-            {
-                throw new MISAException(Common.CommonResource.GetResoureString("InvalidInput"), listMsgEr);
-            }
+
+            entityReturn.statusCode = (int)MisaEnum.ErrorServe;
+            return entityReturn;
+
+
         }
         /// <summary>
         /// thực hiện xóa 1 bản ghi 
@@ -82,9 +85,8 @@ namespace MISA.BLL.Services
         /// @create day : 1/3/2023
         /// </summary>
         /// <param name="entity">thông tin đối tượng </param>
-        /// <returns></returns>
-        /// <exception cref="MISAException">trả về lỗi </exception>
-        public int UpdateSevices(MISAEntity entity)
+        /// <returns>đối tượng chưá trang thái thành công || lỗi </returns>
+        public EntityReturn UpdateSevices(MISAEntity entity)
         {
             // check validate chung
             bool isValid = Validate(entity, (int)MisaEnum.Update);
@@ -93,12 +95,15 @@ namespace MISA.BLL.Services
             if (isValid && isValidCustom)
             {
                 var res = repository.Update(entity);
-                return res;
+                if (res!=0)
+                {
+                    entityReturn.statusCode = (int)MisaEnum.OK;
+                     return entityReturn;
+                }
             }
-            else
-            {
-                throw new MISAException(Common.CommonResource.GetResoureString("InvalidInput"), listMsgEr);
-            }
+           
+                entityReturn.statusCode = (int)MisaEnum.ErrorInput;            
+                return entityReturn;
         }
 
         /// <summary>
@@ -109,10 +114,10 @@ namespace MISA.BLL.Services
         /// <param name="entity">thông tin đối tường</param>
         /// <param name="typeVailde">iểu thêm hay sửa </param>
         /// <returns>true || fasle</returns>
-        public bool Validate(MISAEntity entity , int typeVailde)
+        public bool Validate(MISAEntity entity, int typeVailde)
         {
-            
-            var isValid = true;            
+
+            var isValid = true;
             var properties = entity.GetType().GetProperties();
             // kiểm tra dữ liệu dựa vào Attribute tự định nghĩa 
 
@@ -121,15 +126,15 @@ namespace MISA.BLL.Services
                 var propName = property.Name;
                 var value = property.GetValue(entity);
                 var arrProNameDisplay = property.GetCustomAttributes(typeof(PropNameDisplay), false).FirstOrDefault();
-               
-                    // nếu dữ liệu trống hoặc bằng null 
-                    if (property.IsDefined(typeof(MISARequired), false) && (value == null || value.ToString() == String.Empty))
-                    {
-                        isValid = false;
-                        propName = (arrProNameDisplay as PropNameDisplay).PropName;
-                        entityReturn.codeError.Add((int)MisaEnum.ErrorCodeEmpty);               
-                        listMsgEr.Add($"{propName} {Common.CommonResource.GetResoureString("EmptyCheck")}");
-                    }                   
+
+                // nếu dữ liệu trống hoặc bằng null 
+                if (property.IsDefined(typeof(MISARequired), false) && (value == null || value.ToString() == String.Empty))
+                {
+                    isValid = false;
+                    propName = (arrProNameDisplay as PropNameDisplay).PropName;
+                    entityReturn.codeError.Add((int)MisaEnum.ErrorCodeEmpty);
+                    entityReturn.titleError.Add($"{propName} {Common.CommonResource.GetResoureString("EmptyCheck")}");
+                }
             }
 
             // validate chung 
@@ -146,7 +151,6 @@ namespace MISA.BLL.Services
         /// <returns>bool</returns>
         protected virtual bool ValidateCusrtom(MISAEntity entity)
         {
-
             return true;
         }
         /// <summary>
@@ -157,18 +161,18 @@ namespace MISA.BLL.Services
         /// <returns>mã mới (string)</returns>
         public string AutoCodeSevices()
         {
-            string data = repository.GetCodeNewfirst();        
+            string data = repository.GetCodeNewfirst();
 
-             return repository.GetAutoCode(data.Substring(0, 2).ToString()) ;
-            
+            return repository.GetAutoCode(data.Substring(0, 2).ToString());
+
         }
 
         /// <summary>
         /// xóa nhiểu đối tượng 
         /// </summary>
         /// <param name="guids">danh sách id tài sản cần xóa</param>
-        /// <returns></returns>
-        public int DeleteManyService(List<Guid> guids)
+        /// <returns>đối tượng chưá trang thái thành công || lỗi </returns>
+        public EntityReturn DeleteManyService(List<Guid> guids)
         {
             if (ValidateCustomDelete(guids))
             {
@@ -176,7 +180,8 @@ namespace MISA.BLL.Services
             }
             else
             {
-               throw new MISAException(Common.CommonResource.GetResoureString("NotDelete"), listMsgEr);
+                entityReturn.codeError.Add((int)MisaEnum.ErrorInput);
+                return entityReturn;
             }
         }
         /// <summary>
@@ -188,7 +193,6 @@ namespace MISA.BLL.Services
         /// <returns>bool</returns>
         protected virtual bool ValidateCustomDelete(List<Guid> guids)
         {
-
             return true;
         }
 

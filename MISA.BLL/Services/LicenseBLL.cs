@@ -89,7 +89,7 @@ namespace MISA.BLL.Services
             {
                 isValidCustom = false;
                 entityReturn.codeError.Add((int)MisaEnum.ErrorCodeSameCode);
-                listMsgEr.Add($" {Common.CommonResource.GetResoureString("LicenseCode")} {entity.license_code} {Common.CommonResource.GetResoureString("SameCode")}");
+                entityReturn.titleError.Add($" {Common.CommonResource.GetResoureString("LicenseCode")} {entity.license_code} {Common.CommonResource.GetResoureString("SameCode")}");
             }
             return isValidCustom;
         }
@@ -110,7 +110,15 @@ namespace MISA.BLL.Services
                 return entityReturn;
             }
         }
-        
+        protected override bool ValidateCustomDelete(List<Guid> guids)
+        {
+            if (licenseRepository.UpdateActiveAsset(guids) !=0 ){
+                return true;
+            }
+            base.entityReturn.statusCode = 400;
+            base.entityReturn.titleError.Add(Common.CommonResource.GetResoureString("NotUpdateAsset"));
+            return false;
+        }
 
     }
 }

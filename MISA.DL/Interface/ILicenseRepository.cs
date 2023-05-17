@@ -20,8 +20,16 @@ namespace MISA.DL.Interface
         ///  Sửa chứng từ 
         /// </summary>
         /// <param name="updateLicense">thồng tin chứng từ</param>
-        /// <returns></returns>
+        /// <returns>đối tượng chưá trang thái thành công || lỗi </returns>
+
         public EntityReturn Updatelicense(EntityUpdateLicense updateLicense);
-        
+
+        /// <summary>
+        /// Cập nhập trạng thái khi xóa chứng từ 
+        /// </summary>
+        /// <param name="ids">danh sách hóa chính tài sản xóa </param>
+        /// <returns>số bản ghi xóa </returns>
+        public int UpdateActiveAsset(List<Guid> ids);
+
     }
 }

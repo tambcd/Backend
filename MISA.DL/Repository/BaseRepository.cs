@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using System.Text.RegularExpressions;
 using MISA.Common.QueryDatabase;
 using MISA.Common.Entity;
+using MISA.Common.Enum;
 
 namespace MISA.DL.Repository
 {
@@ -19,8 +20,6 @@ namespace MISA.DL.Repository
         protected MySqlConnection connection;
         public readonly String connectionString = "";
         private String className = "";
-
-
         public BaseRepository(IConfiguration configuration)
         {
 
@@ -138,41 +137,46 @@ namespace MISA.DL.Repository
             }
         }
 
-        public int DeleteMany(List<Guid> ids)
+        public EntityReturn DeleteMany(List<Guid> ids)
         {
+            EntityReturn entityReturn = new EntityReturn();
             using (var transaction = connection.BeginTransaction())
             {
                 try
                 {
-                var parameters = new DynamicParameters();
-                parameters.Add("@id", ids);
-                var sqlcmd = $"DELETE FROM {className} WHERE {className}_id in @id";
-                var rowsEffec = connection.Execute(sql: sqlcmd, param: parameters, transaction: transaction);
-                    if(rowsEffec == ids.Count){
+                    var parameters = new DynamicParameters();
+                    parameters.Add("@id", ids);
+                    var sqlcmd = $"DELETE FROM {className} WHERE {className}_id in @id";
+                    var rowsEffec = connection.Execute(sql: sqlcmd, param: parameters, transaction: transaction);
+                    if (rowsEffec == ids.Count)
+                    {
+                        entityReturn.statusCode = (int)MisaEnum.OK;
                         transaction.Commit();
                     }
                     else
                     {
+                        entityReturn.statusCode = (int)MisaEnum.ErrorInput;
                         transaction.Rollback();
-                        return 0;
                     }
-                    
-                return rowsEffec;
+
+                    return entityReturn;
                 }
                 catch (Exception ex)
                 {
+                    entityReturn.statusCode = (int)MisaEnum.ErrorServe;
+                    entityReturn.devMsg = ex.Message;
                     transaction.Rollback();
-                    return 0;
+                    return entityReturn;
                 }
             }
         }
 
-        public bool IsSameCode(string code,Guid? id )
+        public bool IsSameCode(string code, Guid? id)
         {
             var dynamicParams = new DynamicParameters();
             dynamicParams.Add("@code", code);
             dynamicParams.Add("@id", id);
-            var sqlcmd = $"SELECT * FROM {className} WHERE {className}_code = @code and {className}_id != @id" ;
+            var sqlcmd = $"SELECT * FROM {className} WHERE {className}_code = @code and {className}_id != @id";
             var data = connection.QueryFirstOrDefault<MISAEntity>(sql: sqlcmd, param: dynamicParams);
             if (data != null)
             {
@@ -187,16 +191,16 @@ namespace MISA.DL.Repository
         public string GetCodeNewfirst()
         {
             var sqlcmd = $"SELECT {className}_code FROM {className} ORDER BY created_date DESC LIMIT 1";
-            var data = connection.QueryFirstOrDefault<string>(sql: sqlcmd);            
+            var data = connection.QueryFirstOrDefault<string>(sql: sqlcmd);
             return data;
-            
+
         }
 
         public virtual string GetAutoCode(string? txt)
         {
-            
+
             var dynamicParams = new DynamicParameters();
-            if(txt == null)
+            if (txt == null)
             {
                 txt = "TS";
             }
@@ -205,7 +209,7 @@ namespace MISA.DL.Repository
             var sqlcmd = $"SELECT SUBSTR({className}_code, 3) FROM {className} WHERE {className}_code LIKE @txt ORDER BY CAST(SUBSTR({className}_code, 3) AS SIGNED) DESC LIMIT 1";
             var data = connection.QueryFirstOrDefault<string>(sql: sqlcmd, param: dynamicParams);
             data = Regex.Replace(data, "[@,\\.\";'\\\\]", string.Empty);
-            return (txt + (Int32.Parse(data) + 1).ToString()).Replace("%","");
+            return (txt + (Int32.Parse(data) + 1).ToString()).Replace("%", "");
 
         }
 
@@ -221,17 +225,17 @@ namespace MISA.DL.Repository
             return data;
         }
 
-        public PagingRequest<MISAEntity> GetSreachBase(string codes, int pageNumber, int pageSize, string? txtSearch, Guid? idLicense)
+        public PagingRequest<MISAEntity> GetBySearchBase(string codes, int pageNumber, int pageSize, string? txtSearch, Guid? idLicense)
         {
             if (txtSearch == null)
             {
                 txtSearch = "";
             }
-            if (codes == null || codes=="")
+            if (codes == null || codes == "")
             {
                 codes = "''";
             }
-            
+
             var sqlcmd = $"proc_ft_{className}_active";
             var dynamicParams = new DynamicParameters();
             dynamicParams.Add("@txtSearch", txtSearch);
@@ -374,7 +378,7 @@ namespace MISA.DL.Repository
             }
         }
 
-        
-    }
 
     }
+
+}

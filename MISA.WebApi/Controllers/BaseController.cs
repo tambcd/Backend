@@ -6,9 +6,9 @@ using MISA.DL.Interface;
 
 namespace MISA.WebApi.Controllers
 {
-   
+
     [ApiController]
-    public class BaseController <MISAEntity>: ControllerBase
+    public class BaseController<MISAEntity> : ControllerBase
     {
         protected IRepository<MISAEntity> _repository;
         protected IBaseBLL<MISAEntity> _baseBL;
@@ -25,14 +25,14 @@ namespace MISA.WebApi.Controllers
         /// <param name="pageNumber">số trang</param>
         /// <param name="pageSize">số bản ghi trên trang </param>
         /// <param name="txtSearch">từ khóa tìm kiếm </param>
-        /// <returns></returns>
+        /// <returns>danh sach đối tường đã lọc và phân trang</returns>
         [HttpGet("getBySreach")]
-        public IActionResult getBySreach(string codes, int pageNumber, int pageSize, string? txtSearch,Guid? idLicense)
+        public IActionResult getBySearch(string codes, int pageNumber, int pageSize, string? txtSearch, Guid? idLicense)
         {
             try
             {
-                
-                var data = _repository.GetSreachBase(codes, pageNumber, pageSize, txtSearch, idLicense);
+
+                var data = _repository.GetBySearchBase(codes, pageNumber, pageSize, txtSearch, idLicense);
                 return Ok(data);
 
             }
@@ -102,10 +102,10 @@ namespace MISA.WebApi.Controllers
             try
             {
                 var data = _repository.GetById(id);
-                if(data != null)
+                if (data != null)
                 {
 
-                return StatusCode(200,data);
+                    return StatusCode(200, data);
 
                 }
                 else
@@ -159,9 +159,9 @@ namespace MISA.WebApi.Controllers
             try
             {
                 var data = _baseBL.InsertSevices(entity);
-                if (data ==1)
+                if (data.statusCode == 201)
                 {
-                return StatusCode(201, data);
+                    return StatusCode(201, data);
                 }
                 else { return BadRequest(); }
 
@@ -170,7 +170,7 @@ namespace MISA.WebApi.Controllers
             {
 
                 return HandelException(ex);
-                
+
             }
         }
 
@@ -180,12 +180,11 @@ namespace MISA.WebApi.Controllers
             try
             {
                 var data = _baseBL.UpdateSevices(entity);
-                return StatusCode(200, data);
+                return StatusCode(data.statusCode, data);
 
             }
             catch (Exception ex)
             {
-
                 return HandelException(ex);
             }
         }
@@ -224,12 +223,11 @@ namespace MISA.WebApi.Controllers
             try
             {
                 var data = _baseBL.DeleteManyService(ids);
-                return Ok(data);
+                return StatusCode(data.statusCode, data);
 
             }
             catch (Exception ex)
             {
-
                 return HandelException(ex);
             }
         }
@@ -296,10 +294,10 @@ namespace MISA.WebApi.Controllers
                 return BadRequest(res);
             }
             return StatusCode(500, res);
-    
+
         }
 
-        
+
 
     }
 }

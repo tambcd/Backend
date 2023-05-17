@@ -21,7 +21,7 @@ namespace MISA.WebApi.Controllers
         /// thêm chứng từ và danh sách tài sản thuộc chứng từ 
         /// </summary>
         /// <param name="licenseAsset">đối tượng chứa chứng từ và danh sách id tài sản </param>
-        /// <returns></returns>
+        /// <returns>đối tượng chưá trang thái thành công || lỗi </returns>
         [HttpPost("Detail")]
         public IActionResult InsertDetailLicense(LicenseAsset licenseAsset)
         {
@@ -45,7 +45,7 @@ namespace MISA.WebApi.Controllers
         /// thêm chứng từ và danh sách tài sản thuộc chứng từ 
         /// </summary>
         /// <param name="licenseAsset">đối tượng chứa chứng từ và danh sách id tài sản </param>
-        /// <returns></returns>
+        /// <returns>đối tượng chưá trang thái thành công || lỗi </returns>
         [HttpPut("Detail")]
         public IActionResult UpdateDetailLicense(EntityUpdateLicense licenseAsset)
         {

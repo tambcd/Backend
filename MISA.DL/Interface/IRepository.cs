@@ -28,7 +28,7 @@ namespace MISA.DL.Interface
         /// Lấy bản ghi theo mã 
         /// </summary>
         /// <param name="code"></param>
-        /// <returns></returns>
+        /// <returns>đói tượng lấy theo mã</returns>
         public T GetByCode(string code);
 
 
@@ -65,7 +65,7 @@ namespace MISA.DL.Interface
         /// <param name="ids">Danh sach khóa chính của các đối tượng cần xóa</param>
         /// <returns></returns>
         /// createBy TVTam(MF1270) - 28/02/2023
-        int DeleteMany(List<Guid> ids);
+        EntityReturn DeleteMany(List<Guid> ids);
         /// <summary>
         /// xóa nhiều theo mã 
         /// </summary>
@@ -75,7 +75,6 @@ namespace MISA.DL.Interface
 
         /// <summary>
         /// kiểm tra mã trùng 
-
         /// </summary>
         /// <param name="code">mã đối tượng </param>
         /// <returns>
@@ -87,13 +86,13 @@ namespace MISA.DL.Interface
         /// <summary>
         /// Lấy ra mã mới nhất 
         /// </summary>
-        /// <returns></returns>
+        /// <returns>ản ghi thêm mới nhất của một bảng </returns>
         public string GetCodeNewfirst();
 
         /// <summary>
         /// lấy giá trị mã mới 
         /// </summary>
-        /// <returns></returns>
+        /// <returns>mã mới</returns>
         public string GetAutoCode(string txt);
 
         /// <summary>
@@ -111,7 +110,7 @@ namespace MISA.DL.Interface
         /// <param name="pageSize">số bản ghi trên trang </param>
         /// <param name="txtSearch">từ khóa tìm kiếm</param>
         /// <returns>danh sách tài sản thỏa mãn </returns>
-        public PagingRequest<T> GetSreachBase(string codes, int pageNumber, int pageSize, string? txtSearch, Guid? idLicense);
+        public PagingRequest<T> GetBySearchBase(string codes, int pageNumber, int pageSize, string? txtSearch, Guid? idLicense);
 
         /// <summary>
         /// danh sách tài sản phân trang chưa được chọn 

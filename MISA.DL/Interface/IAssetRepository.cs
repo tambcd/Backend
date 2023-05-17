@@ -19,7 +19,7 @@ namespace MISA.DL.Interface
         /// <param name="txtSearch"> từ khóa tìm kiếm </param>
         /// <param name="DepartmentId"> mã phòng ban tìm kiếm </param>
         /// <param name="AssetCategoryId"> Mã loại tài sản tìm kiếm </param>
-        /// <returns></returns>
+        /// <returns>danh sách tài sản theo lọc </returns>
         /// created : TVTam(MF1270) - 22/02/2022
         public PagingRequest<fixed_asset> GetFilter(int pageNumber, int pageSize, string? txtSearch,Guid? DepartmentId,Guid? AssetCategoryId);
         
@@ -46,7 +46,7 @@ namespace MISA.DL.Interface
         /// Lấy dánh sánh sản phẩm theo chứng từ 
         /// </summary>
         /// <param name="idLicense">id chứng từ </param>
-        /// <returns></returns>
+        /// <returns>danh sách tài sản thêo chứng từ </returns>
         public IEnumerable<fixed_asset> GetByLicense(Guid idLicense);
 
         /// <summary>
@@ -56,16 +56,17 @@ namespace MISA.DL.Interface
         /// <param name="idLicense">id chứng từ </param>
         /// <param name="cost">nguyên giá </param>
         /// <param name="new_cost">nfuoonf nguyên giá</param>
-        /// <returns></returns>
+        /// <returns>200: thành công || thất bại </returns>
         public int UpdateCost(Guid idAsset, Guid idLicense,double cost, string new_cost);
 
         /// <summary>
         /// Kiểm tra tài sản đã được ghi tăng hay chưa 
         /// </summary>
         /// <param name="ids">danh sách id tài sản</param>
-        /// <returns> true : có được ghi tằn || fasle không được ghi tăng</returns>
+        /// <returns> danh sách tài sản được ghi tăng</returns>
 
         public List<fixed_asset> AssetLicense(List<Guid> ids);
+       
 
     }
 }

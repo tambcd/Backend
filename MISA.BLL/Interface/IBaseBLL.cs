@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MISA.Common.Entity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,17 +14,17 @@ namespace MISA.BLL.Interface
         /// @  CreatedBy : TVTam(20/02/2023)
         /// </summary>
         /// <param name="entity">đối tượng thêm mới</param>
-        /// <returns>201 thành công</returns>
+        /// <returns>đối tượng chưá trang thái thành công || lỗi </returns>
 
-        public int InsertSevices(T entity);
+        public EntityReturn InsertSevices(T entity);
 
         /// <summary>
         /// Sửa đối tượng
         ///  @  CreatedBy : TVTam(20/02/2023)
         /// </summary>
         /// <param name="entity">đối tượng cần sửa</param>
-        /// <returns>200 Thành công</returns>
-        public int UpdateSevices(T entity);
+        /// <returns>đối tượng chưá trang thái thành công || lỗi </returns>
+        public EntityReturn UpdateSevices(T entity);
 
 
         /// <summary>
@@ -54,7 +55,7 @@ namespace MISA.BLL.Interface
         ///  CreatedBy : TVTam(20/02/2023)
         /// </summary>
         /// <param name="code">mã tài sản </param>
-        /// <returns></returns>
+        /// <returns>chuỗi mã mới</returns>
         public string AutoCodeSevices();
 
         /// <summary>
@@ -62,7 +63,7 @@ namespace MISA.BLL.Interface
         ///  CreatedBy : TVTam(20/02/2023)
         /// </summary>
         /// <param name="guids"></param>
-        /// <returns></returns>
-        public int DeleteManyService(List<Guid> guids);
+        /// <returns>đối tượng chưá trang thái thành công || lỗi </returns>
+        public EntityReturn DeleteManyService(List<Guid> guids);
     }
 }

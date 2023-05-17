@@ -124,7 +124,7 @@ namespace MISA.Common.Resource {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to tài sản được chọn không thể xóa. Vui lòng kiểm tra lại tài sản trước khi thực hiện xóa..
+        ///   Looks up a localized string similar to &lt;b&gt;{0} &lt;/b&gt;tài sản được chọn không thể xóa. Vui lòng kiểm tra lại tài sản trước khi thực hiện xóa..
         /// </summary>
         public static string VN_deleteAssetError {
             get {
@@ -174,6 +174,15 @@ namespace MISA.Common.Resource {
         public static string VN_EmptyCheckIdExist {
             get {
                 return ResourceManager.GetString("VN_EmptyCheckIdExist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tài sản có mã &lt;b&gt;{0}&lt;/b&gt; đã phát sinh ghi tăng có mã &lt;b&gt;{1} &lt;/b&gt;.
+        /// </summary>
+        public static string VN_ErrorDeleteOne {
+            get {
+                return ResourceManager.GetString("VN_ErrorDeleteOne", resourceCulture);
             }
         }
         
@@ -282,6 +291,15 @@ namespace MISA.Common.Resource {
         public static string VN_NotDelete {
             get {
                 return ResourceManager.GetString("VN_NotDelete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lỗi cập nhập trạng thái tài sản.
+        /// </summary>
+        public static string VN_NotUpdateAsset {
+            get {
+                return ResourceManager.GetString("VN_NotUpdateAsset", resourceCulture);
             }
         }
         

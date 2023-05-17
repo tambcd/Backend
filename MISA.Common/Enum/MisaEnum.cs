@@ -31,5 +31,21 @@ namespace MISA.Common.Enum
         /// Mã lỗi danh sách rỗng
         /// </summary>
         ErrorCodelistEmpty = 102,
+        /// <summary>
+        /// ok
+        /// </summary>
+        OK = 200, 
+        /// <summary>
+        /// dữ liệu không hợp lệ || thất bại
+        /// </summary>
+        ErrorInput = 400,
+        /// <summary>
+        /// lỗi sever 
+        /// </summary>
+        ErrorServe = 500,
+        /// <summary>
+        /// thêm thành công 
+        /// </summary>
+        Success = 201,
     }
 }

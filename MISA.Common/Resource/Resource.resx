@@ -139,7 +139,7 @@
     <value>Nguồn chi phí</value>
   </data>
   <data name="VN_deleteAssetError" xml:space="preserve">
-    <value>tài sản được chọn không thể xóa. Vui lòng kiểm tra lại tài sản trước khi thực hiện xóa.</value>
+    <value>&lt;b&gt;{0} &lt;/b&gt;tài sản được chọn không thể xóa. Vui lòng kiểm tra lại tài sản trước khi thực hiện xóa.</value>
   </data>
   <data name="VN_DepartmentCode" xml:space="preserve">
     <value>Mã bộ phận sử dụng</value>
@@ -155,6 +155,9 @@
   </data>
   <data name="VN_EmptyCheckIdExist" xml:space="preserve">
     <value>ID đã tồn tại trong hệ thống</value>
+  </data>
+  <data name="VN_ErrorDeleteOne" xml:space="preserve">
+    <value>Tài sản có mã &lt;b&gt;{0}&lt;/b&gt; đã phát sinh ghi tăng có mã &lt;b&gt;{1} &lt;/b&gt;</value>
   </data>
   <data name="VN_ErrorSystem" xml:space="preserve">
     <value>Có lỗi xảy ra vui lòng liên hệ MISA</value>
@@ -191,6 +194,9 @@
   </data>
   <data name="VN_NotDelete" xml:space="preserve">
     <value>đã phát sinh chứng từ ghi tăng </value>
+  </data>
+  <data name="VN_NotUpdateAsset" xml:space="preserve">
+    <value>Lỗi cập nhập trạng thái tài sản</value>
   </data>
   <data name="VN_Number" xml:space="preserve">
     <value>Số lượng</value>

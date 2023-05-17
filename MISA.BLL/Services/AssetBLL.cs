@@ -149,13 +149,13 @@ namespace MISA.BLL.Services
             if (entity.cost < entity.depreciation_value)
             {
                 isValidCustom = false;
-                listMsgEr.Add(Common.CommonResource.GetResoureString("ValueCost"));
+                entityReturn.titleError.Add(Common.CommonResource.GetResoureString("ValueCost"));
             }
             // trung mã 
             if (Iassetrepository.IsSameCode(entity.fixed_asset_code, entity.fixed_asset_id))
             {
                 isValidCustom = false;
-                listMsgEr.Add($" {Common.CommonResource.GetResoureString("AssetCode")} {entity.fixed_asset_code} {Common.CommonResource.GetResoureString("SameCode")}");
+                entityReturn.titleError.Add($" {Common.CommonResource.GetResoureString("AssetCode")} {entity.fixed_asset_code} {Common.CommonResource.GetResoureString("SameCode")}");
             }
             return isValidCustom;
         }
@@ -169,21 +169,19 @@ namespace MISA.BLL.Services
             {
                 if (Iassetrepository.AssetLicense(guids).Count() == 1)
                 {
-                    listMsgEr.Add($"Tài sàn có mã <b>{Iassetrepository.AssetLicense(guids)[0].fixed_asset_code} </b> đã phát sinh ghi tăng có mã <b> {Iassetrepository.AssetLicense(guids)[0].license_code} </b> ");
+                    base.entityReturn.titleError.Add(String.Format(Common.CommonResource.GetResoureString("ErrorDeleteOne"), Iassetrepository.AssetLicense(guids)[0].fixed_asset_code, Iassetrepository.AssetLicense(guids)[0].license_code));
                 }
                 else
                 {
                     if (Iassetrepository.AssetLicense(guids).Count() < 10)
                     {
-
-                        listMsgEr.Add($"<b>0{Iassetrepository.AssetLicense(guids).Count()} </b>{Common.CommonResource.GetResoureString("deleteAssetError")}");
+                        base.entityReturn.titleError.Add(string.Format(Common.CommonResource.GetResoureString("deleteAssetError"), $"0{ Iassetrepository.AssetLicense(guids).Count()}"));
                     }
                     else
                     {
-                        listMsgEr.Add($"<b>{Iassetrepository.AssetLicense(guids).Count()} </b>{Common.CommonResource.GetResoureString("deleteAssetError")}");
+                        base.entityReturn.titleError.Add(string.Format(Common.CommonResource.GetResoureString("deleteAssetError"), Iassetrepository.AssetLicense(guids).Count()));
 
                     }
-
                 }
                 return false;
             }

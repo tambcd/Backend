@@ -1,6 +1,7 @@
 ﻿using Dapper;
 using Microsoft.Extensions.Configuration;
 using MISA.Common.Entity;
+using MISA.Common.Enum;
 using MISA.Common.QueryDatabase;
 using MISA.DL.Interface;
 using System;
@@ -16,7 +17,13 @@ namespace MISA.DL.Repository
         public LicenseRepository(IConfiguration configuration) : base(configuration)
         {
         }
-
+        /// <summary>
+        /// Thực hiện thêm  chứng từ và chi tiết và cập nhập trạng thái tài sản 
+        /// created : tvtam - 10/5/2023
+        /// </summary>
+        /// <param name="license">đối tượng chứng từ </param>
+        /// <param name="ids"> danh sách khóa chính tài sản ghi tăng</param>
+        /// <returns>số bản ghi thêm mới </returns>
         public EntityReturn Insertlicense(license license, List<Guid>? ids)
         {
             EntityReturn entityReturn = new EntityReturn();
@@ -25,12 +32,14 @@ namespace MISA.DL.Repository
             {
                 try
                 {
+                    // thêm chứng từ 
                     license.license_id = Guid.NewGuid();
                     var sqlcmd = "proc_insert_license";
                     var rowsEffec = connection.Execute(sql: sqlcmd, param: license, transaction: transaction, commandType: System.Data.CommandType.StoredProcedure);
 
                     if (rowsEffec == 1)
                     {
+                        // thêm chi tiết chứng từ và tài sản 
                         if (ids != null || ids.Count() > 0)
                         {
                             foreach (var item in ids)
@@ -53,6 +62,7 @@ namespace MISA.DL.Repository
                             var data = connection.Execute(sql: sqlcmdInsert, param: dynamicParams, commandType: System.Data.CommandType.StoredProcedure, transaction: transaction);
                             if (data == ids.Count())
                             {
+                                // cập nhập trạng thái cho sản phẩm đã sử dụng 
                                 var parameters = new DynamicParameters();
                                 parameters.Add("@id", ids);
                                 var sqlcmdupdateActiveAcsset = $"UPDATE fixed_asset fa SET  active = 1 WHERE fixed_asset_id in @id";
@@ -60,14 +70,14 @@ namespace MISA.DL.Repository
                                 if (rowsUpdate == ids.Count)
                                 {
                                     transaction.Commit();
-                                    entityReturn.statusCode = 201;
+                                    entityReturn.statusCode = (int)MisaEnum.Success;
                                     return entityReturn;
                                 }
 
                             }
                         }
                     }
-                    entityReturn.statusCode = 400;
+                    entityReturn.statusCode = (int)MisaEnum.ErrorInput;
                     transaction.Rollback();
                     return entityReturn;
 
@@ -82,7 +92,27 @@ namespace MISA.DL.Repository
             }
 
         }
+        /// <summary>
+        /// Cập nhập trạng thái chưa sử dụng cho tài sản 
+        /// /// created : tvtam - 10/5/2023
+        /// </summary>
+        /// <param name="ids">danh sách id tài sản </param>
+        /// <returns>số bản ghi cập nhập</returns>
 
+        public int UpdateActiveAsset(List<Guid> ids)
+        {
+            var parameters = new DynamicParameters();
+            parameters.Add("@id", ids);
+            var sqlcmd = $"UPDATE fixed_asset fa SET active = 0,fa.modified_date = NOW() WHERE fixed_asset_id  IN(SELECT ld.fixed_asset_id FROM  license_detail ld INNER JOIN license l ON ld.license_id = l.license_id WHERE l.license_id IN @id) ;";
+            var data = connection.Execute(sql: sqlcmd, param: parameters);
+            return data;
+        }
+        /// <summary>
+        /// Sửa chứng từ
+        //// created : tvtam - 10/5/2023
+        /// </summary>
+        /// <param name="updateLicense"> đối tươngj chứng từ , sanh sách id tài sản  xóa, thêm ở bảng chi tiết  </param>
+        /// <returns>số bản ghi được cập nhập</returns>
         public EntityReturn Updatelicense(EntityUpdateLicense updateLicense)
         {
             EntityReturn entityReturn = new EntityReturn();
@@ -91,6 +121,7 @@ namespace MISA.DL.Repository
             {
                 try
                 {
+                    // Sửa chứng từ 
                     var sqlcmd = "proc_update_license";
                     var rowsEffec = connection.Execute(sql: sqlcmd, param: updateLicense.license, transaction: transaction, commandType: System.Data.CommandType.StoredProcedure);
 
@@ -98,6 +129,7 @@ namespace MISA.DL.Repository
                     {
                         var data = 0;
                         var res = 0;
+                        // sửa chi tiết (xóa và cập nhập trạng thái tài sản  )
                         if (updateLicense.guidsDelete != null && updateLicense.guidsDelete.Count() > 0)
                         {
                             var parameters = new DynamicParameters();
@@ -113,7 +145,7 @@ namespace MISA.DL.Repository
                             }
                         }
 
-
+                        // sửa chi tiết (thêm và cập nhập trạng thái tài sản  )
                         if (updateLicense.guidsUpdate != null && updateLicense.guidsUpdate.Count() > 0)
                         {
                             foreach (var item in updateLicense.guidsUpdate)
@@ -151,21 +183,21 @@ namespace MISA.DL.Repository
                             if (data != 0)
                             {
                                 transaction.Commit();
-                                entityReturn.statusCode = 201;
+                                entityReturn.statusCode = (int)MisaEnum.Success;
                                 return entityReturn;
                             }
                             
 
                         }
                     }
-                    entityReturn.statusCode = 400;
+                    entityReturn.statusCode = (int)MisaEnum.ErrorInput;
                     transaction.Rollback();
                     return entityReturn;
 
                 }
                 catch (Exception ex)
                 {
-                    entityReturn.statusCode = 500;
+                    entityReturn.statusCode = (int)MisaEnum.ErrorServe;
                     entityReturn.devMsg = ex.Message;
                     transaction.Rollback();
                     return entityReturn;

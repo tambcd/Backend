@@ -17,6 +17,10 @@ namespace MISA.Common.Entity
         /// </summary>
         public List<int> codeError { get; set; } = new List<int>();
         /// <summary>
+        /// danh sach lỗi
+        /// </summary>
+        public List<string> titleError { get; set; } = new List<string>();
+        /// <summary>
         /// thong tin lỗi 
         /// </summary>
         public string devMsg { get; set; }
